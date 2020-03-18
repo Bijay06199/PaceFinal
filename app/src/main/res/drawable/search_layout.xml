@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners android:radius="5dp"/>
+
+    <gradient
+        android:startColor="#C65A5959"
+        android:endColor="#FFFF"
+        android:type="linear"
+        android:angle="90"> <!-- Change this value to have the correct shadow angle, must be multiple from 45 -->
+    </gradient>
+
+    <stroke android:color="#FFFF" android:width="1dp"/>
+
+</shape>

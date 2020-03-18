@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.projectsetup.ui.login.LoginViewModel" />
+
+    </data>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activity.LoginActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/paceback"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#56000000"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="180dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="90dp"
+                    app:srcCompat="@drawable/bluewhite3" />
+
+                <TextView
+                    android:id="@+id/txtHi"
+                    android:layout_width="76sp"
+                    android:layout_height="25sp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="50dp"
+                    android:text="Hi there,"
+                    android:textColor="#FFFF" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/Theme.AppCompat">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtConfirm111"
+                        android:layout_width="fill_parent"
+                        android:layout_height="70dp"
+                        android:hint="@{@string/email(viewModel.email)}"
+                        android:textColor="#FFF"
+                        android:backgroundTint="#FFF"
+
+                        android:inputType="textEmailAddress" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/edtPassword"
+                        android:layout_width="match_parent"
+
+
+                        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                        android:layout_height="wrap_content"
+                        android:theme="@style/Theme.AppCompat">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtConfirm11"
+                            android:layout_width="fill_parent"
+                            android:layout_height="70dp"
+                            android:hint="@{@string/password(viewModel.password)}"
+                            android:textColor="#FFF"
+                            android:backgroundTint="#FFF"
+                            android:paddingEnd="50dp"
+                            android:inputType="textPassword" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <LinearLayout
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:paddingRight="2dp"
+                        android:id="@+id/imageeye"
+                        android:layout_alignParentRight="true"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imgEyeoff"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+
+                            app:srcCompat="@drawable/hide" />
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txtForgotPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="30dp"
+                    android:text="@{@string/forgotpassword(viewModel.forgotPassword)}"
+                    android:textColor="#FFFF" />
+
+                <Button
+                    android:id="@+id/btnLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="35dp"
+                    android:background="@drawable/login_button"
+                    android:text="@{@string/login(viewModel.login)}"
+                    android:textColor="#FFFF"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/txtOrLogin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:text="@{@string/orloginwith(viewModel.orloginwith)}"
+                    android:textColor="#FFFF" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        app:srcCompat="@drawable/facebook" />
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="10dp"
+                        app:srcCompat="@drawable/google" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txtDont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{@string/donthavean(viewModel.donthaveanaccout)}"
+                        android:gravity="center"
+                        android:textColor="#FFFF" />
+
+                    <TextView
+                        android:id="@+id/txtRegister"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="@{@string/register(viewModel.register)}"
+                        android:gravity="center"
+                        android:textColor="#FFFF"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</layout>
