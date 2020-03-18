@@ -114,10 +114,10 @@ class CodeActivity : BaseActivity<ActivityCodeBinding,CodeViewModel>() {
             btnCode.setOnClickListener(View.OnClickListener {
 
                 start(this@CodeActivity)
+            })
 
-                backarrow.setOnClickListener(View.OnClickListener {
-                    onBack(this@CodeActivity)
-                })
+            backbutton.setOnClickListener(View.OnClickListener {
+                onBack(this@CodeActivity)
             })
         }
 

@@ -80,11 +80,9 @@ class ResetPasswordActivity : BaseActivity<ActivityResetPasswordBinding, ResetPa
                 start(this@ResetPasswordActivity)
             })
 
-            backbutton.setOnClickListener { View.OnClickListener {
-
-                    onBack(this@ResetPasswordActivity)
-                }
-            }
+            backbutton.setOnClickListener(View.OnClickListener {
+                onBack(this@ResetPasswordActivity)
+            })
 
 
         }
@@ -98,13 +96,13 @@ class ResetPasswordActivity : BaseActivity<ActivityResetPasswordBinding, ResetPa
             context.startActivity(intent)
         }
 
+        fun onBack(context: Context) {
+            val intent = Intent(context, CodeActivity::class.java)
+            context.startActivity(intent)
 
+        }
     }
 
-    fun onBack(context: Context) {
-        val intent = Intent(context, CodeActivity::class.java)
-        context.startActivity(intent)
 
-    }
 
 }
