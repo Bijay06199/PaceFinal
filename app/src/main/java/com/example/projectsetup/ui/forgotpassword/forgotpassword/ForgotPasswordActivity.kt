@@ -14,6 +14,7 @@ import com.example.projectsetup.databinding.ActivityForgotPasswordBinding
 import com.example.projectsetup.databinding.ActivityMainBinding
 import com.example.projectsetup.ui.forgotpassword.code.CodeActivity
 import com.example.projectsetup.ui.forgotpassword.resetpassword.ResetPasswordActivity
+import com.example.projectsetup.ui.login.LoginActivity
 import com.example.projectsetup.ui.register.RegisterViewModel
 import kotlinx.android.synthetic.main.activity_forgot_password.*
 import kotlinx.android.synthetic.main.activity_login.*
@@ -50,6 +51,11 @@ class ForgotPasswordActivity :
 
                start(this@ForgotPasswordActivity)
             })
+
+             backarrow.setOnClickListener(View.OnClickListener {
+                 onBack(this@ForgotPasswordActivity)
+
+             })
         }
 
 
@@ -81,6 +87,18 @@ class ForgotPasswordActivity :
             val intent = Intent(context, CodeActivity::class.java)
             context.startActivity(intent)
 
+
+
         }
+    }
+
+
+
+    fun onBack(context: Context){
+
+        val intent=Intent(context,LoginActivity::class.java)
+        context.startActivity(intent)
+
+
     }
 }
