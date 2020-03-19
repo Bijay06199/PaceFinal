@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.projectsetup.ui.navigation.NavigationViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Activity.NavigationActivity">
+
+
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/coordinator"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:background="#05FFFFFF"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                app:backgroundTint="#194CB4"
+                android:src="@drawable/map"
+                app:layout_anchor="@id/bar" />
+
+
+
+
+            <com.google.android.material.bottomappbar.BottomAppBar
+                android:id="@+id/bar"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_gravity="bottom"
+                android:backgroundTint="#E4E2E2"
+                app:fabCradleRoundedCornerRadius="9dp"
+
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="0dp"
+                        android:id="@+id/home"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:drawableTop="@drawable/empire1"
+                        android:gravity="center"
+                        android:textSize="11sp"
+                        android:orientation="vertical"
+                        android:text="@{@string/home(viewModel.home)}"
+                        android:textColor="#000">
+
+                    </TextView>
+
+                    <TextView
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="0dp"
+                        android:id="@+id/saved"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textSize="11sp"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:drawableTop="@drawable/favorites"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:text="@{@string/saved(viewModel.saved)}"
+                        android:textStyle="bold"
+                        android:textColor="#000">
+
+                    </TextView>
+
+                    <TextView
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/search"
+                        android:textSize="11sp"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:orientation="vertical"
+                        android:textColor="#000"
+                        android:text="@{@string/search(viewModel.search)}"
+                        >
+
+                    </TextView>
+
+                    <TextView
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/chat"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:drawableTop="@drawable/chat"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:text="@{@string/chat(viewModel.chat)}"
+                        android:textColor="#000">
+
+                    </TextView>
+
+                    <TextView
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:id="@+id/user"
+                        android:textStyle="bold"
+                        android:textSize="11sp"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:drawableTop="@drawable/user"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:text="@{@string/account(viewModel.account)}"
+                        android:textColor="#000">
+
+                    </TextView>
+
+                </LinearLayout>
+
+            </com.google.android.material.bottomappbar.BottomAppBar>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </RelativeLayout>
+
+</layout>
+

@@ -11,6 +11,7 @@ import com.example.projectsetup.BR
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseActivity
 import com.example.projectsetup.databinding.ActivityWelcomeBinding
+import com.example.projectsetup.databinding.ActivityWelcomeBindingImpl
 import com.example.projectsetup.ui.login.LoginActivity
 import com.example.projectsetup.ui.welcomesplash.WelcomeSplashActivity
 import kotlinx.android.synthetic.main.activity_welcome.*

@@ -33,7 +33,7 @@
 
             <Button
                 android:id="@+id/btnLogin"
-                android:layout_marginTop="350dp"
+                android:layout_marginTop="@dimen/margin_topmain"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"

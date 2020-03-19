@@ -5,7 +5,7 @@ import com.example.projectsetup.base.BaseViewModel
 import com.example.projectsetup.utils.SingleLiveEvent
 import kotlinx.coroutines.launch
 
-class ForgotPasswordViewModel/**(val forgotpasswordRepo:ForgotPasswordRepository)**/ : BaseViewModel() {
+class ForgotPasswordViewModel(val forgotpasswordRepo:ForgotPasswordRepository) : BaseViewModel() {
 
     val nextClickEvent = SingleLiveEvent<Unit>()
 

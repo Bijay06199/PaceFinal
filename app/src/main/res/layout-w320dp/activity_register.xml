@@ -34,7 +34,7 @@
                     android:layout_width="180dp"
                     android:layout_height="40dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="90dp"
+                    android:layout_marginTop="@dimen/margin_toplogin"
                     app:srcCompat="@drawable/bluewhite3" />
 
                 <TextView
@@ -42,7 +42,7 @@
                     android:layout_width="132sp"
                     android:layout_height="30sp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:text="@{@string/createaccount(registerViemModel.create)}"
                     android:textColor="#FFFF" />
 
@@ -60,7 +60,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtFull1"
                         android:layout_width="fill_parent"
-                        android:layout_height="70dp"
+                        android:layout_height="wrap_content"
                         android:backgroundTint="#FFF"
                         android:hint="@{@string/fullname(registerViemModel.fullname)}"
                         android:inputType="textPersonName"
@@ -81,7 +81,7 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtEmail1"
                         android:layout_width="fill_parent"
-                        android:layout_height="70dp"
+                        android:layout_height="wrap_content"
                         android:backgroundTint="#FFF"
                         android:hint="@{@string/email(registerViemModel.email)}"
                         android:inputType="textEmailAddress"
@@ -93,7 +93,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="40dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:text="@{@string/gender(registerViemModel.gender)}"
                     android:textColor="#99FFFFFF"
                     android:textSize="12sp" />
@@ -101,8 +101,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="18dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginLeft="40dp"
                     android:orientation="horizontal">
 
                     <CheckBox
@@ -112,7 +113,6 @@
                         android:text="@{@string/male(registerViemModel.male)}"
                         android:layout_weight="1"
                         android:textColor="#FFF"
-                        android:layout_marginLeft="40dp"
                         android:buttonTint="#FFFF" />
 
 
@@ -122,7 +122,6 @@
                         android:id="@+id/checkFemale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="40dp"
                         android:text="@{@string/female(registerViemModel.female)}"
                         android:textColor="#FFF"
                         android:layout_weight="1"
@@ -134,7 +133,6 @@
                         android:id="@+id/checkOther"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="40dp"
                         android:text="@{@string/other(registerViemModel.other)}"
                         android:textColor="#FFF"
                         android:layout_weight="1"
@@ -164,7 +162,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/edtConfirm12"
                             android:layout_width="fill_parent"
-                            android:layout_height="70dp"
+                            android:layout_height="wrap_content"
                             android:hint="@{@string/password(registerViemModel.password)}"
                             android:textColor="#FFF"
                             android:backgroundTint="#FFF"
@@ -218,7 +216,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/edtConfirm11"
                             android:layout_width="fill_parent"
-                            android:layout_height="70dp"
+                            android:layout_height="wrap_content"
                             android:hint="@{@string/password(registerViemModel.password)}"
                             android:textColor="#FFF"
                             android:backgroundTint="#FFF"
@@ -253,7 +251,7 @@
                     android:layout_height="50dp"
                     android:layout_marginLeft="37dp"
                     android:gravity="center"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <CheckBox
@@ -279,7 +277,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_gravity="center"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="10dp"
                     android:focusable="true"
                     android:background="@drawable/login_button"
                     android:text="@{@string/register(registerViemModel.register)}"

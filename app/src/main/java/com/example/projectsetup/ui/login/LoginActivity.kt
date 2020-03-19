@@ -1,5 +1,6 @@
 package com.example.projectsetup.ui.login
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,7 @@ import com.example.projectsetup.databinding.ActivityLoginBinding
 import com.example.projectsetup.databinding.ActivityMainBinding
 import com.example.projectsetup.ui.forgotpassword.forgotpassword.ForgotPasswordActivity
 import com.example.projectsetup.ui.main.MainViewModel
+import com.example.projectsetup.ui.navigation.NavigationActivity
 import com.example.projectsetup.ui.register.RegisterActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -32,39 +34,62 @@ class LoginActivity :BaseActivity<ActivityLoginBinding,LoginViewModel>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
       //  setContentView(R.layout.activity_login)
-        viewDataBinding.imageeye.setOnClickListener(View.OnClickListener {
+        initView()
+    }
 
-            if(show) {
-              viewDataBinding.imgEyeoff.setImageResource(R.drawable.eye)
+    private fun initView() {
+        with(viewDataBinding){
 
-                viewDataBinding.edtConfirm11.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD or InputType.TYPE_CLASS_TEXT)
-                viewDataBinding.edtConfirm11.setSelection(edtConfirm11.text!!.length)
+            imageeye.setOnClickListener(View.OnClickListener {
 
-                show=false
-            }else{
+                if(show) {
+                    imgEyeoff.setImageResource(R.drawable.eye)
 
-                viewDataBinding.imgEyeoff.setImageResource(R.drawable.hide)
+                    edtConfirm11.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD or InputType.TYPE_CLASS_TEXT)
+                    edtConfirm11.setSelection(edtConfirm11.text!!.length)
 
-                viewDataBinding.edtConfirm11.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD or InputType.TYPE_CLASS_TEXT)
-                viewDataBinding.edtConfirm11.setSelection(edtConfirm11.text!!.length)
-                show=true
-            }
+                    show=false
+                }else{
 
-        })
+                    viewDataBinding.imgEyeoff.setImageResource(R.drawable.hide)
 
+                    edtConfirm11.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD or InputType.TYPE_CLASS_TEXT)
+                    edtConfirm11.setSelection(edtConfirm11.text!!.length)
+                    show=true
+                }
 
-        viewDataBinding.txtForgotPassword.setOnClickListener(View.OnClickListener {
-
-            val intent=Intent(this@LoginActivity,ForgotPasswordActivity::class.java)
-            startActivity(intent)
-        })
+            })
 
 
-        viewDataBinding.txtRegister.setOnClickListener(View.OnClickListener {
+            txtForgotPassword.setOnClickListener(View.OnClickListener {
 
-            val intent=Intent(this@LoginActivity,RegisterActivity::class.java)
-            startActivity(intent)
-        })
+                val intent=Intent(this@LoginActivity,ForgotPasswordActivity::class.java)
+                startActivity(intent)
+            })
 
+
+            txtRegister.setOnClickListener(View.OnClickListener {
+
+                val intent=Intent(this@LoginActivity,RegisterActivity::class.java)
+                startActivity(intent)
+            })
+
+            btnLogin.setOnClickListener(View.OnClickListener {
+                start(this@LoginActivity)
+            })
+
+
+
+        }
+    }
+
+    companion object{
+
+       fun start(context: Context){
+
+           val intent=Intent(context,NavigationActivity::class.java)
+           context.startActivity(intent)
+
+        }
     }
 }

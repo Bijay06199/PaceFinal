@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="btn_size">50dp</dimen>
+    <dimen name="image_width">250dp</dimen>
+    <dimen name="image_height">250dp</dimen>
+    <dimen name="image_height_welcomesplash1">360dp</dimen>
+    <dimen name="margin_topmain">400dp</dimen>
+    <dimen name="margin_toplogin">130dp</dimen>
+    <dimen name="margin_topforgotpassword">150dp</dimen>
+
+</resources>
