@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.InputType
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.example.projectsetup.BR
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseActivity
@@ -75,20 +76,49 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
                 val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
                 startActivity(intent)
+                this@LoginActivity.finish()
             })
 
             btnLogin.setOnClickListener {
-                val signInBody = SignInBody("test@test.com", "12345")
-                Log.i("Haha", "done")
-                PaceApi.retrofitService.signIn(signInBody).enqueue(object : Callback<UserBody> {
-                    override fun onFailure(call: Call<UserBody>, t: Throwable) {
-                        Log.i("Haha", t.message.toString())
-                    }
+                if (edtConfirm111.text.isNullOrEmpty() || edtConfirm11.text.isNullOrEmpty()) {
 
-                    override fun onResponse(call: Call<UserBody>, response: Response<UserBody>) {
-                        Log.i("Done", response.body().toString())
-                    }
-                })
+                    Toast.makeText(
+                        applicationContext,
+                        "Email or Password Field is empty",
+                        Toast.LENGTH_LONG
+                    ).show()
+                } else {
+                    val signInBody =
+                        SignInBody(edtConfirm111.text.toString(), edtConfirm11.text.toString())
+                    Log.i("Haha", "done")
+                    PaceApi.retrofitService.signIn(signInBody).enqueue(object : Callback<UserBody> {
+                        override fun onFailure(call: Call<UserBody>, t: Throwable) {
+                            Log.i("Haha", t.message.toString())
+                        }
+
+                        override fun onResponse(
+                            call: Call<UserBody>,
+                            response: Response<UserBody>
+                        ) {
+                            if (response.isSuccessful) {
+                                Toast.makeText(
+                                    applicationContext,
+                                    "Log in successful",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                                Log.i("Done", response.body().toString())
+                            } else {
+                                Toast.makeText(
+                                    applicationContext,
+                                    "Invalid Email or Password",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
+                        }
+                    })
+                }
+
+
 //                start(this@LoginActivity)
             }
 
