@@ -156,6 +156,7 @@
                         style="?android:attr/progressBarStyle"
                         android:layout_width="wrap_content"
                         android:outlineAmbientShadowColor="#FFF"
+                        android:indeterminateTint="@color/white"
                         android:layout_centerInParent="true"
                         android:layout_height="wrap_content" />
                 </RelativeLayout>
