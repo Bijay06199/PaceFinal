@@ -43,6 +43,10 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
     private fun initView() {
         with(viewDataBinding) {
 
+
+            progressBar.visibility=View.INVISIBLE
+
+
             imageeye.setOnClickListener(View.OnClickListener {
 
                 if (show) {
@@ -78,7 +82,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
             })
 
             btnLogin.setOnClickListener {
-                val signInBody = SignInBody("test@test.com", "12345")
+              /*  val signInBody = SignInBody("test@test.com", "12345")
                 Log.i("Haha", "done")
                 PaceApi.retrofitService.signIn(signInBody).enqueue(object : Callback<UserBody> {
                     override fun onFailure(call: Call<UserBody>, t: Throwable) {
@@ -88,8 +92,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
                     override fun onResponse(call: Call<UserBody>, response: Response<UserBody>) {
                         Log.i("Done", response.body().toString())
                     }
-                })
-//                start(this@LoginActivity)
+                })*/
+
+   progressBar.visibility=View.VISIBLE
+       start(this@LoginActivity)
+                finish()
             }
 
 

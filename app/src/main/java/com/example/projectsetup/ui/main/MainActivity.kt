@@ -9,6 +9,7 @@ import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseActivity
 import com.example.projectsetup.databinding.ActivityMainBinding
 import com.example.projectsetup.ui.login.LoginActivity
+import com.example.projectsetup.ui.navigation.NavigationActivity
 import com.example.projectsetup.ui.register.RegisterActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -27,24 +28,34 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
   override fun onCreate(savedInstanceState: Bundle?) {
      super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_main)
+      initView()
+
+    }
+
+    private fun initView() {
+        with(viewDataBinding){
+
+            txtSkip.setOnClickListener(View.OnClickListener {
+                val intent=Intent(this@MainActivity,NavigationActivity::class.java)
+                startActivity(intent)
+            })
 
 
-             viewDataBinding.btnLogin?.setOnClickListener(View.OnClickListener {
-                 val intent=Intent(this@MainActivity,LoginActivity::class.java)
-                 startActivity(intent)
+            btnLogin?.setOnClickListener(View.OnClickListener {
+                val intent=Intent(this@MainActivity,LoginActivity::class.java)
+                startActivity(intent)
 
-      })
-
-
-     viewDataBinding.btnRegister?.setOnClickListener(View.OnClickListener {
-
-          val intent= Intent (this@MainActivity, RegisterActivity::class.java)
-          startActivity(intent)
-
-      })
+            })
 
 
+            btnRegister?.setOnClickListener(View.OnClickListener {
 
+                val intent= Intent (this@MainActivity, RegisterActivity::class.java)
+                startActivity(intent)
+
+            })
+
+        }
 
     }
 }
