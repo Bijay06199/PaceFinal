@@ -32,9 +32,6 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 
 
-
-
-
 class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel>() {
     override fun getLayoutId(): Int = R.layout.activity_register
 
@@ -58,16 +55,17 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
     @SuppressLint("ClickableViewAccessibility")
     private fun initView() {
 
-        progress_bar.visibility=View.INVISIBLE
+        progress_bar.visibility = View.INVISIBLE
 
 
-        with(viewDataBinding){
+        with(viewDataBinding) {
 
 
             btnRegister.setOnTouchListener(View.OnTouchListener { v, event ->
                 when (event.action) {
                     MotionEvent.ACTION_DOWN -> {
-                        val scaleDownX = ObjectAnimator.ofFloat(btnRegister,
+                        val scaleDownX = ObjectAnimator.ofFloat(
+                            btnRegister,
                             "scaleX", 0.8f
                         )
                         val scaleDownY = ObjectAnimator.ofFloat(
@@ -180,101 +178,106 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
             })
 
 
-            btnRegister.setOnClickListener(View.OnClickListener {
+            btnRegister.setOnClickListener {
 
                 // btnRegister.layoutParams=LinearLayout.LayoutParams(btnRegister.width+50,btnRegister.height+50)
-              //  progressBar.visibility=View.VISIBLE
+                //  progressBar.visibility=View.VISIBLE
 
-                progress_bar.visibility=View.VISIBLE
-                tv_register.visibility=View.INVISIBLE
-                val intent=Intent(this@RegisterActivity,NavigationActivity::class.java)
-                startActivity(intent)
-                finish()
+//                val intent = Intent(this@RegisterActivity, NavigationActivity::class.java)
+//                startActivity(intent)
+//                finish()
+                var g = "male"
+                if (checkFemale.isChecked) {
+                    g = "female"
+                }
+                if (checkOther.isChecked) {
+                    g = "other"
+                }
+                println(edtFull1.text.toString())
+                println(edtEmail1.text.toString())
+                println(g)
+                println(edtConfirm12.text.toString())
+                println(edtConfirm11.text.toString())
+                println(cb_terms.isChecked)
+                if (cb_terms.isChecked) {
+                    if (edtFull1.text.isNullOrEmpty()) {
+                        makeToast("Full name is not provided")
+                    } else if (edtEmail1.text.isNullOrEmpty()) {
+                        makeToast("Email is not provided")
+                    } else if (!Patterns.EMAIL_ADDRESS.matcher(edtEmail1.text.toString())
+                            .matches()
+                    ) {
+                        makeToast("Invalid email is provided")
+                    } else if (!checkFemale.isChecked && !checkMale.isChecked && !checkOther.isChecked) {
+                        makeToast("Gender is not selected")
+                    } else if (edtConfirm12.text.isNullOrEmpty()) {
+                        makeToast("Password is not provided")
+                    } else if (edtConfirm12.length() < 8) {
+                        makeToast("Password is too short")
+                    } else if (edtConfirm12.length() > 30) {
+                        makeToast("Password is too long")
+                    } else if (edtConfirm11.text.isNullOrEmpty()) {
+                        makeToast("Confirm Password is not provided")
+                    } else if (edtConfirm11.text.toString() != edtConfirm12.text.toString()) {
+                        makeToast("Passwords do not match")
+                    } else {
+                        showLoader()
+                        val signUpBody =
+                            SignUpBody(
+                                edtEmail1.text.toString(),
+                                edtConfirm11.text.toString(),
+                                edtFull1.text.toString(),
+                                true,
+                                g
+                            )
+                        Log.i("Haha", "done" + signUpBody.toString())
+                        PaceApi.retrofitService.signUp(signUpBody)
+                            .enqueue(object : Callback<RegisterBody> {
+                                override fun onFailure(call: Call<RegisterBody>, t: Throwable) {
+                                    Log.i("Haha", t.message.toString())
+                                    makeToast("Failed to register")
+                                    hideLoader()
+                                }
 
-            })
-                //            var g = "male"
-//            if (checkFemale.isChecked) {
-//                g = "female"
-//            }
-//            if (checkOther.isChecked) {
-//                g = "other"
-//            }
-//            println(edtFull1.text.toString())
-//            println(edtEmail1.text.toString())
-//            println(g)
-//            println(edtConfirm12.text.toString())
-//            println(edtConfirm11.text.toString())
-//            println(cb_terms.isChecked)
-//            if (cb_terms.isChecked) {
-//                if (edtFull1.text.isNullOrEmpty()) {
-//                    makeToast("Full name is not provided")
-//                } else if (edtEmail1.text.isNullOrEmpty()) {
-//                    makeToast("Email is not provided")
-//                } else if (!Patterns.EMAIL_ADDRESS.matcher(edtEmail1.text.toString()).matches()) {
-//                    makeToast("Invalid email is provided")
-//                } else if (!checkFemale.isChecked && !checkMale.isChecked && !checkOther.isChecked) {
-//                    makeToast("Gender is not selected")
-//                } else if (edtConfirm12.text.isNullOrEmpty()) {
-//                    makeToast("Password is not provided")
-//                } else if (edtConfirm12.length() < 8) {
-//                    makeToast("Password is too short")
-//                } else if (edtConfirm12.length() > 30) {
-//                    makeToast("Password is too long")
-//                } else if (edtConfirm11.text.isNullOrEmpty()) {
-//                    makeToast("Confirm Password is not provided")
-//                } else if (edtConfirm11.text.toString() != edtConfirm12.text.toString()) {
-//                    makeToast("Passwords do not match")
-//                } else {
-//
-//                    val signUpBody =
-//                        SignUpBody(
-//                            edtEmail1.text.toString(),
-//                            edtConfirm11.text.toString(),
-//                            edtFull1.text.toString(),
-//                            true,
-//                            g
-//                        )
-//                    Log.i("Haha", "done" + signUpBody.toString())
-//                    PaceApi.retrofitService.signUp(signUpBody)
-//                        .enqueue(object : Callback<RegisterBody> {
-//                            override fun onFailure(call: Call<RegisterBody>, t: Throwable) {
-//                                Log.i("Haha", t.message.toString())
-//                            }
-//
-//                            override fun onResponse(
-//                                call: Call<RegisterBody>,
-//                                response: Response<RegisterBody>
-//                            ) {
-//                                if (response.isSuccessful) {
-//                                    makeToast("Signup Successful")
-//                                    val intent =
-//                                        Intent(this@RegisterActivity, LoginActivity::class.java)
-//                                    startActivity(intent)
-//                                    finish()
-//                                } else {
-//                                    makeToast("Signup Failed" + response.errorBody().toString())
-//                                }
-//                            }
-//                        })
-//                }
-//            } else {
-//                makeToast("Terms and services is not agreed")
-//            }
-
+                                override fun onResponse(
+                                    call: Call<RegisterBody>,
+                                    response: Response<RegisterBody>
+                                ) {
+                                    if (response.isSuccessful) {
+                                        makeToast("Signup Successful")
+                                        val intent =
+                                            Intent(this@RegisterActivity, LoginActivity::class.java)
+                                        startActivity(intent)
+                                        finish()
+                                    } else {
+                                        makeToast("Signup Failed" + response.errorBody().toString())
+                                    }
+                                }
+                            })
+                    }
+                } else {
+                    makeToast("Terms and services is not agreed")
+                }
+            }
         }
+
 
     }
 
-//    fun makeToast(message: String = "Test") {
-//
-//        Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
-//    }
+    fun makeToast(message: String = "Test") {
+        Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
+    }
 
+    fun showLoader() {
+        progress_bar.visibility = View.VISIBLE
+        tv_register.visibility = View.INVISIBLE
+    }
 
+    fun hideLoader() {
+        progress_bar.visibility = View.INVISIBLE
+        tv_register.visibility = View.VISIBLE
+    }
 //    override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
-//
-//
 //        return super.onCreateView(name, context, attrs)
-//
 //    }
 }

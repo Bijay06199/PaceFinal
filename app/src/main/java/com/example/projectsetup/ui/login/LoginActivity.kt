@@ -47,7 +47,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
     @SuppressLint("ClickableViewAccessibility")
     private fun initView() {
-        progress_bar.visibility=View.INVISIBLE
+        progress_bar.visibility = View.INVISIBLE
 
         with(viewDataBinding) {
 
@@ -55,7 +55,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
             btnLogin.setOnTouchListener(View.OnTouchListener { v, event ->
                 when (event.action) {
                     MotionEvent.ACTION_DOWN -> {
-                        val scaleDownX = ObjectAnimator.ofFloat(btnLogin,
+                        val scaleDownX = ObjectAnimator.ofFloat(
+                            btnLogin,
                             "scaleX", 0.8f
                         )
                         val scaleDownY = ObjectAnimator.ofFloat(
@@ -134,79 +135,78 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
             btnLogin.setOnClickListener {
 
 
-                progress_bar.visibility=View.VISIBLE
-                tv_login.visibility=View.INVISIBLE
-                start(this@LoginActivity)
-                finish()
-
-              /*  val signInBody = SignInBody("test@test.com", "12345")
-                Log.i("Haha", "done")
-                PaceApi.retrofitService.signIn(signInBody).enqueue(object : Callback<UserBody> {
-                    override fun onFailure(call: Call<UserBody>, t: Throwable) {
-                        Log.i("Haha", t.message.toString())
-                    }
-
-                    override fun onResponse(call: Call<UserBody>, response: Response<UserBody>) {
-                        Log.i("Done", response.body().toString())
-                    }
-                })*/
 
 
+                /*  val signInBody = SignInBody("test@test.com", "12345")
+                  Log.i("Haha", "done")
+                  PaceApi.retrofitService.signIn(signInBody).enqueue(object : Callback<UserBody> {
+                      override fun onFailure(call: Call<UserBody>, t: Throwable) {
+                          Log.i("Haha", t.message.toString())
+                      }
 
-//                if (edtConfirm111.text.isNullOrEmpty() || edtConfirm11.text.isNullOrEmpty()) {
-//
-//                    Toast.makeText(
-//                        applicationContext,
-//                        "Email or Password Field is empty",
-//                        Toast.LENGTH_LONG
-//                    ).show()
-//                } else {
-//                    val signInBody =
-//                        SignInBody(edtConfirm111.text.toString(), edtConfirm11.text.toString())
-//                    Log.i("Haha", "done")
-//                    PaceApi.retrofitService.signIn(signInBody).enqueue(object : Callback<UserBody> {
-//                        override fun onFailure(call: Call<UserBody>, t: Throwable) {
-//                            Log.i("Haha", t.message.toString())
-//                        }
-//
-//                        override fun onResponse(
-//                            call: Call<UserBody>,
-//                            response: Response<UserBody>
-//                        ) {
-//                            if (response.isSuccessful) {
-//                                Toast.makeText(
-//                                    applicationContext,
-//                                    "Log in successful",
-//                                    Toast.LENGTH_LONG
-//                                ).show()
-//                                Log.i("Done", response.body().toString())
-//                            } else {
-//                                Toast.makeText(
-//                                    applicationContext,
-//                                    "Invalid Email or Password",
-//                                    Toast.LENGTH_LONG
-//                                ).show()
-//                            }
-//                        }
- //                   })
- //               }
+                      override fun onResponse(call: Call<UserBody>, response: Response<UserBody>) {
+                          Log.i("Done", response.body().toString())
+                      }
+                  })*/
 
 
+                if (edtConfirm111.text.isNullOrEmpty() || edtConfirm11.text.isNullOrEmpty()) {
+                    showToast("Email or Password Field is empty")
+                } else {
+                    showLoader()
+                    val signInBody =
+                        SignInBody(edtConfirm111.text.toString(), edtConfirm11.text.toString())
+                    Log.i("Haha", "done")
+                    PaceApi.retrofitService.signIn(signInBody).enqueue(object : Callback<UserBody> {
+                        override fun onFailure(call: Call<UserBody>, t: Throwable) {
+                            Log.i("Haha", t.message.toString())
+                            hideLoader()
+                            showToast("Failed to connect")
+                        }
 
-
+                        override fun onResponse(
+                            call: Call<UserBody>,
+                            response: Response<UserBody>
+                        ) {
+                            if (response.isSuccessful) {
+                                showToast("Log in successful")
+                                Log.i("Done", response.body().toString())
+                                hideLoader()
+                                start(this@LoginActivity)
+                                finish()
+                            } else {
+                                showToast("Invalid Email or Password")
+                                hideLoader()
+                            }
+                        }
+                    })
+                }
             }
-
-
         }
     }
 
+    fun showLoader() {
+        progress_bar.visibility = View.VISIBLE
+        tv_login.visibility = View.INVISIBLE
+    }
+
+    fun hideLoader() {
+        progress_bar.visibility = View.INVISIBLE
+        tv_login.visibility = View.VISIBLE
+    }
+
+    fun showToast(message: String) {
+        Toast.makeText(
+            applicationContext,
+            message,
+            Toast.LENGTH_LONG
+        ).show()
+    }
+
     companion object {
-
         fun start(context: Context) {
-
             val intent = Intent(context, NavigationActivity::class.java)
             context.startActivity(intent)
-
         }
     }
 }

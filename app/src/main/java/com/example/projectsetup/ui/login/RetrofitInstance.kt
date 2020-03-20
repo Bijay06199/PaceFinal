@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
 
-private const val BASE_URL = "http://test.com/"
+private const val BASE_URL = "http://13.115.255.157:3000/"
 enum class MarsApiFilter(val value: String) { SHOW_RENT("rent"), SHOW_BUY("buy"), SHOW_ALL("all") }
 
 private val retrofit = Retrofit.Builder()
