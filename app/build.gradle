@@ -87,4 +87,8 @@ dependencies {
     implementation "org.koin:koin-androidx-scope:$rootProject.koinVersion"
     implementation "org.koin:koin-androidx-viewmodel:$rootProject.koinVersion"
 
+
+    //recyclerView
+
+
 }

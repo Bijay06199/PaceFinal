@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.navigation.NavigationActivity"></activity>
+        <activity android:name=".ui.navigation.salehome.SaleHomeActivity"></activity>
+        <activity android:name=".ui.navigation.NavigationActivity" />
         <activity android:name=".ui.welcomesplash.WelcomeSplashActivity" />
         <activity android:name=".ui.welcome.WelcomeActivity" />
         <activity android:name=".ui.splash.SplashScreenActivity">
