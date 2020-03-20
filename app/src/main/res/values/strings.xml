@@ -10,6 +10,7 @@
     <string name="donthavean">Don\'t have an account?</string>
     <string name="register">Register</string>
     <string name="password">Password</string>
+    <string name="confirmpassword">Confirm Password</string>
     <string name="email">Email</string>
     <string name="createaccount">Create Account</string>
     <string name="gender">Gender</string>

@@ -23,6 +23,16 @@ import retrofit2.Callback
 import retrofit2.Response
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.R.attr.start
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
+import android.content.Context
+import android.util.AttributeSet
+import android.view.MotionEvent
+
+
+
 
 
 class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel>() {
@@ -37,13 +47,65 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
         // setContentView(R.layout.activity_register)
 
         initView()
+        condition()
     }
 
+    private fun condition() {
+
+
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
     private fun initView() {
 
-        progressBar.visibility=View.INVISIBLE
+        progress_bar.visibility=View.INVISIBLE
+
 
         with(viewDataBinding){
+
+
+            btnRegister.setOnTouchListener(View.OnTouchListener { v, event ->
+                when (event.action) {
+                    MotionEvent.ACTION_DOWN -> {
+                        val scaleDownX = ObjectAnimator.ofFloat(btnRegister,
+                            "scaleX", 0.8f
+                        )
+                        val scaleDownY = ObjectAnimator.ofFloat(
+                            btnRegister,
+                            "scaleY", 0.8f
+                        )
+                        scaleDownX.duration = 1000
+                        scaleDownY.duration = 1000
+
+                        val scaleDown = AnimatorSet()
+                        scaleDown.play(scaleDownX).with(scaleDownY)
+
+                        scaleDown.start()
+                    }
+
+                    MotionEvent.ACTION_UP -> {
+                        val scaleDownX2 = ObjectAnimator.ofFloat(
+                            btnRegister, "scaleX", 1f
+                        )
+                        val scaleDownY2 = ObjectAnimator.ofFloat(
+                            btnRegister, "scaleY", 1f
+                        )
+                        scaleDownX2.duration = 1000
+                        scaleDownY2.duration = 1000
+
+                        val scaleDown2 = AnimatorSet()
+                        scaleDown2.play(scaleDownX2).with(scaleDownY2)
+
+                        scaleDown2.start()
+                    }
+                }
+                false
+
+
+            })
+
+
+
             imageeye1.setOnClickListener(View.OnClickListener {
 
                 if (show) {
@@ -120,8 +182,11 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
 
             btnRegister.setOnClickListener(View.OnClickListener {
 
-               // btnRegister.layoutParams=LinearLayout.LayoutParams(btnRegister.width+50,btnRegister.height+50)
-                progressBar.visibility=View.VISIBLE
+                // btnRegister.layoutParams=LinearLayout.LayoutParams(btnRegister.width+50,btnRegister.height+50)
+              //  progressBar.visibility=View.VISIBLE
+
+                progress_bar.visibility=View.VISIBLE
+                tv_register.visibility=View.INVISIBLE
                 val intent=Intent(this@RegisterActivity,NavigationActivity::class.java)
                 startActivity(intent)
                 finish()
@@ -203,5 +268,13 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
 //    fun makeToast(message: String = "Test") {
 //
 //        Toast.makeText(applicationContext, message, Toast.LENGTH_LONG).show()
+//    }
+
+
+//    override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
+//
+//
+//        return super.onCreateView(name, context, attrs)
+//
 //    }
 }

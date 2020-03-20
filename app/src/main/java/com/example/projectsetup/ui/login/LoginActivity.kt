@@ -1,11 +1,15 @@
 package com.example.projectsetup.ui.login
 
+import android.animation.AnimatorSet
+import android.animation.ObjectAnimator
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
 import com.example.projectsetup.BR
@@ -41,11 +45,55 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
         initView()
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun initView() {
+        progress_bar.visibility=View.INVISIBLE
+
         with(viewDataBinding) {
 
 
-            progressBar.visibility=View.INVISIBLE
+            btnLogin.setOnTouchListener(View.OnTouchListener { v, event ->
+                when (event.action) {
+                    MotionEvent.ACTION_DOWN -> {
+                        val scaleDownX = ObjectAnimator.ofFloat(btnLogin,
+                            "scaleX", 0.8f
+                        )
+                        val scaleDownY = ObjectAnimator.ofFloat(
+                            btnLogin,
+                            "scaleY", 0.8f
+                        )
+                        scaleDownX.duration = 1000
+                        scaleDownY.duration = 1000
+
+                        val scaleDown = AnimatorSet()
+                        scaleDown.play(scaleDownX).with(scaleDownY)
+
+                        scaleDown.start()
+                    }
+
+                    MotionEvent.ACTION_UP -> {
+                        val scaleDownX2 = ObjectAnimator.ofFloat(
+                            btnLogin, "scaleX", 1f
+                        )
+                        val scaleDownY2 = ObjectAnimator.ofFloat(
+                            btnLogin, "scaleY", 1f
+                        )
+                        scaleDownX2.duration = 1000
+                        scaleDownY2.duration = 1000
+
+                        val scaleDown2 = AnimatorSet()
+                        scaleDown2.play(scaleDownX2).with(scaleDownY2)
+
+                        scaleDown2.start()
+                    }
+                }
+                false
+
+
+            })
+
+
+
 
 
             imageeye.setOnClickListener(View.OnClickListener {
@@ -85,6 +133,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
             btnLogin.setOnClickListener {
 
+
+                progress_bar.visibility=View.VISIBLE
+                tv_login.visibility=View.INVISIBLE
+                start(this@LoginActivity)
+                finish()
+
               /*  val signInBody = SignInBody("test@test.com", "12345")
                 Log.i("Haha", "done")
                 PaceApi.retrofitService.signIn(signInBody).enqueue(object : Callback<UserBody> {
@@ -97,9 +151,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
                     }
                 })*/
 
-   progressBar.visibility=View.VISIBLE
-       start(this@LoginActivity)
-                finish()
+
 
 //                if (edtConfirm111.text.isNullOrEmpty() || edtConfirm11.text.isNullOrEmpty()) {
 //
