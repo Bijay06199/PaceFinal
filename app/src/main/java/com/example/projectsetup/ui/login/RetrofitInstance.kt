@@ -1,16 +1,14 @@
 package com.example.projectsetup.ui.login
 
-import kotlinx.coroutines.Deferred
-import okhttp3.OkHttpClient
-import okhttp3.ResponseBody
-import okhttp3.logging.HttpLoggingInterceptor
+import com.example.projectsetup.ui.register.RegisterBody
+import com.example.projectsetup.ui.register.SignUpBody
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
 
-private const val BASE_URL = "http:test.com/"
+private const val BASE_URL = "http://test.com/"
 enum class MarsApiFilter(val value: String) { SHOW_RENT("rent"), SHOW_BUY("buy"), SHOW_ALL("all") }
 
 private val retrofit = Retrofit.Builder()
@@ -25,6 +23,9 @@ interface PaceApiService {
     fun signIn(
         @Body info: SignInBody
     ): Call<UserBody>
+    @POST("api/v1/en/user/signup")
+    fun signUp(@Body info: SignUpBody):Call<RegisterBody>
+
 }
 
 /**
