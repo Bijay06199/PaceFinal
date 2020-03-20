@@ -199,7 +199,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
         Toast.makeText(
             applicationContext,
             message,
-            Toast.LENGTH_LONG
+            Toast.LENGTH_SHORT
         ).show()
     }
 
