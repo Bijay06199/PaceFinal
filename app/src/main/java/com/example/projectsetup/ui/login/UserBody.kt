@@ -27,7 +27,7 @@ data class Data(
     val email: String,
     val createdAt: String,
     val updatedAt: String,
-    val userId: Int,
+    val user_id: Int,
     val user: User
 )
 

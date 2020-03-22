@@ -10,17 +10,20 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
 import com.example.projectsetup.BR
 import com.example.projectsetup.R
+import com.example.projectsetup.data.prefs.PreferenceManager
 import com.example.projectsetup.utils.viewUtils.ProgressDialogHelper
 import com.example.projectsetup.utils.extentions.showAlert
 import com.example.projectsetup.utils.extentions.showToast
 import com.example.projectsetup.utils.extentions.setupUI
 import kotlinx.android.synthetic.main.activity_login.*
+import org.koin.android.ext.android.inject
 
 abstract class BaseActivity<DATA_BINDING : ViewDataBinding, VIEW_MODEL : BaseViewModel> :
     AppCompatActivity() {
     lateinit var viewDataBinding: DATA_BINDING
     var baseViewModel: VIEW_MODEL? = null
     private lateinit var progressDialog: Dialog
+    private val preferenceManager: PreferenceManager by inject()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

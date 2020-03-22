@@ -2,14 +2,15 @@ package com.example.projectsetup.base
 
 import com.google.gson.annotations.SerializedName
 
-class BaseResponse<T>{
+class BaseResponse<T> {
 
-     @SerializedName("message")
-     var message:String?=null
+    @SerializedName("message")
+    var message: String? = null
 
     @SerializedName("data")
-     var data:T?=null
+    var data: T? = null
 
-
+    @SerializedName("token")
+    var token: String? = null
 }
 

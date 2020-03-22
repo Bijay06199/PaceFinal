@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import com.example.projectsetup.BR
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseActivity
@@ -25,12 +26,14 @@ import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
     var show = true
     override fun getLayoutId(): Int = R.layout.activity_login
 
-    override fun getViewModel() = LoginViewModel()
+    private val loginViewModel: LoginViewModel by viewModel()
+    override fun getViewModel() = loginViewModel
 
     override fun getBindingVariable(): Int {
 
@@ -95,7 +98,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
 
 
-
+            setObservers()
 
             imageeye.setOnClickListener(View.OnClickListener {
 
@@ -135,8 +138,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
             btnLogin.setOnClickListener {
 
 
-
-
                 /*  val signInBody = SignInBody("test@test.com", "12345")
                   Log.i("Haha", "done")
                   PaceApi.retrofitService.signIn(signInBody).enqueue(object : Callback<UserBody> {
@@ -153,33 +154,37 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
                 if (edtConfirm111.text.isNullOrEmpty() || edtConfirm11.text.isNullOrEmpty()) {
                     showToast("Email or Password Field is empty")
                 } else {
-                    showLoader()
-                    val signInBody =
-                        SignInBody(edtConfirm111.text.toString(), edtConfirm11.text.toString())
-                    Log.i("Haha", "done")
-                    PaceApi.retrofitService.signIn(signInBody).enqueue(object : Callback<UserBody> {
-                        override fun onFailure(call: Call<UserBody>, t: Throwable) {
-                            Log.i("Haha", t.message.toString())
-                            hideLoader()
-                            showToast("Failed to connect")
-                        }
-
-                        override fun onResponse(
-                            call: Call<UserBody>,
-                            response: Response<UserBody>
-                        ) {
-                            if (response.isSuccessful) {
-                                showToast("Log in successful")
-                                Log.i("Done", response.body().toString())
-                                hideLoader()
-                                start(this@LoginActivity)
-                                finish()
-                            } else {
-                                showToast("Invalid Email or Password")
-                                hideLoader()
-                            }
-                        }
-                    })
+                    loginViewModel.login(
+                        edtConfirm111.text.toString(),
+                        edtConfirm11.text.toString()
+                    )
+//                    showLoader()
+//                    val signInBody =
+//                        SignInBody(edtConfirm111.text.toString(), edtConfirm11.text.toString())
+//                    Log.i("Haha", "done")
+//                    PaceApi.retrofitService.signIn(signInBody).enqueue(object : Callback<UserBody> {
+//                        override fun onFailure(call: Call<UserBody>, t: Throwable) {
+//                            Log.i("Haha", t.message.toString())
+//                            hideLoader()
+//                            showToast("Failed to connect")
+//                        }
+//
+//                        override fun onResponse(
+//                            call: Call<UserBody>,
+//                            response: Response<UserBody>
+//                        ) {
+//                            if (response.isSuccessful) {
+//                                showToast("Log in successful")
+//                                Log.i("Done", response.body().toString())
+//                                hideLoader()
+//                                start(this@LoginActivity)
+//                                finish()
+//                            } else {
+//                                showToast("Invalid Email or Password")
+//                                hideLoader()
+//                            }
+//                        }
+//                    })
                 }
             }
         }
@@ -201,6 +206,15 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
             message,
             Toast.LENGTH_SHORT
         ).show()
+    }
+
+    fun setObservers(){
+        with(loginViewModel){
+            loginSuccessEvent.observe(this@LoginActivity, Observer {
+                start(this@LoginActivity)
+                finish()
+            })
+        }
     }
 
     companion object {
