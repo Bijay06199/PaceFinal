@@ -19,7 +19,7 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.location.LocationManagerCompat.isLocationEnabled
-import com.example.projectsetup.R 
+import com.example.projectsetup.R
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.common.api.ResultCallback
@@ -88,6 +88,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener,
             mMap!!.isMyLocationEnabled = true
         }
 
+
+
+
     }
 
     @Synchronized
@@ -130,7 +133,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener,
 
         //move map camera
         mMap!!.moveCamera(CameraUpdateFactory.newLatLng(latLng))
-        mMap!!.animateCamera(CameraUpdateFactory.zoomTo(11f))
+        mMap!!.animateCamera(CameraUpdateFactory.zoomTo(11F))
 
         //stop location updates
         if (mGoogleApiClient != null) {
