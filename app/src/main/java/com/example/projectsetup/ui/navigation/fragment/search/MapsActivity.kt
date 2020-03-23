@@ -84,14 +84,22 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback/*, LocationListener
         val markerOptions = MarkerOptions()
 
         markerOptions.position(latLng)
-        markerOptions.title("Rent in osaka")
+        markerOptions.title("Rent in Osaka")
         markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.locationmarker))
 
         mCurrLocationMarker = mMap!!.addMarker(markerOptions)
 
+        val markerOptions2 = MarkerOptions()
+
+        markerOptions2.position(LatLng(35.6762,139.6503))
+        markerOptions2.title("Rent in Tokyo")
+        markerOptions2.icon(BitmapDescriptorFactory.fromResource(R.drawable.locationmarker))
+
+        mCurrLocationMarker = mMap!!.addMarker(markerOptions2)
+
         //move map camera
         mMap!!.moveCamera(CameraUpdateFactory.newLatLng(latLng))
-        mMap!!.animateCamera(CameraUpdateFactory.zoomTo(10F))
+        mMap!!.animateCamera(CameraUpdateFactory.zoomTo(6F))
 
 
 
