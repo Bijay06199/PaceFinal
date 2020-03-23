@@ -15,12 +15,9 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
-<<<<<<< HEAD
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-=======
 import androidx.lifecycle.Observer
->>>>>>> 6040b881915d3b8db4daa5a7681313998040b06c
 import com.example.projectsetup.BR
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseActivity
@@ -177,10 +174,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
             })
 
             btnLogin.setOnClickListener {
-<<<<<<< HEAD
-                start(this@LoginActivity)
-=======
-
+//                start(this@LoginActivity)
 
                 /*  val signInBody = SignInBody("test@test.com", "12345")
                   Log.i("Haha", "done")
@@ -230,10 +224,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 //                        }
 //                    })
                 }
->>>>>>> 6040b881915d3b8db4daa5a7681313998040b06c
             }
 
-//                createNotificationChannel()
+                createNotificationChannel()
 //
 //
 //
