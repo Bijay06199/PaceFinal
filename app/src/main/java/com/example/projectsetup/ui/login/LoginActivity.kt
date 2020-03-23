@@ -174,7 +174,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
             })
 
             btnLogin.setOnClickListener {
-//                start(this@LoginActivity)
+
+              //  start(this@LoginActivity)
+
 
                 /*  val signInBody = SignInBody("test@test.com", "12345")
                   Log.i("Haha", "done")

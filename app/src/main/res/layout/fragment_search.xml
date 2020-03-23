@@ -16,17 +16,14 @@
             android:name="com.google.android.gms.maps.MapFragment"
             android:layout_width="match_parent"
 
-            android:layout_height="550dp" />
+            android:layout_height="match_parent" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
             android:layout_marginTop="15dp"
-            android:layout_below="@id/map"
-            android:layout_marginRight="5dp"
             android:id="@+id/search"
-            android:layout_marginBottom="15dp"
+            android:paddingBottom="5dp"
             android:layout_alignParentBottom="true"
             android:background="@drawable/home_background"
             android:backgroundTint="@color/cardview_light_background"
@@ -49,6 +46,7 @@
                         android:queryHint="Search here"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
                         android:background="@drawable/search_layout1">
 
                         <LinearLayout
