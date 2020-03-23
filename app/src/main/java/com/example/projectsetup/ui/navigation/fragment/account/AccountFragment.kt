@@ -10,13 +10,17 @@ import android.view.ViewGroup
 import android.widget.TextView
 
 import com.example.projectsetup.R
+import com.example.projectsetup.data.prefs.PreferenceManager
 import com.example.projectsetup.ui.main.MainActivity
 import kotlinx.android.synthetic.main.fragment_account.*
+import org.koin.android.ext.android.inject
 
 /**
  * A simple [Fragment] subclass.
  */
 class AccountFragment : Fragment() {
+
+    private val preferenceManager: PreferenceManager by inject()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,10 +33,14 @@ class AccountFragment : Fragment() {
 
 
         txtlogoutMortgage.setOnClickListener(View.OnClickListener {
-
+                preferenceManager.setIsLoggedIn(false)
             val intent= Intent(this@AccountFragment.activity,MainActivity::class.java)
             startActivity(intent)
+
             this@AccountFragment.activity!!.finish()
+
+           this@AccountFragment.activity!!.finish()
+
 
 
         })

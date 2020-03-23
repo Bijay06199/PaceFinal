@@ -15,11 +15,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
 import android.util.Log
+import android.view.View
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.location.LocationManagerCompat.isLocationEnabled
 import com.example.projectsetup.R
+import com.example.projectsetup.ui.navigation.NavigationActivity
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
 import com.google.android.gms.common.api.ResultCallback
@@ -31,6 +35,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
+import kotlinx.android.synthetic.main.fragment_search.*
 import java.security.AccessController.checkPermission
 
 
@@ -63,9 +68,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback/*, LocationListener
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_search)
+
         initGMaps()
 
+        initView()
 
+
+    }
+
+    private fun initView() {
+        var back_map=findViewById<LinearLayout>(R.id.back_map)
+        back_map.setOnClickListener(View.OnClickListener {
+            val intent=Intent(this@MapsActivity,NavigationActivity::class.java)
+            startActivity(intent)
+        })
     }
 
     private fun initGMaps() {
@@ -77,21 +93,29 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback/*, LocationListener
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        var latitude=36.2048
-        var longitude=138.2529
+        var latitude=34.6937
+        var longitude=135.5023
 
         val latLng = LatLng(latitude,longitude)
         val markerOptions = MarkerOptions()
 
         markerOptions.position(latLng)
-        markerOptions.title("Current Position")
+        markerOptions.title("Rent in Osaka")
         markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.locationmarker))
 
         mCurrLocationMarker = mMap!!.addMarker(markerOptions)
 
+        val markerOptions2 = MarkerOptions()
+
+        markerOptions2.position(LatLng(35.6762,139.6503))
+        markerOptions2.title("Rent in Tokyo")
+        markerOptions2.icon(BitmapDescriptorFactory.fromResource(R.drawable.locationmarker))
+
+        mCurrLocationMarker = mMap!!.addMarker(markerOptions2)
+
         //move map camera
         mMap!!.moveCamera(CameraUpdateFactory.newLatLng(latLng))
-        mMap!!.animateCamera(CameraUpdateFactory.zoomTo(11f))
+        mMap!!.animateCamera(CameraUpdateFactory.zoomTo(6F))
 
 
 
