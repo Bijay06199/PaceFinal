@@ -33,6 +33,7 @@ class AccountFragment : Fragment() {
             val intent= Intent(this@AccountFragment.activity,MainActivity::class.java)
             startActivity(intent)
 
+
         })
         return view
 
