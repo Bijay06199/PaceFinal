@@ -18,14 +18,22 @@ android {
     dataBinding {
         enabled true
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
     buildTypes {
         debug {
             debuggable true
-            buildConfigField("String", "BASE_URL", '"https://google.com/"')//staging
+            buildConfigField("String", "BASE_URL", '"http://13.115.255.157:3000/"')//staging
         }
         release {
             minifyEnabled false
-            buildConfigField("String", "BASE_URL", '"https://google.com/"')//staging
+            buildConfigField("String", "BASE_URL", '"http://13.115.255.157:3000/"')//staging
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

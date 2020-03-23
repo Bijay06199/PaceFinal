@@ -15,8 +15,12 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
+<<<<<<< HEAD
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+=======
+import androidx.lifecycle.Observer
+>>>>>>> 6040b881915d3b8db4daa5a7681313998040b06c
 import com.example.projectsetup.BR
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseActivity
@@ -30,12 +34,14 @@ import kotlinx.android.synthetic.main.activity_login.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
     var show = true
     override fun getLayoutId(): Int = R.layout.activity_login
 
-    override fun getViewModel() = LoginViewModel()
+    private val loginViewModel: LoginViewModel by viewModel()
+    override fun getViewModel() = loginViewModel
 
     override fun getBindingVariable(): Int {
 
@@ -133,7 +139,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
 
 
-
+            setObservers()
 
             imageeye.setOnClickListener(View.OnClickListener {
 
@@ -171,7 +177,60 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
             })
 
             btnLogin.setOnClickListener {
+<<<<<<< HEAD
                 start(this@LoginActivity)
+=======
+
+
+                /*  val signInBody = SignInBody("test@test.com", "12345")
+                  Log.i("Haha", "done")
+                  PaceApi.retrofitService.signIn(signInBody).enqueue(object : Callback<UserBody> {
+                      override fun onFailure(call: Call<UserBody>, t: Throwable) {
+                          Log.i("Haha", t.message.toString())
+                      }
+
+                      override fun onResponse(call: Call<UserBody>, response: Response<UserBody>) {
+                          Log.i("Done", response.body().toString())
+                      }
+                  })*/
+
+
+                if (edtConfirm111.text.isNullOrEmpty() || edtConfirm11.text.isNullOrEmpty()) {
+                    showToast("Email or Password Field is empty")
+                } else {
+                    loginViewModel.login(
+                        edtConfirm111.text.toString(),
+                        edtConfirm11.text.toString()
+                    )
+//                    showLoader()
+//                    val signInBody =
+//                        SignInBody(edtConfirm111.text.toString(), edtConfirm11.text.toString())
+//                    Log.i("Haha", "done")
+//                    PaceApi.retrofitService.signIn(signInBody).enqueue(object : Callback<UserBody> {
+//                        override fun onFailure(call: Call<UserBody>, t: Throwable) {
+//                            Log.i("Haha", t.message.toString())
+//                            hideLoader()
+//                            showToast("Failed to connect")
+//                        }
+//
+//                        override fun onResponse(
+//                            call: Call<UserBody>,
+//                            response: Response<UserBody>
+//                        ) {
+//                            if (response.isSuccessful) {
+//                                showToast("Log in successful")
+//                                Log.i("Done", response.body().toString())
+//                                hideLoader()
+//                                start(this@LoginActivity)
+//                                finish()
+//                            } else {
+//                                showToast("Invalid Email or Password")
+//                                hideLoader()
+//                            }
+//                        }
+//                    })
+                }
+>>>>>>> 6040b881915d3b8db4daa5a7681313998040b06c
             }
 
 //                createNotificationChannel()
@@ -243,6 +302,15 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
             message,
             Toast.LENGTH_SHORT
         ).show()
+    }
+
+    fun setObservers(){
+        with(loginViewModel){
+            loginSuccessEvent.observe(this@LoginActivity, Observer {
+                start(this@LoginActivity)
+                finish()
+            })
+        }
     }
 
     companion object {
