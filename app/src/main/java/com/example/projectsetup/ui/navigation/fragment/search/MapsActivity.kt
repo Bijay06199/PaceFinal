@@ -36,19 +36,19 @@ import java.security.AccessController.checkPermission
 
 
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener,
-    GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
-    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
-
-    }
-
-    override fun onProviderEnabled(provider: String?) {
-
-    }
-
-    override fun onProviderDisabled(provider: String?) {
-
-    }
+class MapsActivity : AppCompatActivity(), OnMapReadyCallback/*, LocationListener,
+    GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener*/ {
+//    override fun onStatusChanged(provider: String?, status: Int, extras: Bundle?) {
+//
+//    }
+//
+//    override fun onProviderEnabled(provider: String?) {
+//
+//    }
+//
+//    override fun onProviderDisabled(provider: String?) {
+//
+//    }
 
     private var mMap: GoogleMap? = null
     private lateinit var mLastLocation: Location
@@ -72,59 +72,20 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener,
         mapFragment = fragmentManager.findFragmentById(R.id.map) as MapFragment
         mapFragment.getMapAsync(this)
 
+
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+        var latitude=36.2048
+        var longitude=138.2529
 
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(this,
-                    Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                buildGoogleApiClient()
-                mMap!!.isMyLocationEnabled = true
-            }
-        } else {
-            buildGoogleApiClient()
-            mMap!!.isMyLocationEnabled = true
-        }
-
-    }
-
-    @Synchronized
-    protected fun buildGoogleApiClient() {
-        mGoogleApiClient = GoogleApiClient.Builder(this)
-            .addConnectionCallbacks(this)
-            .addOnConnectionFailedListener(this)
-            .addApi(LocationServices.API).build()
-        mGoogleApiClient!!.connect()
-    }
-
-
-    override fun onConnected(bundle: Bundle?) {
-
-        mLocationRequest = LocationRequest()
-        mLocationRequest.interval = 1000
-        mLocationRequest.fastestInterval = 1000
-        mLocationRequest.priority = LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-           // mFusedLocationClient?.requestLocationUpdates(mLocationRequest,)
-        }
-    }
-
-    override fun onLocationChanged(location: Location) {
-
-        mLastLocation = location
-        if (mCurrLocationMarker != null) {
-            mCurrLocationMarker!!.remove()
-        }
-        //Place current location marker
-        val latLng = LatLng(location.latitude, location.longitude)
+        val latLng = LatLng(latitude,longitude)
         val markerOptions = MarkerOptions()
+
         markerOptions.position(latLng)
         markerOptions.title("Current Position")
-        markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.savedheart))
+        markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.locationmarker))
 
         mCurrLocationMarker = mMap!!.addMarker(markerOptions)
 
@@ -132,20 +93,77 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, LocationListener,
         mMap!!.moveCamera(CameraUpdateFactory.newLatLng(latLng))
         mMap!!.animateCamera(CameraUpdateFactory.zoomTo(11f))
 
-        //stop location updates
-        if (mGoogleApiClient != null) {
-            mFusedLocationClient?.removeLocationUpdates(mLocationCallback)
-        }
-    }
 
 
-    override fun onConnectionFailed(connectionResult: ConnectionResult) {
-        Toast.makeText(applicationContext,"connection failed", Toast.LENGTH_SHORT).show()
+//        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            if (ContextCompat.checkSelfPermission(this,
+//                    Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+//                buildGoogleApiClient()
+//                mMap!!.isMyLocationEnabled = true
+//            }
+//        } else {
+//            buildGoogleApiClient()
+//            mMap!!.isMyLocationEnabled = true
+//        }
+
     }
 
-    override fun onConnectionSuspended(p0: Int) {
-        Toast.makeText(applicationContext,"connection suspended", Toast.LENGTH_SHORT).show()
-    }
+//    @Synchronized
+//    protected fun buildGoogleApiClient() {
+//        mGoogleApiClient = GoogleApiClient.Builder(this)
+//            .addConnectionCallbacks(this)
+//            .addOnConnectionFailedListener(this)
+//            .addApi(LocationServices.API).build()
+//        mGoogleApiClient!!.connect()
+//    }
+//
+//
+//    override fun onConnected(bundle: Bundle?) {
+//
+//        mLocationRequest = LocationRequest()
+//        mLocationRequest.interval = 1000
+//        mLocationRequest.fastestInterval = 1000
+//        mLocationRequest.priority = LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY
+//        if (ContextCompat.checkSelfPermission(this,
+//                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+//            mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+//           // mFusedLocationClient?.requestLocationUpdates(mLocationRequest,)
+//        }
+//    }
+//
+//    override fun onLocationChanged(location: Location) {
+//
+//        mLastLocation = location
+//        if (mCurrLocationMarker != null) {
+//            mCurrLocationMarker!!.remove()
+//        }
+//        //Place current location marker
+//        val latLng = LatLng(location.latitude, location.longitude)
+//        val markerOptions = MarkerOptions()
+//        markerOptions.position(latLng)
+//        markerOptions.title("Current Position")
+//        markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.savedheart))
+//
+//        mCurrLocationMarker = mMap!!.addMarker(markerOptions)
+//
+//        //move map camera
+//        mMap!!.moveCamera(CameraUpdateFactory.newLatLng(latLng))
+//        mMap!!.animateCamera(CameraUpdateFactory.zoomTo(11f))
+//
+//        //stop location updates
+//        if (mGoogleApiClient != null) {
+//            mFusedLocationClient?.removeLocationUpdates(mLocationCallback)
+//        }
+//    }
+//
+//
+//    override fun onConnectionFailed(connectionResult: ConnectionResult) {
+//        Toast.makeText(applicationContext,"connection failed", Toast.LENGTH_SHORT).show()
+//    }
+//
+//    override fun onConnectionSuspended(p0: Int) {
+//        Toast.makeText(applicationContext,"connection suspended", Toast.LENGTH_SHORT).show()
+//    }
 }
 
 
