@@ -55,38 +55,38 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
     @SuppressLint("ClickableViewAccessibility")
     private fun initView() {
-        val CHANNEL_ID="Bijay"
-        val notificationId=1
-
-        var builder = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setSmallIcon(R.drawable.notification)
-            .setContentTitle("Error")
-            .setContentText("Invalid Email")
-            .setPriority(NotificationCompat.PRIORITY_MAX)
-            .setAutoCancel(true)
-
-        with(NotificationManagerCompat.from(this)) {
-            // notificationId is a unique int for each notification that you must define
-            notify(notificationId, builder.build())
-        }
-
-
-         fun createNotificationChannel() {
-            // Create the NotificationChannel, but only on API 26+ because
-            // the NotificationChannel class is new and not in the support library
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                val name = getString(R.string.channel_name)
-                val descriptionText = getString(R.string.channel_description)
-                val importance = NotificationManager.IMPORTANCE_DEFAULT
-                val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
-                    description = descriptionText
-                }
-                // Register the channel with the system
-                val notificationManager: NotificationManager =
-                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-                notificationManager.createNotificationChannel(channel)
-            }
-        }
+//        val CHANNEL_ID="Bijay"
+//        val notificationId=1
+//
+//        var builder = NotificationCompat.Builder(this, CHANNEL_ID)
+//            .setSmallIcon(R.drawable.notification)
+//            .setContentTitle("Error")
+//            .setContentText("Invalid Email")
+//            .setPriority(NotificationCompat.PRIORITY_MAX)
+//            .setAutoCancel(true)
+//
+//        with(NotificationManagerCompat.from(this)) {
+//            // notificationId is a unique int for each notification that you must define
+//            notify(notificationId, builder.build())
+//        }
+//
+//
+//         fun createNotificationChannel() {
+//            // Create the NotificationChannel, but only on API 26+ because
+//            // the NotificationChannel class is new and not in the support library
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+//                val name = getString(R.string.channel_name)
+//                val descriptionText = getString(R.string.channel_description)
+//                val importance = NotificationManager.IMPORTANCE_DEFAULT
+//                val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
+//                    description = descriptionText
+//                }
+//                // Register the channel with the system
+//                val notificationManager: NotificationManager =
+//                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+//                notificationManager.createNotificationChannel(channel)
+//            }
+//        }
 
         progress_bar.visibility = View.INVISIBLE
 
@@ -228,7 +228,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
                 }
             }
 
-                createNotificationChannel()
+//                createNotificationChannel()
 //
 //
 //
