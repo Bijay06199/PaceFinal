@@ -3,8 +3,11 @@ package com.example.projectsetup.ui.login
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.annotation.SuppressLint
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
@@ -12,7 +15,12 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Toast
+<<<<<<< HEAD
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+=======
 import androidx.lifecycle.Observer
+>>>>>>> 6040b881915d3b8db4daa5a7681313998040b06c
 import com.example.projectsetup.BR
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseActivity
@@ -50,6 +58,39 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 
     @SuppressLint("ClickableViewAccessibility")
     private fun initView() {
+        val CHANNEL_ID="Bijay"
+        val notificationId=1
+
+        var builder = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setSmallIcon(R.drawable.notification)
+            .setContentTitle("Error")
+            .setContentText("Invalid Email")
+            .setPriority(NotificationCompat.PRIORITY_MAX)
+            .setAutoCancel(true)
+
+        with(NotificationManagerCompat.from(this)) {
+            // notificationId is a unique int for each notification that you must define
+            notify(notificationId, builder.build())
+        }
+
+
+         fun createNotificationChannel() {
+            // Create the NotificationChannel, but only on API 26+ because
+            // the NotificationChannel class is new and not in the support library
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                val name = getString(R.string.channel_name)
+                val descriptionText = getString(R.string.channel_description)
+                val importance = NotificationManager.IMPORTANCE_DEFAULT
+                val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
+                    description = descriptionText
+                }
+                // Register the channel with the system
+                val notificationManager: NotificationManager =
+                    getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                notificationManager.createNotificationChannel(channel)
+            }
+        }
+
         progress_bar.visibility = View.INVISIBLE
 
         with(viewDataBinding) {
@@ -60,11 +101,11 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
                     MotionEvent.ACTION_DOWN -> {
                         val scaleDownX = ObjectAnimator.ofFloat(
                             btnLogin,
-                            "scaleX", 0.8f
+                            "scaleX", 0.9f
                         )
                         val scaleDownY = ObjectAnimator.ofFloat(
                             btnLogin,
-                            "scaleY", 0.8f
+                            "scaleY", 0.9f
                         )
                         scaleDownX.duration = 1000
                         scaleDownY.duration = 1000
@@ -136,6 +177,9 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
             })
 
             btnLogin.setOnClickListener {
+<<<<<<< HEAD
+                start(this@LoginActivity)
+=======
 
 
                 /*  val signInBody = SignInBody("test@test.com", "12345")
@@ -186,7 +230,59 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>() {
 //                        }
 //                    })
                 }
+>>>>>>> 6040b881915d3b8db4daa5a7681313998040b06c
             }
+
+//                createNotificationChannel()
+//
+//
+//
+//
+//                /*  val signInBody = SignInBody("test@test.com", "12345")
+//                  Log.i("Haha", "done")
+//                  PaceApi.retrofitService.signIn(signInBody).enqueue(object : Callback<UserBody> {
+//                      override fun onFailure(call: Call<UserBody>, t: Throwable) {
+//                          Log.i("Haha", t.message.toString())
+//                      }
+//
+//                      override fun onResponse(call: Call<UserBody>, response: Response<UserBody>) {
+//                          Log.i("Done", response.body().toString())
+//                      }
+//                  })*/
+//
+//
+//                if (edtConfirm111.text.isNullOrEmpty() || edtConfirm11.text.isNullOrEmpty()) {
+//                    showToast("Email or Password Field is empty")
+//                } else {
+//                    showLoader()
+//                    val signInBody =
+//                        SignInBody(edtConfirm111.text.toString(), edtConfirm11.text.toString())
+//                    Log.i("Haha", "done")
+//                    PaceApi.retrofitService.signIn(signInBody).enqueue(object : Callback<UserBody> {
+//                        override fun onFailure(call: Call<UserBody>, t: Throwable) {
+//                            Log.i("Haha", t.message.toString())
+//                            hideLoader()
+//                            showToast("Failed to connect")
+//                        }
+//
+//                        override fun onResponse(
+//                            call: Call<UserBody>,
+//                            response: Response<UserBody>
+//                        ) {
+//                            if (response.isSuccessful) {
+//                                showToast("Log in successful")
+//                                Log.i("Done", response.body().toString())
+//                                hideLoader()
+//                                start(this@LoginActivity)
+//                                finish()
+//                            } else {
+//                                showToast("Invalid Email or Password")
+//                                hideLoader()
+//                            }
+//                        }
+//                    })
+//                }
+//            }
         }
     }
 
