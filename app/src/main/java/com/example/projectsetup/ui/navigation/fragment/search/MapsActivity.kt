@@ -77,21 +77,21 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback/*, LocationListener
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        var latitude=36.2048
-        var longitude=138.2529
+        var latitude=34.6937
+        var longitude=135.5023
 
         val latLng = LatLng(latitude,longitude)
         val markerOptions = MarkerOptions()
 
         markerOptions.position(latLng)
-        markerOptions.title("Current Position")
+        markerOptions.title("Rent in osaka")
         markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.locationmarker))
 
         mCurrLocationMarker = mMap!!.addMarker(markerOptions)
 
         //move map camera
         mMap!!.moveCamera(CameraUpdateFactory.newLatLng(latLng))
-        mMap!!.animateCamera(CameraUpdateFactory.zoomTo(11F))
+        mMap!!.animateCamera(CameraUpdateFactory.zoomTo(10F))
 
 
 
