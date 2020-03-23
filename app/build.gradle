@@ -35,7 +35,7 @@ android {
             enable true
             reset()
             // Specifies a list of ABIs that Gradle should create APKs for.
-            include "x86", "x86_64","armeabi-v7a","arm64-v8a"
+            include "x86", "x86_64", "armeabi-v7a", "arm64-v8a"
             // Specifies that we do not want to also generate a universal APK that includes all ABIs.
             universalApk false
         }
@@ -55,6 +55,7 @@ dependencies {
 
     //Glide
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
     kapt "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
 
     // Retrofit
@@ -97,6 +98,7 @@ dependencies {
     implementation "org.koin:koin-android:$rootProject.koinVersion"
     implementation "org.koin:koin-androidx-scope:$rootProject.koinVersion"
     implementation "org.koin:koin-androidx-viewmodel:$rootProject.koinVersion"
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
 
 
     //recyclerView

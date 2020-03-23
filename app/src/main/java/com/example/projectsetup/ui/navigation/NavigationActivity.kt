@@ -1,6 +1,7 @@
 package com.example.projectsetup.ui.navigation
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.example.projectsetup.BR
@@ -10,7 +11,8 @@ import com.example.projectsetup.databinding.ActivityNavigationBinding
 import com.example.projectsetup.ui.navigation.fragment.account.AccountFragment
 import com.example.projectsetup.ui.navigation.fragment.chat.ChatFragment
 import com.example.projectsetup.ui.navigation.fragment.home.HomeFragment
-import com.example.projectsetup.ui.navigation.fragment.search.SearchFragment
+import com.example.projectsetup.ui.navigation.fragment.saved.SavedFragment
+import com.example.projectsetup.ui.navigation.fragment.search.MapsActivity
 import kotlinx.android.synthetic.main.activity_navigation.*
 
 class NavigationActivity : BaseActivity<ActivityNavigationBinding, NavigationViewModel>() {
@@ -79,7 +81,7 @@ class NavigationActivity : BaseActivity<ActivityNavigationBinding, NavigationVie
 
 
             saved.setOnClickListener(View.OnClickListener {
-                val fragment = SearchFragment()
+                val fragment = SavedFragment()
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction.replace(R.id.fragment_container, fragment)
                 transaction.commit()
@@ -94,10 +96,7 @@ class NavigationActivity : BaseActivity<ActivityNavigationBinding, NavigationVie
 
 
             search.setOnClickListener(View.OnClickListener {
-                val fragment = SearchFragment()
-                val transaction = supportFragmentManager.beginTransaction()
-                transaction.replace(R.id.fragment_container, fragment)
-                transaction.commit()
+
 
 
                 home.setTextColor(resources.getColor(R.color.saved))
@@ -108,10 +107,9 @@ class NavigationActivity : BaseActivity<ActivityNavigationBinding, NavigationVie
             })
 
             fab.setOnClickListener(View.OnClickListener {
-                val fragment = SearchFragment()
-                val transaction = supportFragmentManager.beginTransaction()
-                transaction.replace(R.id.fragment_container, fragment)
-                transaction.commit()
+
+                onstart(this@NavigationActivity)
+
 
 
             })
@@ -134,5 +132,10 @@ class NavigationActivity : BaseActivity<ActivityNavigationBinding, NavigationVie
 
         }
 
+    }
+
+    fun onstart(context: Context){
+      val intent=Intent(this@NavigationActivity, MapsActivity::class.java)
+      context.startActivity(intent)
     }
 }

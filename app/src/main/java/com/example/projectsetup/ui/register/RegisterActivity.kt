@@ -66,11 +66,11 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
                     MotionEvent.ACTION_DOWN -> {
                         val scaleDownX = ObjectAnimator.ofFloat(
                             btnRegister,
-                            "scaleX", 0.8f
+                            "scaleX", 0.9f
                         )
                         val scaleDownY = ObjectAnimator.ofFloat(
                             btnRegister,
-                            "scaleY", 0.8f
+                            "scaleY", 0.9f
                         )
                         scaleDownX.duration = 1000
                         scaleDownY.duration = 1000
