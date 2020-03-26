@@ -38,24 +38,23 @@ class ForgotPasswordActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initView()
-
         setUpObservers()
-        //setContentView(R.layout.activity_forgot_password)
-
 
     }
 
     fun initView() {
         with(viewDataBinding) {
+
+
             btnNextForgot.setOnClickListener(View.OnClickListener {
+                start(this@ForgotPasswordActivity)
+            }
 
-               start(this@ForgotPasswordActivity)
+            )
+            backarrow.setOnClickListener(View.OnClickListener {
+                onBack(this@ForgotPasswordActivity)
+
             })
-
-             backarrow.setOnClickListener(View.OnClickListener {
-                 onBack(this@ForgotPasswordActivity)
-
-             })
         }
 
 
@@ -76,6 +75,12 @@ class ForgotPasswordActivity :
                     forgotPassword(txtEmail)
 
             })
+
+//            nextClickEvent.observe(this@ForgotPasswordActivity, Observer {
+//
+//                start(this@ForgotPasswordActivity)
+//
+//            })
         }
 
 
@@ -88,15 +93,13 @@ class ForgotPasswordActivity :
             context.startActivity(intent)
 
 
-
         }
     }
 
 
+    fun onBack(context: Context) {
 
-    fun onBack(context: Context){
-
-        val intent=Intent(context,LoginActivity::class.java)
+        val intent = Intent(context, LoginActivity::class.java)
         context.startActivity(intent)
 
 

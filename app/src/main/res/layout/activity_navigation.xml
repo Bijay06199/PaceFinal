@@ -39,6 +39,7 @@
                 android:layout_height="wrap_content"
                 android:clickable="true"
                 android:focusable="true"
+                android:onClick="@{()->viewModel.onFabClicked()}"
                 app:backgroundTint="#194CB4"
                 android:src="@drawable/map"
                 app:layout_anchor="@id/bar" />
@@ -71,6 +72,7 @@
                         android:drawableTop="@drawable/empire1"
                         android:gravity="center"
                         android:textSize="11sp"
+                        android:onClick="@{()->viewModel.onHomeClicked0()}"
                         android:orientation="vertical"
                         android:text="@{@string/home(viewModel.home)}"
                         android:textColor="#000">
@@ -88,6 +90,7 @@
                         android:drawableTop="@drawable/favorites"
                         android:gravity="center"
                         android:orientation="vertical"
+                        android:onClick="@{()->viewModel.onSavedClicked()}"
                         android:text="@{@string/saved(viewModel.saved)}"
                         android:textStyle="bold"
                         android:textColor="#000">
@@ -104,6 +107,7 @@
                         android:background="?android:attr/selectableItemBackground"
                         android:gravity="center"
                         android:textStyle="bold"
+                        android:onClick="@{()->viewModel.onSearchClicked()}"
                         android:orientation="vertical"
                         android:textColor="#000"
                         android:text="@{@string/search(viewModel.search)}"
@@ -123,6 +127,7 @@
                         android:drawableTop="@drawable/chat"
                         android:gravity="center"
                         android:orientation="vertical"
+                        android:onClick="@{()->viewModel.onChatClicked()}"
                         android:text="@{@string/chat(viewModel.chat)}"
                         android:textColor="#000">
 
@@ -140,6 +145,7 @@
                         android:drawableTop="@drawable/user"
                         android:gravity="center"
                         android:orientation="vertical"
+                        android:onClick="@{()->viewModel.onAccountClicked()}"
                         android:text="@{@string/account(viewModel.account)}"
                         android:textColor="#000">
 

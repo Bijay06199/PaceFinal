@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
 import com.example.projectsetup.BR
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseActivity
@@ -14,11 +15,14 @@ import com.example.projectsetup.ui.navigation.fragment.home.HomeFragment
 import com.example.projectsetup.ui.navigation.fragment.saved.SavedFragment
 import com.example.projectsetup.ui.navigation.fragment.search.MapsActivity
 import kotlinx.android.synthetic.main.activity_navigation.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NavigationActivity : BaseActivity<ActivityNavigationBinding, NavigationViewModel>() {
+
+    private val navigationViewModel:NavigationViewModel by viewModel()
     override fun getLayoutId(): Int = R.layout.activity_navigation
 
-    override fun getViewModel(): NavigationViewModel = NavigationViewModel()
+    override fun getViewModel(): NavigationViewModel = navigationViewModel
 
     override fun getBindingVariable(): Int {
         return BR.viewModel
@@ -27,7 +31,6 @@ class NavigationActivity : BaseActivity<ActivityNavigationBinding, NavigationVie
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_navigation)
 
         if (savedInstanceState == null) {
             val fragment = HomeFragment()
@@ -42,6 +45,24 @@ class NavigationActivity : BaseActivity<ActivityNavigationBinding, NavigationVie
         }
 
         initView()
+        setUpObservers()
+    }
+
+    private fun setUpObservers() {
+
+        with(navigationViewModel){
+            txtHomeClicked.observe(this@NavigationActivity, Observer {
+
+
+
+
+            })
+
+            txtChatClicked.observe(this@NavigationActivity, Observer {
+
+            })
+        }
+
     }
 
     private fun initView() {
@@ -50,33 +71,30 @@ class NavigationActivity : BaseActivity<ActivityNavigationBinding, NavigationVie
 
 
             chat.setOnClickListener(View.OnClickListener {
-                val fragment = ChatFragment()
-                val transaction = supportFragmentManager.beginTransaction()
-                transaction.replace(R.id.fragment_container, fragment)
-                transaction.commit()
-
-
                 home.setTextColor(resources.getColor(R.color.saved))
                 chat.setTextColor(resources.getColor(R.color.colorAccent))
                 saved.setTextColor(resources.getColor(R.color.saved))
                 search.setTextColor(resources.getColor(R.color.saved))
                 user.setTextColor(resources.getColor(R.color.saved))
+
+                val fragment = ChatFragment()
+                val transaction = supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.fragment_container, fragment)
+                transaction.commit()
             })
 
 
             home.setOnClickListener(View.OnClickListener {
-                val fragment = HomeFragment()
-                val transaction = supportFragmentManager.beginTransaction()
-                transaction.replace(R.id.fragment_container, fragment)
-                transaction.commit()
-
-
-
                 home.setTextColor(resources.getColor(R.color.colorAccent))
                 chat.setTextColor(resources.getColor(R.color.saved))
                 saved.setTextColor(resources.getColor(R.color.saved))
                 search.setTextColor(resources.getColor(R.color.saved))
                 user.setTextColor(resources.getColor(R.color.saved))
+
+                val fragment=HomeFragment()
+                val transaction=supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.fragment_container,fragment)
+                transaction.commit()
             })
 
 

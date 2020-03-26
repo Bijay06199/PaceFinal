@@ -18,6 +18,10 @@ class WelcomeViewModel:BaseViewModel() {
     val nepal:String=""
     val confirm:String=""
 
+    fun onNextClicked(){
+        nextClickEvent.call()
+    }
+
 
 
 

@@ -8,18 +8,36 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.projectsetup.R
+import com.example.projectsetup.base.BaseFragment
+import com.example.projectsetup.databinding.FragmentChatBinding
+import com.example.projectsetup.databinding.FragmentChatBinding.inflate
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * A simple [Fragment] subclass.
  */
-class ChatFragment : Fragment() {
+class ChatFragment : BaseFragment<FragmentChatBinding,ChatFragmentViewModel>() {
+    private val chatFragmentViewModel:ChatFragmentViewModel by viewModel()
+    override fun getLayoutId(): Int =R.layout.fragment_chat
+    override fun getViewModel(): ChatFragmentViewModel =chatFragmentViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chat, container, false)
+        viewDataBinding=inflate(inflater,container,false)
+        return viewDataBinding.root
+        initView()
+        setUpObservers()
+    }
+
+    private fun initView() {
+
+    }
+
+    private fun setUpObservers() {
+
     }
 
 

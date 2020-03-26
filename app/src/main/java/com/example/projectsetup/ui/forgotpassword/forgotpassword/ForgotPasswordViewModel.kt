@@ -19,7 +19,6 @@ class ForgotPasswordViewModel(val forgotpasswordRepo:ForgotPasswordRepository) :
     fun onNextClicked(){
         nextClickEvent.call()
 
-
     }
 
 

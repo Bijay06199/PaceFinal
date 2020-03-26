@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.projectsetup.ui.navigation.fragment.saved.savedsearch.SavedSearchViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:src="@drawable/house" />
+
+            <TextView
+                android:id="@+id/allSaved"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textColor="#454555"
+                android:textSize="24sp"
+                android:layout_marginTop="30dp"
+                android:text="@{@string/saved(viewModel.saved)}" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:textSize="14sp"
+                android:textColor="#454555"
+                android:gravity="center"
+                android:text="@{@string/you_haven_t_saved_anything_yet(viewModel.haventsaved)}" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textSize="14sp"
+                android:textColor="#454555"
+                android:gravity="center"
+                android:text="@{@string/start_searching_for_properties_to_add_now(viewModel.searching)}" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/login_button"
+                android:text="@{@string/get_started(viewModel.getstarted)}" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</layout>
+

@@ -18,11 +18,13 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.location.LocationManagerCompat.isLocationEnabled
 import com.example.projectsetup.R
+import com.example.projectsetup.base.BaseActivity
 import com.example.projectsetup.ui.navigation.NavigationActivity
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.api.GoogleApiClient
@@ -37,8 +39,6 @@ import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.fragment_search.*
 import java.security.AccessController.checkPermission
-
-
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback/*, LocationListener,
@@ -63,7 +63,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback/*, LocationListener
     private var mGoogleApiClient: GoogleApiClient? = null
     private lateinit var mLocationRequest: LocationRequest
     private var mFusedLocationClient: FusedLocationProviderClient? = null
-    private lateinit var mapFragment:MapFragment
+    private lateinit var mapFragment: MapFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,10 +77,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback/*, LocationListener
     }
 
     private fun initView() {
-        var back_map=findViewById<LinearLayout>(R.id.back_map)
+
+
+        var back_map = findViewById<LinearLayout>(R.id.back_map)
         back_map.setOnClickListener(View.OnClickListener {
-            val intent=Intent(this@MapsActivity,NavigationActivity::class.java)
-            startActivity(intent)
+
+            finish()
         })
     }
 
@@ -93,10 +95,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback/*, LocationListener
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        var latitude=34.6937
-        var longitude=135.5023
+        var latitude = 34.6937
+        var longitude = 135.5023
 
-        val latLng = LatLng(latitude,longitude)
+        val latLng = LatLng(latitude, longitude)
         val markerOptions = MarkerOptions()
 
         markerOptions.position(latLng)
@@ -107,7 +109,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback/*, LocationListener
 
         val markerOptions2 = MarkerOptions()
 
-        markerOptions2.position(LatLng(35.6762,139.6503))
+        markerOptions2.position(LatLng(35.6762, 139.6503))
         markerOptions2.title("Rent in Tokyo")
         markerOptions2.icon(BitmapDescriptorFactory.fromResource(R.drawable.locationmarker))
 
@@ -116,7 +118,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback/*, LocationListener
         //move map camera
         mMap!!.moveCamera(CameraUpdateFactory.newLatLng(latLng))
         mMap!!.animateCamera(CameraUpdateFactory.zoomTo(6F))
-
 
 
 //        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

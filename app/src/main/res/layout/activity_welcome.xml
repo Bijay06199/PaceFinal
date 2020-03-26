@@ -502,6 +502,7 @@
                 android:layout_alignParentBottom="true"
                 android:text="Confirm"
                 android:textAllCaps="false"
+                android:onClick="@{()->welcomeViewModel.onNextClicked()}"
                 android:textColor="#FFF"
                 android:textSize="14sp" />
         </RelativeLayout>

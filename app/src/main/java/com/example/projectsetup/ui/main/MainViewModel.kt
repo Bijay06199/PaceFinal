@@ -17,6 +17,27 @@ class MainViewModel : BaseViewModel() {
     val register:String=""
     val skip:String=""
 
+    val btnLoginClicked= SingleLiveEvent<Unit>()
+    val btnRegisterClicked= SingleLiveEvent<Unit>()
+    val btnSkipClicked= SingleLiveEvent<Unit>()
+
+
+    fun onLoginClicked(){
+
+        btnLoginClicked.call()
+
+
+
+    }
+
+    fun onRegisterClicked(){
+        btnRegisterClicked.call()
+    }
+
+    fun onSkipClicked(){
+        btnSkipClicked.call()
+    }
+
 
 
 

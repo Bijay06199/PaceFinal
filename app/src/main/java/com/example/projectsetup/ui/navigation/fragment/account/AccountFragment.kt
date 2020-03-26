@@ -8,19 +8,34 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.Observer
+import com.example.projectsetup.BR
 
 import com.example.projectsetup.R
+import com.example.projectsetup.base.BaseFragment
 import com.example.projectsetup.data.prefs.PreferenceManager
+import com.example.projectsetup.databinding.FragmentAccountBinding
+import com.example.projectsetup.databinding.FragmentAccountBinding.inflate
 import com.example.projectsetup.ui.main.MainActivity
+import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.RegisterPropertyRoomActivity
 import kotlinx.android.synthetic.main.fragment_account.*
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * A simple [Fragment] subclass.
  */
-class AccountFragment : Fragment() {
+class AccountFragment : BaseFragment<FragmentAccountBinding, AccountFragmentViewModel>() {
 
-    private val preferenceManager: PreferenceManager by inject()
+    private val accountFragmentViewModel: AccountFragmentViewModel by viewModel()
+    override fun getLayoutId(): Int = R.layout.fragment_account
+
+    override fun getViewModel(): AccountFragmentViewModel = accountFragmentViewModel
+
+    override fun getBindingVariable(): Int {
+        return BR.viewModel
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,24 +43,53 @@ class AccountFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        val view=inflater.inflate(R.layout.fragment_account, container, false)
-        val txtlogoutMortgage=view.findViewById<TextView>(R.id.txtLogoutMortgage)
+
+        viewDataBinding = inflate(inflater, container, false)
+
+        initView()
+      // setUpObservers()
+        return viewDataBinding.root
 
 
-        txtlogoutMortgage.setOnClickListener(View.OnClickListener {
+    }
+
+    private fun setUpObservers() {
+        with(accountFragmentViewModel) {
+
+            txtRegisterProperty.observe(viewLifecycleOwner, Observer {
+                startActivity(
+                    Intent(
+                        this@AccountFragment.activity,
+                        RegisterPropertyRoomActivity::class.java
+                    )
+                )
+
+            })
+        }
+    }
+
+    private fun initView() {
+
+
+        with(viewDataBinding) {
+            txtLogoutMortgage.setOnClickListener(View.OnClickListener {
                 preferenceManager.setIsLoggedIn(false)
-            val intent= Intent(this@AccountFragment.activity,MainActivity::class.java)
-            startActivity(intent)
+                val intent = Intent(this@AccountFragment.activity, MainActivity::class.java)
+                startActivity(intent)
 
-            this@AccountFragment.activity!!.finish()
+                this@AccountFragment.activity!!.finish()
 
-           this@AccountFragment.activity!!.finish()
+                this@AccountFragment.activity!!.finish()
 
 
+            })
 
-        })
-        return view
+            tvRegisterProperty.setOnClickListener(View.OnClickListener {
+                startActivity(Intent(this@AccountFragment.activity,RegisterPropertyRoomActivity::class.java))
+            })
 
+
+        }
 
     }
 

@@ -15,12 +15,14 @@ import com.example.projectsetup.databinding.ActivityWelcomeBindingImpl
 import com.example.projectsetup.ui.login.LoginActivity
 import com.example.projectsetup.ui.welcomesplash.WelcomeSplashActivity
 import kotlinx.android.synthetic.main.activity_welcome.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 
 class WelcomeActivity : BaseActivity<ActivityWelcomeBinding,WelcomeViewModel>() {
 
+    private val welcomeViewModel:WelcomeViewModel by viewModel()
     override fun getLayoutId(): Int =R.layout.activity_welcome
-    override fun getViewModel(): WelcomeViewModel = WelcomeViewModel()
+    override fun getViewModel(): WelcomeViewModel = welcomeViewModel
 
 
     override fun getBindingVariable(): Int {
@@ -31,7 +33,6 @@ class WelcomeActivity : BaseActivity<ActivityWelcomeBinding,WelcomeViewModel>() 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_welcome)
         loadlocate()
 
         if(savedInstanceState==null){
@@ -51,9 +52,20 @@ class WelcomeActivity : BaseActivity<ActivityWelcomeBinding,WelcomeViewModel>() 
         }
 
         initView()
+        setUpObservers()
     }
 
+    private fun setUpObservers() {
 
+//        with(welcomeViewModel){
+//
+//            nextClickEvent.observe(this@WelcomeActivity,androidx.lifecycle.Observer {
+//                onStart(this@WelcomeActivity)
+//
+//            })
+//        }
+
+    }
 
 
     private fun initView() {
@@ -230,4 +242,6 @@ class WelcomeActivity : BaseActivity<ActivityWelcomeBinding,WelcomeViewModel>() 
 
     }
 
-}
+
+    }
+

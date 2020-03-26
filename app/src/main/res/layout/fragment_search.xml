@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.projectsetup.ui.navigation.fragment.search.MapsActivityViewModel" />
+    </data>
+
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.navigation.fragment.search.SearchFragment">
@@ -27,10 +37,10 @@
 
             <ImageView
 
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_margin="10dp"
-                android:src="@drawable/backarrow" />
+                android:src="@drawable/back_button" />
         </LinearLayout>
 
         <LinearLayout
@@ -42,7 +52,7 @@
             android:layout_alignParentBottom="true"
             android:background="@drawable/home_background"
             android:backgroundTint="@color/cardview_light_background"
-            android:elevation="10dp"
+            android:elevation="20dp"
             android:orientation="vertical">
 
             <LinearLayout
@@ -59,8 +69,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:queryHint="Search here"
+                        android:id="@+id/search_view"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
+                        android:elevation="10dp"
                         android:layout_marginTop="5dp"
                         android:background="@drawable/search_layout1">
 
@@ -303,3 +315,4 @@
     </RelativeLayout>
 
 </LinearLayout>
+</layout>

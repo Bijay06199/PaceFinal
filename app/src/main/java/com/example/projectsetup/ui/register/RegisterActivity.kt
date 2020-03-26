@@ -245,9 +245,7 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
                                 ) {
                                     if (response.isSuccessful) {
                                         makeToast("Signup Successful")
-                                        val intent =
-                                            Intent(this@RegisterActivity, LoginActivity::class.java)
-                                        startActivity(intent)
+                                       onStart(this@RegisterActivity)
                                         finish()
                                     } else {
                                         makeToast("Signup Failed" + response.errorBody().toString())
@@ -280,4 +278,12 @@ class RegisterActivity : BaseActivity<ActivityRegisterBinding, RegisterViewModel
 //    override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
 //        return super.onCreateView(name, context, attrs)
 //    }
+
+    companion object{
+
+        fun onStart(context: Context){
+
+            context.startActivity(Intent(context,NavigationActivity::class.java))
+        }
+    }
 }

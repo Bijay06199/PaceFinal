@@ -9,8 +9,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projectsetup.BR
 
 import com.example.projectsetup.R
+import com.example.projectsetup.base.BaseFragment
+import com.example.projectsetup.databinding.FragmentHomeBinding
+import com.example.projectsetup.databinding.FragmentHomeBinding.inflate
 import com.example.projectsetup.ui.Adapter.ViewPagerAdapter
 import com.example.projectsetup.ui.Adapter.ViewPagerListener
 import com.example.projectsetup.ui.navigation.NavigationActivity
@@ -20,13 +24,22 @@ import com.example.projectsetup.ui.navigation.fragment.home.listener.fragment.Ho
 import com.example.projectsetup.ui.navigation.salehome.SaleHomeActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.recommended_property_parent.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * A simple [Fragment] subclass.
  */
-class HomeFragment : Fragment() {
-     var recyclerView1=recyclerview_reccommended_parent
-     var recyclerView2=recyclerview_reccommended_child
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>() {
+
+    override fun getLayoutId(): Int = R.layout.fragment_home
+    private val homeFragmentViewModel: HomeFragmentViewModel by viewModel()
+    override fun getViewModel(): HomeFragmentViewModel = homeFragmentViewModel
+    override fun getBindingVariable(): Int {
+        return BR.viewModel
+    }
+
+    var recyclerView1 = recyclerview_reccommended_parent
+    var recyclerView2 = recyclerview_reccommended_child
 
     private lateinit var pagerAdapterView: ViewPagerAdapter
 
@@ -34,48 +47,61 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        viewDataBinding = inflate(inflater, container, false)
+        return viewDataBinding.root
 
 
     }
 
 
-
     private fun setUpRecyclerView() {
 
-      recyclerView1=recyclerview_reccommended_parent
-        recyclerView2=recyclerview_reccommended_child
-        recyclerView1.affectOnItemClicks { position, view ->startActivity(Intent(context,SaleHomeActivity::class.java))  }
-        recyclerView.affectOnItemClicks { position, view ->startActivity(Intent(context,SaleHomeActivity::class.java))  }
+        recyclerView1 = recyclerview_reccommended_parent
+        recyclerView2 = recyclerview_reccommended_child
+        recyclerView1.affectOnItemClicks { position, view ->
+            startActivity(
+                Intent(
+                    context,
+                    SaleHomeActivity::class.java
+                )
+            )
+        }
+        recyclerView.affectOnItemClicks { position, view ->
+            startActivity(
+                Intent(
+                    context,
+                    SaleHomeActivity::class.java
+                )
+            )
+        }
 
 
         recyclerView1.apply {
-            layoutManager=LinearLayoutManager(activity,RecyclerView.VERTICAL,false)
+            layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
 
-            adapter=RecommendedParentAdapter(RecommendedParentDataFactory.getParents(40))
+            adapter = RecommendedParentAdapter(RecommendedParentDataFactory.getParents(40))
         }
 
-        val productAdapter=ProductAdapter()
-        recyclerView.adapter=productAdapter
+        val productAdapter = ProductAdapter()
+        recyclerView.adapter = productAdapter
 
-        var productList=ArrayList<Product>()
+        var productList = ArrayList<Product>()
 
-        productList.add(Product("Tokyo",R.drawable.rectangle))
-        productList.add(Product("Nara",R.drawable.rectangle14))
-        productList.add(Product("Akhibara",R.drawable.rectangle149))
-        productList.add(Product("Okinaw",R.drawable.rectangle1492))
-        productList.add(Product("Geman",R.drawable.rectangle))
-        productList.add(Product("France",R.drawable.rectangle14))
-        productList.add(Product("Akhibara",R.drawable.rectangle149))
-        productList.add(Product("Sochua",R.drawable.rectangle1492))
+        productList.add(Product("Tokyo", R.drawable.rectangle))
+        productList.add(Product("Nara", R.drawable.rectangle14))
+        productList.add(Product("Akhibara", R.drawable.rectangle149))
+        productList.add(Product("Okinaw", R.drawable.rectangle1492))
+        productList.add(Product("Geman", R.drawable.rectangle))
+        productList.add(Product("France", R.drawable.rectangle14))
+        productList.add(Product("Akhibara", R.drawable.rectangle149))
+        productList.add(Product("Sochua", R.drawable.rectangle1492))
 
 
         productAdapter.addAll(productList)
 
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpRecyclerView()

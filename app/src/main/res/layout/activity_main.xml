@@ -42,7 +42,7 @@
                 android:background="@drawable/login_button"
                 android:layout_gravity="center"
                 android:textColor="#FFFF"
-
+                android:onClick="@{()->viewModel.onLoginClicked()}"
                 android:textSize="18sp"
                 android:text="@{@string/login(viewModel.login)}" />
 
@@ -55,21 +55,22 @@
                 android:layout_marginRight="20dp"
                 android:padding="15dp"
                 android:layout_marginTop="20dp"
-
+                android:onClick="@{()->viewModel.onRegisterClicked()}"
                 android:textColor="#FFFF"
                 android:textSize="18sp"
                 android:background="@drawable/login_button"
                 android:text="@{@string/register(viewModel.register)}" />
 
-            <TextView
+            <com.example.projectsetup.utils.customView.UnderlinedTextView
                 android:id="@+id/txtSkip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
+                android:onClick="@{()->viewModel.onSkipClicked()}"
                 android:layout_marginTop="10dp"
-                android:text="@{@string/skip(viewModel.skip)}" />
+                android:text="@string/skip" />
         </LinearLayout>
     </RelativeLayout>
 </layout>
