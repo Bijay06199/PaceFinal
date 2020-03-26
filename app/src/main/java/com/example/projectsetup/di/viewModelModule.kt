@@ -58,5 +58,11 @@ val viewModelModule:Module= module {
     viewModel { SavedSearchViewModel() }
     viewModel { SavedSearchSavedViewModel() }
     viewModel { WelcomeViewModel() }
+    viewModel { RegisterPropertyConditionViewModel() }
+    viewModel { RegisterPropertyPhotoViewModel() }
+    viewModel { RegisterPropertyDescriptionViewModel() }
+    viewModel { RegisterPropertyRentPriceViewModel() }
+    viewModel { RegisterPropertySalePriceViewModel() }
+    viewModel { RegisterPropertyPreviewViewModel() }
 
 }

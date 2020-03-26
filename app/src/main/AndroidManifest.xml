@@ -20,7 +20,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyFeatureActivity"></activity>
+        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyPreview"></activity>
+        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyRentPrice" />
+        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyDescriptionActivity" />
+        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyPhotoActivity" />
+        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertySalePrice" />
+        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyConditionActivity" />
+        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyFeatureActivity" />
         <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyFacilitiesActivity" />
         <activity android:name=".ui.navigation.fragment.account.registerproperty.register.RegisterPropertyDetailActivity" />
         <activity android:name=".ui.navigation.fragment.account.registerproperty.register.RegisterPropertyMapActivity" />

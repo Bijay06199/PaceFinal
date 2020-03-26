@@ -40,6 +40,10 @@ class RegisterPropertyFeatureActivity
                     )
                 )
             })
+
+            btnClickEvent.observe(this@RegisterPropertyFeatureActivity, Observer {
+                startActivity(Intent(this@RegisterPropertyFeatureActivity,RegisterPropertyConditionActivity::class.java))
+            })
         }
 
 
