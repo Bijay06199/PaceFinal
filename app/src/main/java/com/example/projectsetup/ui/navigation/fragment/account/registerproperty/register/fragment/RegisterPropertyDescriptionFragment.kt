@@ -57,8 +57,7 @@ class RegisterPropertyDescriptionFragment
 
 
             ivBackClicked.observe(viewLifecycleOwner, Observer {
-
-                RegisterPropertyPhotoFragment.start(activity!!,R.id.container_register_property)
+                fragmentManager!!.popBackStack()
             })
 
 

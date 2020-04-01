@@ -141,7 +141,7 @@ class AgentProfileFragment : BaseFragment<AgentProfileFragmentBinding, AgentProf
         with(agentProfileViewModel) {
 
             ivBackClickEvent.observe(viewLifecycleOwner, Observer {
-                AgentListFragment.start(activity!!, R.id.container_agent)
+                fragmentManager!!.popBackStack()
             })
         }
     }

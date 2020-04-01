@@ -134,10 +134,7 @@ class RegisterPropertyPreviewFragment
 
         with(registerPropertyPreviewViewModel) {
             ivBackClickedEvent.observe(viewLifecycleOwner, Observer {
-                RegisterPropertySalePriceFragment.start(
-                    activity!!,
-                    R.id.container_register_property
-                )
+                fragmentManager!!.popBackStack()
             })
         }
 

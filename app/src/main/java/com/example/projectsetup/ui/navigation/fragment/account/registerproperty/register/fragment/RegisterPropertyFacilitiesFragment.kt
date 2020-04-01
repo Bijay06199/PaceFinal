@@ -48,7 +48,7 @@ class RegisterPropertyFacilitiesFragment :
             })
 
             ivBackClickEvent.observe(viewLifecycleOwner, Observer {
-                RegisterPropertyDetailFragment.start(activity!!,R.id.container_register_property)
+                fragmentManager!!.popBackStack()
 
             })
         }

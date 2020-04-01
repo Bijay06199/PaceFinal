@@ -20,7 +20,7 @@ class RegisterPropertyActivity : AppCompatActivity() {
     override fun onBackPressed() {
         val currentFragment =
             supportFragmentManager.findFragmentById(R.id.container_register_property)
-        if (currentFragment is RegisterMyPropertyFragment) {
+        if (currentFragment is RegisterMyPropertyFragment || currentFragment is RegisterPropertyRelationshipFragment) {
             finish()
         }
         if (supportFragmentManager.backStackEntryCount > 0) {

@@ -37,7 +37,7 @@ class FindAgentByAddressFragment : BaseFragment<FragmentFindAgentByAddressBindin
             })
 
             ivBackClicked.observe(viewLifecycleOwner, Observer {
-                FindAgentByAreaFragment.start(activity!!,R.id.container_agent)
+                fragmentManager!!.popBackStack()
             })
         }
 

@@ -39,7 +39,7 @@ class RegisterPropertyConditionFragment :
             })
 
             ivBackClicked.observe(viewLifecycleOwner, Observer {
-                RegisterPropertyFeatureFragment.start(activity!!,R.id.container_register_property)
+                fragmentManager!!.popBackStack()
             })
         }
 

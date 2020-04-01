@@ -32,7 +32,7 @@ class RegisterPropertyFeatureFragment
     private fun setUpObservers() {
         with(registerPropertyFeatureViewModel) {
             ivBackClickEvent.observe(viewLifecycleOwner, Observer {
-             RegisterPropertyFacilitiesFragment.start(activity!!,R.id.container_register_property)
+                fragmentManager!!.popBackStack()
 
             })
 

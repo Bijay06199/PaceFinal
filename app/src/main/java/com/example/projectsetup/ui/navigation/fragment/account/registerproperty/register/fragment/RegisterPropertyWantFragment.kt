@@ -40,7 +40,7 @@ class RegisterPropertyWantFragment: BaseFragment<FragmentRegisterPropertyWantBin
             })
 
             ivBack.observe(viewLifecycleOwner, Observer {
-                RegisterPropertyChooseFragment.start(activity!!,R.id.container_register_property)
+                fragmentManager!!.popBackStack()
             })
         }
 

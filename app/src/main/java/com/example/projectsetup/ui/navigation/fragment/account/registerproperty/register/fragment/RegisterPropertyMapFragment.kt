@@ -70,7 +70,7 @@ class RegisterPropertyMapFragment :
 
 
             ivBackClickEvent.observe(viewLifecycleOwner, Observer {
-                RegisterPropertyAddressFragment.start(activity!!,R.id.container_register_property)
+                fragmentManager!!.popBackStack()
             })
 
 

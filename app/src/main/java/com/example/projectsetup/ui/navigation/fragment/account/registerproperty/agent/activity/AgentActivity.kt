@@ -18,7 +18,7 @@ class AgentActivity : AppCompatActivity() {
     override fun onBackPressed() {
         val currentFragment =
             supportFragmentManager.findFragmentById(R.id.container_agent)
-        if (currentFragment is AgentProfileFragment) {
+        if (currentFragment is AgentProfileFragment || currentFragment is FindAgentByAreaFragment) {
             finish()
         }
         if (supportFragmentManager.backStackEntryCount > 0) {

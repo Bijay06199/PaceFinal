@@ -45,7 +45,7 @@ class RegisterPropertyRelationshipFragment : BaseFragment<FragmentRegisterProper
             })
 
             ivBackEvent.observe(viewLifecycleOwner, Observer {
-              RegisterPropertyRoomActivity.getInstance(context!!)
+             activity!!.finish()
             })
         }
 

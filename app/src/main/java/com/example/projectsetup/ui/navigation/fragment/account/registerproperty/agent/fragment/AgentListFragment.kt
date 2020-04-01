@@ -31,7 +31,7 @@ class AgentListFragment : BaseFragment<FragmentAgentListBinding, AgentListViewMo
     private fun setUpObservers() {
         with(fragmentAgentListViewModel){
             ivBackClick.observe(viewLifecycleOwner, Observer {
-               FindAgentByAddressFragment.start(activity!!,R.id.container_agent)
+                fragmentManager!!.popBackStack()
             })
 
             nextClickEvent.observe(viewLifecycleOwner, Observer {

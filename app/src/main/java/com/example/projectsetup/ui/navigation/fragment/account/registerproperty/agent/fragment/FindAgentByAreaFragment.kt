@@ -40,7 +40,7 @@ class FindAgentByAreaFragment : BaseFragment<FragmentFindAgentAreaBinding,FindAg
             })
 
             ivBackClicked.observe(viewLifecycleOwner, Observer {
-                startActivity(Intent(this@FindAgentByAreaFragment.activity,RegisterPropertyRoomActivity::class.java))
+                activity!!.finish()
             })
 
         }

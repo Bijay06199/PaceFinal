@@ -44,7 +44,7 @@ class RegisterPropertyRentPriceFragment : BaseFragment<FragmentRegisterPropertyR
             })
 
             ivBackClicked.observe(viewLifecycleOwner, Observer {
-                RegisterPropertyDescriptionFragment.start(activity!!,R.id.container_register_property)
+                fragmentManager!!.popBackStack()
 
             })
         }

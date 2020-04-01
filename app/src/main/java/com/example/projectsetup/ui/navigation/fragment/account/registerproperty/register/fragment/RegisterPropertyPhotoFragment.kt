@@ -40,7 +40,7 @@ class RegisterPropertyPhotoFragment
             })
 
             ivBackClicked.observe(viewLifecycleOwner, Observer {
-                RegisterPropertyConditionFragment.start(activity!!,R.id.container_register_property)
+                fragmentManager!!.popBackStack()
 
             })
 
