@@ -15,6 +15,13 @@ class AppContracts {
 
     object Args {
         const val PAGE = "page"
+        const val REGRISTRATION_TYPE = "registration_type"
+
+    }
+
+    object RegistrationType{
+        const val SALE=1
+        const val RENT=2
     }
 
 

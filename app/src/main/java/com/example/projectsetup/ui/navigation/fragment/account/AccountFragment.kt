@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import com.example.projectsetup.BR
 
@@ -37,32 +38,17 @@ class AccountFragment : BaseFragment<FragmentAccountBinding, AccountFragmentView
     }
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-
-
-        viewDataBinding = inflate(inflater, container, false)
-
-        initView()
-      // setUpObservers()
-        return viewDataBinding.root
-
-
-    }
-
     private fun setUpObservers() {
         with(accountFragmentViewModel) {
 
             txtRegisterProperty.observe(viewLifecycleOwner, Observer {
                 startActivity(
                     Intent(
-                        this@AccountFragment.activity,
+                        activity,
                         RegisterPropertyRoomActivity::class.java
                     )
                 )
+
 
             })
         }
@@ -84,11 +70,25 @@ class AccountFragment : BaseFragment<FragmentAccountBinding, AccountFragmentView
 
             })
 
-            tvRegisterProperty.setOnClickListener(View.OnClickListener {
-                startActivity(Intent(this@AccountFragment.activity,RegisterPropertyRoomActivity::class.java))
-            })
 
+        }
 
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initView()
+        setUpObservers()
+    }
+
+    companion object{
+        val TAG="Account Fragment"
+        fun start(activity: FragmentActivity,containerId:Int){
+            val fragment= AccountFragment()
+            activity.supportFragmentManager.beginTransaction()
+                .replace(containerId,fragment)
+                .addToBackStack(TAG)
+                .commit()
         }
 
     }

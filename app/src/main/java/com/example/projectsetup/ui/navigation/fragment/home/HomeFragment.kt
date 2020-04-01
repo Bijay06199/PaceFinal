@@ -1,12 +1,15 @@
 package com.example.projectsetup.ui.navigation.fragment.home
 
 
+import android.content.Context
 import android.content.Intent
+import android.nfc.Tag
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectsetup.BR
@@ -43,23 +46,24 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>() 
 
     private lateinit var pagerAdapterView: ViewPagerAdapter
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        viewDataBinding = inflate(inflater, container, false)
-        return viewDataBinding.root
-
-
-    }
+//    override fun onCreateView(
+//        inflater: LayoutInflater, container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View? {
+//        // Inflate the layout for this fragment
+//        viewDataBinding = inflate(inflater, container, false)
+//        return viewDataBinding.root
+//
+//
+//    }
 
 
     private fun setUpRecyclerView() {
 
         recyclerView1 = recyclerview_reccommended_parent
         recyclerView2 = recyclerview_reccommended_child
-        recyclerView1.affectOnItemClicks { position, view ->
+        recyclerView2?.affectOnItemClicks { position, view ->
+
             startActivity(
                 Intent(
                     context,
@@ -84,18 +88,58 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>() 
         }
 
         val productAdapter = ProductAdapter()
-        recyclerView.adapter = productAdapter
+        viewDataBinding.recyclerView.adapter = productAdapter
 
         var productList = ArrayList<Product>()
 
-        productList.add(Product("Tokyo", R.drawable.rectangle))
-        productList.add(Product("Nara", R.drawable.rectangle14))
-        productList.add(Product("Akhibara", R.drawable.rectangle149))
-        productList.add(Product("Okinaw", R.drawable.rectangle1492))
-        productList.add(Product("Geman", R.drawable.rectangle))
-        productList.add(Product("France", R.drawable.rectangle14))
-        productList.add(Product("Akhibara", R.drawable.rectangle149))
-        productList.add(Product("Sochua", R.drawable.rectangle1492))
+        productList.add(
+            Product(
+                "Tokyo",
+                "https://cdn.pixabay.com/photo/2013/11/25/09/47/japan-217878_960_720.jpg"
+            )
+        )
+        productList.add(
+            Product(
+                "Okhinara",
+                "https://cdn.pixabay.com/photo/2015/04/16/15/22/hiroshima-725801_960_720.jpg"
+            )
+        )
+        productList.add(
+            Product(
+                "Nara",
+                "https://cdn.pixabay.com/photo/2017/01/28/02/24/japan-2014618__340.jpg"
+            )
+        )
+        productList.add(
+            Product(
+                "Tokyo",
+                "https://cdn.pixabay.com/photo/2020/03/28/06/42/kobe-4975863__340.jpg"
+            )
+        )
+        productList.add(
+            Product(
+                "Akhibara",
+                "https://cdn.pixabay.com/photo/2014/03/20/01/49/tokyo-290980__340.jpg"
+            )
+        )
+        productList.add(
+            Product(
+                "Tokyo",
+                "https://cdn.pixabay.com/photo/2013/11/25/09/47/japan-217878_960_720.jpg"
+            )
+        )
+        productList.add(
+            Product(
+                "Tokyo",
+                "https://cdn.pixabay.com/photo/2015/01/30/15/26/twilight-617627__340.jpg"
+            )
+        )
+        productList.add(
+            Product(
+                "Tokyo",
+                "https://cdn.pixabay.com/photo/2016/04/28/16/24/disney-1359222__340.jpg"
+            )
+        )
 
 
         productAdapter.addAll(productList)
@@ -141,5 +185,21 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>() 
         pagerAdapterView.addFragments(HomeSecondFragment())
         pagerAdapterView.addFragments(HomeThirdFragment())
     }
+
+    companion object {
+
+        val TAG = "HomeFragment"
+
+
+        fun start(activity: FragmentActivity, containerId: Int) {
+
+            val fragment = HomeFragment()
+            activity.supportFragmentManager.beginTransaction()
+                .replace(containerId, fragment)
+                .addToBackStack(TAG)
+                .commit()
+        }
+    }
+
 
 }

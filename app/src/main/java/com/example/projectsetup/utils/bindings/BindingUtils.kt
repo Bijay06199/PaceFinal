@@ -26,18 +26,18 @@ object BindingUtils {
             v.visibility = View.GONE
         }
     }
-//
-//    @BindingAdapter("imageSrc")
-//    @JvmStatic
-//    fun setImageSrc(imageView: ImageView, imageSrc: String?) {
-//        with(imageView) {
-//            Glide.with(context)
-//                    .load(imageSrc)
-//                    .thumbnail(0.1f)
-//                    .apply(RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
-//                            .placeholder(R.color.colorGrey)
-//                            .error(R.color.colorGrey))
-//                    .into(imageView)
-//        }
-//    }
+
+    @BindingAdapter("imageSrc")
+    @JvmStatic
+    fun setImageSrc(imageView: ImageView, imageSrc: String?) {
+        with(imageView) {
+            Glide.with(context)
+                    .load(imageSrc)
+                    .thumbnail(0.1f)
+                    .apply(RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
+                            .placeholder(R.color.material_white)
+                            .error(R.color.black))
+                    .into(imageView)
+        }
+    }
 }

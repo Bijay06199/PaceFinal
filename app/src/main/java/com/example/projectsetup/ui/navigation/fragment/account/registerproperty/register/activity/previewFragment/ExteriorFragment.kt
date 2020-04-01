@@ -6,14 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 
 import com.example.projectsetup.R
 
 class ExteriorFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = ExteriorFragment()
-    }
+
 
     private lateinit var viewModel: ExteriorViewModel
 
@@ -28,6 +27,16 @@ class ExteriorFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(ExteriorViewModel::class.java)
         // TODO: Use the ViewModel
+    }
+    companion object {
+        fun start(activity: FragmentActivity, containerId: Int) {
+            val fragment = ExteriorFragment()
+            activity.supportFragmentManager.beginTransaction()
+                .replace(containerId,fragment)
+                .commit()
+
+        }
+
     }
 
 }

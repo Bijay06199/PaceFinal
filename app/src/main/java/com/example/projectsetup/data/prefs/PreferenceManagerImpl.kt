@@ -5,6 +5,14 @@ import androidx.core.content.edit
 
 
 open class PreferenceManagerImpl(private val prefs: SharedPreferences) : PreferenceManager {
+    override fun setRegistrationType(registrationType: Int) {
+        prefs[REGISTRATION_TYPE] = registrationType
+    }
+
+    override fun getRegistrationType(): Int {
+        return prefs[ACCESS_TOKEN]?:0
+    }
+
     override fun setToken(token: String) {
         prefs[ACCESS_TOKEN] = token
     }

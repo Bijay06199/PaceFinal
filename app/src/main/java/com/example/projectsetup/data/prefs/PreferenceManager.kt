@@ -7,4 +7,7 @@ interface PreferenceManager {
     fun getToken(): String
     fun setIsLoggedIn(isLoggedIn: Boolean)
     fun getIsLoggedIn():Boolean
+    fun setRegistrationType(registrationType: Int)
+    fun getRegistrationType():Int
+
 }

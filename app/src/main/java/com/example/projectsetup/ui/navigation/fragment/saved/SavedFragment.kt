@@ -6,12 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 import com.example.projectsetup.BR
 
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseFragment
 import com.example.projectsetup.databinding.FragmentSavedBinding
 import com.example.projectsetup.databinding.FragmentSavedBinding.inflate
+import com.example.projectsetup.ui.navigation.fragment.account.AccountFragment
 import com.example.projectsetup.ui.navigation.fragment.saved.all.AllFragment
 import com.example.projectsetup.ui.navigation.fragment.saved.forrent.ForRentFragment
 import com.example.projectsetup.ui.navigation.fragment.saved.forsale.ForSaleFragment
@@ -161,6 +163,16 @@ class SavedFragment : BaseFragment<FragmentSavedBinding, SavedFragmentViewModel>
 
 
     }
+    companion object{
+        val TAG="Account Fragment"
+        fun start(activity: FragmentActivity, containerId:Int){
+            val fragment= SavedFragment()
+            activity.supportFragmentManager.beginTransaction()
+                .replace(containerId,fragment)
+                .addToBackStack(TAG)
+                .commit()
+        }
 
+    }
 
 }

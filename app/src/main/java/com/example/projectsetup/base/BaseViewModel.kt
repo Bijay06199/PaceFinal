@@ -12,6 +12,7 @@ abstract class BaseViewModel : ViewModel() {
     val alertDialogEvent = SingleLiveEvent<String>()
     val showToastEvent = SingleLiveEvent<String>()
     val showLoading = SingleLiveEvent<Boolean>()
+    val checked = SingleLiveEvent<Boolean>()
 
     fun showToast(message: String) {
         showToastEvent.value = message
@@ -25,8 +26,9 @@ abstract class BaseViewModel : ViewModel() {
         showLoading.value = status
     }
 
-
-
+    fun checked(status: Boolean) {
+        checked.value = status
+    }
 
 
     private var job: Job? = null

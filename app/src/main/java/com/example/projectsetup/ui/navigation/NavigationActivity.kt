@@ -33,10 +33,7 @@ class NavigationActivity : BaseActivity<ActivityNavigationBinding, NavigationVie
         super.onCreate(savedInstanceState)
 
         if (savedInstanceState == null) {
-            val fragment = HomeFragment()
-            val transaction = supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.fragment_container, fragment)
-            transaction.commit()
+            HomeFragment.start(this@NavigationActivity,R.id.fragment_container)
             home.setTextColor(resources.getColor(R.color.colorAccent))
             chat.setTextColor(resources.getColor(R.color.saved))
             saved.setTextColor(resources.getColor(R.color.saved))
@@ -45,24 +42,7 @@ class NavigationActivity : BaseActivity<ActivityNavigationBinding, NavigationVie
         }
 
         initView()
-        setUpObservers()
-    }
-
-    private fun setUpObservers() {
-
-        with(navigationViewModel){
-            txtHomeClicked.observe(this@NavigationActivity, Observer {
-
-
-
-
-            })
-
-            txtChatClicked.observe(this@NavigationActivity, Observer {
-
-            })
-        }
-
+      //  setUpObservers()
     }
 
     private fun initView() {
@@ -76,11 +56,8 @@ class NavigationActivity : BaseActivity<ActivityNavigationBinding, NavigationVie
                 saved.setTextColor(resources.getColor(R.color.saved))
                 search.setTextColor(resources.getColor(R.color.saved))
                 user.setTextColor(resources.getColor(R.color.saved))
+                ChatFragment.start(this@NavigationActivity,R.id.fragment_container)
 
-                val fragment = ChatFragment()
-                val transaction = supportFragmentManager.beginTransaction()
-                transaction.replace(R.id.fragment_container, fragment)
-                transaction.commit()
             })
 
 
@@ -90,21 +67,16 @@ class NavigationActivity : BaseActivity<ActivityNavigationBinding, NavigationVie
                 saved.setTextColor(resources.getColor(R.color.saved))
                 search.setTextColor(resources.getColor(R.color.saved))
                 user.setTextColor(resources.getColor(R.color.saved))
+                HomeFragment.start(this@NavigationActivity,R.id.fragment_container)
 
-                val fragment=HomeFragment()
-                val transaction=supportFragmentManager.beginTransaction()
-                transaction.replace(R.id.fragment_container,fragment)
-                transaction.commit()
+
+
             })
 
 
             saved.setOnClickListener(View.OnClickListener {
-                val fragment = SavedFragment()
-                val transaction = supportFragmentManager.beginTransaction()
-                transaction.replace(R.id.fragment_container, fragment)
-                transaction.commit()
 
-
+                SavedFragment.start(this@NavigationActivity,R.id.fragment_container)
                 home.setTextColor(resources.getColor(R.color.saved))
                 chat.setTextColor(resources.getColor(R.color.saved))
                 saved.setTextColor(resources.getColor(R.color.colorAccent))
@@ -114,8 +86,6 @@ class NavigationActivity : BaseActivity<ActivityNavigationBinding, NavigationVie
 
 
             search.setOnClickListener(View.OnClickListener {
-
-
 
                 home.setTextColor(resources.getColor(R.color.saved))
                 chat.setTextColor(resources.getColor(R.color.saved))
@@ -134,12 +104,8 @@ class NavigationActivity : BaseActivity<ActivityNavigationBinding, NavigationVie
 
 
             user.setOnClickListener(View.OnClickListener {
-                val fragment = AccountFragment()
-                val transaction = supportFragmentManager.beginTransaction()
-                transaction.replace(R.id.fragment_container, fragment)
-                transaction.commit()
 
-
+                    AccountFragment.start(this@NavigationActivity,R.id.fragment_container)
 
                 home.setTextColor(resources.getColor(R.color.saved))
                 chat.setTextColor(resources.getColor(R.color.saved))

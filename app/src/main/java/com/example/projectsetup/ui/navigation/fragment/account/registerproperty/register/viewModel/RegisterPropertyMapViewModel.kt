@@ -7,10 +7,15 @@ class RegisterPropertyMapViewModel:BaseViewModel() {
 
 
     val btnClickEvent= SingleLiveEvent<Unit>()
+    val ivBackClickEvent=SingleLiveEvent<Unit>()
 
 
     fun btnClicked(){
 
         btnClickEvent.call()
+    }
+
+    fun back(){
+        ivBackClickEvent.call()
     }
 }

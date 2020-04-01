@@ -3,11 +3,13 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#3992A3</color>
     <color name="colorAccent">#194CB4</color>
-    <color name="TRANSPARENT">#6D000000</color>
+    <color name="TRANSPARENT">#A9000000</color>
     <color name="material_white">#FFFF</color>
     <color name="saved">#8D000000</color>
-    <color name="transparentpop">#08000000</color>
+    <color name="transparentpop">#05000000</color>
     <color name="underline">#007E7979</color>
     <color name="blur">#B42B2B2B</color>
     <color name="white">#ffffff</color>
+    <color name="black">#000</color>
+    <color name="text_color">#194CB4</color>
 </resources>

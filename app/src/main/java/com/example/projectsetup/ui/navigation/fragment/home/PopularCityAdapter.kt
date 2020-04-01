@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectsetup.R
+import com.example.projectsetup.databinding.FragmentRegisterPropertyMapBinding
+import com.example.projectsetup.databinding.PopularCitiesBinding
 import kotlinx.android.synthetic.main.popular_cities.view.*
 
 class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
@@ -18,29 +21,29 @@ class ProductAdapter: RecyclerView.Adapter<ProductAdapter.ProductViewHolder>() {
 
         context=parent.context
 
-        val itemView=LayoutInflater.from(parent.context)
-            .inflate(R.layout.popular_cities,parent,false)
+        val citiesBinding:PopularCitiesBinding=DataBindingUtil.inflate(LayoutInflater.from(parent.context)
+            ,R.layout.popular_cities,parent,false)
 
 
 
-        return ProductViewHolder(itemView)
+        return ProductViewHolder(citiesBinding)
     }
 
     override fun getItemCount(): Int =productList.size
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
 
-        holder.itemView.iv_profile.setImageDrawable(ContextCompat.getDrawable(context,productList[position].image))
+        holder.mBinding.model=productList[position]
 
-      // Glide.with(context).load(R.drawable.rectangle).into(holder.itemView.iv_profile)
-        holder.itemView.tv_name.text=productList[position].name
-
+//        holder.mBinding.iv_profile.setImageDrawable(ContextCompat.getDrawable(context,productList[position].image))
+//
+//      // Glide.with(context).load(R.drawable.rectangle).into(holder.itemView.iv_profile)
+//        holder.mBinding.itemView.tv_name.text=productList[position].name
 
 
     }
 
-    inner class ProductViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
-
+    inner class ProductViewHolder(val mBinding:PopularCitiesBinding):RecyclerView.ViewHolder(mBinding.root)
 
 
     fun addAll(productList:ArrayList<Product>) {

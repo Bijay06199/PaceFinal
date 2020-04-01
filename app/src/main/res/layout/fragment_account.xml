@@ -120,6 +120,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="15dp"
                                 android:layout_weight="1"
+                                android:onClick="@{()->viewModel.onClicked()}"
                                 android:text="Register a property"
                                 android:textColor="#201A16" />
                         </LinearLayout>

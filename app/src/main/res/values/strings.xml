@@ -76,6 +76,17 @@
     <string name="you_haven_t_saved_anything_yet">You haven\'t saved anything yet.</string>
     <string name="start_searching_for_properties_to_add_now">Start searching for properties to add now</string>
     <string name="get_started">Get Started</string>
+    <string name="agent_profile">Agent profile</string>
+    <string name="ryoko_yonekura">Ryoko Yonekura</string>
+    <string name="_20_reviews">20 reviews</string>
+    <string name="_5_5">5/5</string>
+    <string name="send_message">Send Message</string>
+    <string name="make_a_call">Make a call</string>
+    <string name="about_me">About me</string>
+    <string name="active_listings_2">Active Listings(2)</string>
+    <string name="view_more_listings">View more listings</string>
+    <string name="i_began_my_professional_career_in_investment">I began my professional career in investment.....</string>
+    <string name="ratings_and_review">Ratings and Review</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

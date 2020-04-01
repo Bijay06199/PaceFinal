@@ -6,14 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 
 import com.example.projectsetup.R
 
 class LayoutFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = LayoutFragment()
-    }
+
 
     private lateinit var viewModel: LayoutViewModel
 
@@ -29,5 +28,14 @@ class LayoutFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(LayoutViewModel::class.java)
         // TODO: Use the ViewModel
     }
+    companion object {
+        fun start(activity: FragmentActivity, containerId: Int) {
+            val fragment= LayoutFragment()
+            activity.supportFragmentManager.beginTransaction()
+                .replace(containerId,fragment)
+                .commit()
 
+        }
+
+    }
 }

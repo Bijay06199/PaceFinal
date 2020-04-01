@@ -7,10 +7,12 @@ import com.example.projectsetup.ui.forgotpassword.resetsuccessful.ResetPasswordS
 import com.example.projectsetup.ui.login.LoginViewModel
 import com.example.projectsetup.ui.main.MainViewModel
 import com.example.projectsetup.ui.navigation.NavigationViewModel
+import com.example.projectsetup.ui.navigation.fragment.account.AccountFragmentViewModel
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.RegisterPropertyRoomViewModel
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.viewModel.AgentListViewModel
-import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.viewModel.FindAgentByAddressActivityViewModel
-import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.viewModel.FindAgentByAreaActivityViewModel
+import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.viewModel.AgentProfileViewModel
+import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.viewModel.FindAgentByAddressFragmentViewModel
+import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.viewModel.FindAgentByAreaFragmentViewModel
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.viewModel.*
 import com.example.projectsetup.ui.navigation.fragment.chat.ChatFragmentViewModel
 import com.example.projectsetup.ui.navigation.fragment.home.HomeFragmentViewModel
@@ -27,11 +29,11 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
-val viewModelModule:Module= module {
+val viewModelModule: Module = module {
 
     viewModel { ForgotPasswordViewModel(get()) }
     viewModel { LoginViewModel(get()) }
-    viewModel { RegisterPropertySaveViewModel() }
+    viewModel { RegisterPropertyAddressViewModel() }
     viewModel { RegisterPropertyMapViewModel() }
     viewModel { RegisterPropertyDetailViewModel() }
     viewModel { RegisterPropertyFacilitiesViewModel() }
@@ -41,8 +43,8 @@ val viewModelModule:Module= module {
     viewModel { RegisterPropertyRelationshipViewModel() }
     viewModel { RegisterPropertyRoomViewModel() }
     viewModel { AgentListViewModel() }
-    viewModel {FindAgentByAddressActivityViewModel()}
-    viewModel { FindAgentByAreaActivityViewModel() }
+    viewModel { FindAgentByAddressFragmentViewModel() }
+    viewModel { FindAgentByAreaFragmentViewModel() }
     viewModel { ResetPasswordSuccessfullModel() }
     viewModel { ResetPasswordViewModel() }
     viewModel { MainViewModel() }
@@ -64,5 +66,10 @@ val viewModelModule:Module= module {
     viewModel { RegisterPropertyRentPriceViewModel() }
     viewModel { RegisterPropertySalePriceViewModel() }
     viewModel { RegisterPropertyPreviewViewModel() }
+    viewModel { AccountFragmentViewModel() }
+    viewModel { RegisterMyPropertyViewModel() }
+    viewModel { RegisterPropertyChooseViewModel() }
+    viewModel { AgentProfileViewModel() }
+
 
 }

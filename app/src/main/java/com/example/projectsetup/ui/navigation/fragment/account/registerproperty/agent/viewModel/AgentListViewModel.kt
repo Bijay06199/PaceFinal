@@ -6,9 +6,15 @@ import com.example.projectsetup.utils.SingleLiveEvent
 class AgentListViewModel:BaseViewModel() {
 
     val ivBackClick=SingleLiveEvent<Unit>()
+    val nextClickEvent=SingleLiveEvent<Unit>()
 
     fun onBack(){
 
         ivBackClick.call()
     }
+
+    fun next(){
+        nextClickEvent.call()
+    }
+
 }

@@ -5,16 +5,16 @@ import com.example.projectsetup.utils.SingleLiveEvent
 
 class RegisterPropertyRelationshipViewModel:BaseViewModel() {
 
-    val btnNextClicked=SingleLiveEvent<Unit>()
-    val ivBack=SingleLiveEvent<Unit>()
+    val btnNextClickedEvent=SingleLiveEvent<Unit>()
+    val ivBackEvent=SingleLiveEvent<Unit>()
 
 
     fun onBtnClicked(){
-        btnNextClicked.call()
+        btnNextClickedEvent.call()
     }
 
     fun onBack(){
-        ivBack.call()
+        ivBackEvent.call()
     }
 
 }
