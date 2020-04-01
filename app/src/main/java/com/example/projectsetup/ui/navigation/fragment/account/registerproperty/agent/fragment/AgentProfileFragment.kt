@@ -1,9 +1,12 @@
 package com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.fragment
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.projectsetup.BR
 
 import com.example.projectsetup.R
@@ -16,6 +19,12 @@ import kotlinx.android.synthetic.main.agent_profile_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AgentProfileFragment : BaseFragment<AgentProfileFragmentBinding, AgentProfileViewModel>() {
+
+    var page = 0
+     var isLoading = false
+    val limit = 20
+     lateinit var profileAdapter : ProfileAdapter
+    lateinit var layoutManager:LinearLayoutManager
 
     private val agentProfileViewModel: AgentProfileViewModel by viewModel()
     override fun getLayoutId(): Int = R.layout.agent_profile_fragment
@@ -48,93 +57,49 @@ class AgentProfileFragment : BaseFragment<AgentProfileFragmentBinding, AgentProf
     }
 
     private fun setUpRecyclerView() {
-        val profileAdapter = ProfileAdapter()
+        layoutManager= LinearLayoutManager(context)
+           getItems()
+         viewDataBinding.recyclerViewAgentProfile.addOnScrollListener(object :RecyclerView.OnScrollListener(){
+
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                val visibleItemCount=layoutManager.childCount
+                val pastVisibleItem=layoutManager.findFirstCompletelyVisibleItemPosition()
+                val total=profileAdapter.itemCount
+
+                if(!isLoading){
+                    if((visibleItemCount+pastVisibleItem)>=total){
+                        page++
+                        getItems()
+                    }
+                }
+                super.onScrolled(recyclerView, dx, dy)
+            }
+        })
+    }
+
+    fun getItems() {
+        isLoading=true
+        profileAdapter=ProfileAdapter()
         viewDataBinding.recyclerViewAgentProfile.adapter = profileAdapter
+        var profileList=ArrayList<ProfileListModel>()
 
-        var profileList = ArrayList<ProfileListModel>()
 
-        profileList.add(
-            ProfileListModel(
-                "https://cdn.pixabay.com/photo/2019/08/28/14/24/tokyo-4436914_960_720.jpg",
-                "3 chome 20th Ave",
-                "Shiho city, BC Tokyo",
-                "$2010000"
-            )
-        )
-        profileList.add(
-            ProfileListModel(
-                "https://cdn.pixabay.com/photo/2016/09/15/02/17/skyscrapers-1670937__340.jpg",
-                "3 chome 20th Ave",
-                "Shiho city, BC Tokyo",
-                "$2010000"
-            )
-        )
-        profileList.add(
-            ProfileListModel(
-                "https://cdn.pixabay.com/photo/2015/11/06/12/22/byodo-in-1026877__340.jpg",
-                "3 chome 20th Ave",
-                "Shiho city, BC Tokyo",
-                "$2010000"
-            )
-        )
-        profileList.add(
-            ProfileListModel(
-                "https://cdn.pixabay.com/photo/2016/09/15/02/17/skyscrapers-1670937__340.jpg",
-                "3 chome 20th Ave",
-                "Shiho city, BC Tokyo",
-                "$2010000"
-            )
-        )
-        profileList.add(
-            ProfileListModel(
-                "https://cdn.pixabay.com/photo/2019/08/28/14/24/tokyo-4436914_960_720.jpg",
-                "3 chome 20th Ave",
-                "Shiho city, BC Tokyo",
-                "$2010000"
-            )
-        )
-        profileList.add(
-            ProfileListModel(
-                "https://cdn.pixabay.com/photo/2019/08/28/14/24/tokyo-4436914_960_720.jpg",
-                "3 chome 20th Ave",
-                "Shiho city, BC Tokyo",
-                "$2010000"
-            )
-        )
-        profileList.add(
-            ProfileListModel(
-                "https://cdn.pixabay.com/photo/2016/09/15/02/17/skyscrapers-1670937__340.jpg",
-                "3 chome 20th Ave",
-                "Shiho city, BC Tokyo",
-                "$2010000"
-            )
-        )
-        profileList.add(
-            ProfileListModel(
-                "https://cdn.pixabay.com/photo/2019/08/28/14/24/tokyo-4436914_960_720.jpg",
-                "3 chome 20th Ave",
-                "Shiho city, BC Tokyo",
-                "$2010000"
-            )
-        )
-        profileList.add(
-            ProfileListModel(
-                "https://cdn.pixabay.com/photo/2019/08/28/14/24/tokyo-4436914_960_720.jpg",
-                "3 chome 20th Ave",
-                "Shiho city, BC Tokyo",
-                "$2010000"
-            )
-        )
-        profileList.add(
-            ProfileListModel(
-                "https://cdn.pixabay.com/photo/2019/08/28/14/24/tokyo-4436914_960_720.jpg",
-                "3 chome 20th Ave",
-                "Shiho city, BC Tokyo",
-                "$2010000"
-            )
-        )
+        val start = (page - 1) * limit
+        val end = (page) * limit
 
+        for (i in start..end) {
+            profileList.add(
+                ProfileListModel(
+                    "https://cdn.pixabay.com/photo/2020/03/18/06/06/street-4942809__340.jpg",
+                    "3 chome 20th Ave",
+                    "Shiho city",
+                    "Tokyo"
+                )
+            )
+        }
         profileAdapter.addAll(profileList)
+        isLoading=false
+
     }
 
     private fun setUpObservers() {
