@@ -32,8 +32,7 @@
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/coordinator"
             android:layout_width="match_parent"
-            android:layout_height="110dp"
-
+            android:layout_height="80dp"
             android:layout_marginTop="20dp"
             android:layout_gravity="bottom">
 
@@ -62,6 +61,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:textSize="11sp"
+                            android:background="@drawable/ripple_button_clicked"
                             android:orientation="vertical"
                             android:textAllCaps="false"
                             android:layout_weight="1"
@@ -78,6 +78,7 @@
                             android:textSize="11sp"
                             android:gravity="center"
                             android:layout_weight="1"
+                            android:background="@drawable/ripple_button_clicked"
                             android:orientation="vertical"
                             android:textAllCaps="false"
                             android:text="@{@string/for_rent(viewModel.forrent)}"
@@ -91,6 +92,7 @@
                             android:layout_height="wrap_content"
                             android:id="@+id/forSale"
                             android:textSize="11sp"
+                            android:background="@drawable/ripple_button_clicked"
                             android:layout_weight="1"
                             android:orientation="vertical"
                             android:textColor="#99000000"
@@ -108,6 +110,7 @@
                             android:textSize="11sp"
                             android:gravity="center"
                             android:orientation="vertical"
+                            android:background="@drawable/ripple_button_clicked"
                             android:layout_weight="1"
                             android:textAllCaps="false"
                             android:text="@{@string/saved_search(viewModel.savedsearch)}"

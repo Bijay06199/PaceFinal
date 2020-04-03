@@ -20,9 +20,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AgentProfileFragment : BaseFragment<AgentProfileFragmentBinding, AgentProfileViewModel>() {
 
-    var page = 0
+    var page = 1
      var isLoading = false
-    val limit = 20
+    val limit = 10
      lateinit var profileAdapter : ProfileAdapter
     lateinit var layoutManager:LinearLayoutManager
 
@@ -58,7 +58,8 @@ class AgentProfileFragment : BaseFragment<AgentProfileFragmentBinding, AgentProf
 
     private fun setUpRecyclerView() {
         layoutManager= LinearLayoutManager(context)
-           getItems()
+        profileAdapter=ProfileAdapter()
+        viewDataBinding.recyclerViewAgentProfile.adapter = profileAdapter
          viewDataBinding.recyclerViewAgentProfile.addOnScrollListener(object :RecyclerView.OnScrollListener(){
 
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -79,8 +80,7 @@ class AgentProfileFragment : BaseFragment<AgentProfileFragmentBinding, AgentProf
 
     fun getItems() {
         isLoading=true
-        profileAdapter=ProfileAdapter()
-        viewDataBinding.recyclerViewAgentProfile.adapter = profileAdapter
+        viewDataBinding.progressBar.visibility=View.VISIBLE
         var profileList=ArrayList<ProfileListModel>()
 
 
@@ -96,9 +96,22 @@ class AgentProfileFragment : BaseFragment<AgentProfileFragmentBinding, AgentProf
                     "Tokyo"
                 )
             )
+            profileAdapter.notifyItemInserted(profileList.size)
         }
-        profileAdapter.addAll(profileList)
-        isLoading=false
+
+        Handler().postDelayed({
+            if(::profileAdapter.isInitialized){
+                profileAdapter.notifyDataSetChanged()
+            }else{
+                profileAdapter=ProfileAdapter()
+                viewDataBinding.recyclerViewAgentProfile.adapter=profileAdapter
+            }
+            profileAdapter.addAll(profileList)
+            isLoading=false
+            viewDataBinding.progressBar.visibility=View.GONE
+        },3000)
+
+
 
     }
 
@@ -113,6 +126,7 @@ class AgentProfileFragment : BaseFragment<AgentProfileFragmentBinding, AgentProf
 
     private fun initView() {
 
+        getItems()
 
     }
 

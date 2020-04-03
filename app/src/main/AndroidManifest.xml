@@ -22,25 +22,6 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyActivity"></activity>
         <activity android:name=".ui.navigation.fragment.account.registerproperty.agent.activity.AgentActivity" />
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyChooseActivity" />
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterMyPropertyFragment" />
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterActivity" />
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyPreviewFragment" />
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyRentPriceFragment" />
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyDescriptionFragment" />
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyPhotoFragment" />
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertySalePriceFragment" />
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyConditionFragment" />
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyFeatureFragment" />
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyFacilitiesFragment" />
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.RegisterPropertyDetailFragment" />
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.RegisterPropertyMapFragment" />
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.RegisterPropertySaveActivity" />
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyWantActivity" />
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.RegisterPropertyRelationshipActivity" />
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.agent.activity.AgentListActivity" />
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.agent.activity.FindAgentByAddressActivity" />
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.agent.activity.FindAgentByAreaActivity" />
         <activity android:name=".ui.navigation.fragment.account.registerproperty.RegisterPropertyRoomActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

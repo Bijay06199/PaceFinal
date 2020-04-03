@@ -18,6 +18,7 @@ import com.example.projectsetup.ui.navigation.fragment.chat.ChatFragmentViewMode
 import com.example.projectsetup.ui.navigation.fragment.home.HomeFragmentViewModel
 import com.example.projectsetup.ui.navigation.fragment.saved.SavedFragmentViewModel
 import com.example.projectsetup.ui.navigation.fragment.saved.all.AllSavedViewModel
+import com.example.projectsetup.ui.navigation.fragment.saved.all.AllViewModel
 import com.example.projectsetup.ui.navigation.fragment.saved.forrent.ForRentSavedViewModel
 import com.example.projectsetup.ui.navigation.fragment.saved.forrent.ForRentViewModel
 import com.example.projectsetup.ui.navigation.fragment.saved.forsale.ForSaleSavedViewModel
@@ -51,7 +52,6 @@ val viewModelModule: Module = module {
     viewModel { NavigationViewModel() }
     viewModel { ChatFragmentViewModel() }
     viewModel { HomeFragmentViewModel() }
-    viewModel { AllSavedViewModel() }
     viewModel { SavedFragmentViewModel() }
     viewModel { ForRentViewModel() }
     viewModel { ForRentSavedViewModel() }
@@ -70,6 +70,9 @@ val viewModelModule: Module = module {
     viewModel { RegisterMyPropertyViewModel() }
     viewModel { RegisterPropertyChooseViewModel() }
     viewModel { AgentProfileViewModel() }
+    viewModel { AllSavedViewModel() }
+    viewModel { AllViewModel() }
+
 
 
 }

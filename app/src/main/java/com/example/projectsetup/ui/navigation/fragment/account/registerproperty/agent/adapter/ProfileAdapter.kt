@@ -32,19 +32,15 @@ class ProfileAdapter:RecyclerView.Adapter<ProfileAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: ProfileAdapter.MyViewHolder, position: Int) {
         holder.mBinding.model=itemList[position]
-//        var item= itemList[position]
-//        holder.itemView.iv_list.setImageDrawable(ContextCompat.getDrawable(context,item.image))
-//        holder.itemView.tv_list1.text=item.text1
-//        holder.itemView.tv_list2.text=item.text2
-//        holder.itemView.tv_list3.text=item.text3
     }
 
     inner class MyViewHolder(val mBinding:AgentProfileListRecyclerviewBinding):RecyclerView.ViewHolder(mBinding.root)
 
     fun addAll(itemList:ArrayList<ProfileListModel>){
+        var size =this.itemList.size
         this.itemList=itemList
+        var sizeNew=this.itemList.size
         notifyDataSetChanged()
-
         fun onClick(){
 
         }

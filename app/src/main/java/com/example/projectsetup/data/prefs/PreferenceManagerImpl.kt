@@ -5,12 +5,21 @@ import androidx.core.content.edit
 
 
 open class PreferenceManagerImpl(private val prefs: SharedPreferences) : PreferenceManager {
+    override fun setLanguageType(languageType: Int) {
+        prefs[IS_LANGUAGE_TYPE]=languageType
+
+    }
+
+    override fun getLanguageType(): Int {
+        return prefs[IS_LANGUAGE_TYPE]?:0
+    }
+
     override fun setRegistrationType(registrationType: Int) {
         prefs[REGISTRATION_TYPE] = registrationType
     }
 
     override fun getRegistrationType(): Int {
-        return prefs[ACCESS_TOKEN]?:0
+        return prefs[REGISTRATION_TYPE]?:0
     }
 
     override fun setToken(token: String) {

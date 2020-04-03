@@ -23,7 +23,7 @@ abstract class BaseActivity<DATA_BINDING : ViewDataBinding, VIEW_MODEL : BaseVie
     lateinit var viewDataBinding: DATA_BINDING
     var baseViewModel: VIEW_MODEL? = null
     private lateinit var progressDialog: Dialog
-    private val preferenceManager: PreferenceManager by inject()
+    val preferenceManager: PreferenceManager by inject()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

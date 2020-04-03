@@ -9,5 +9,7 @@ interface PreferenceManager {
     fun getIsLoggedIn():Boolean
     fun setRegistrationType(registrationType: Int)
     fun getRegistrationType():Int
+    fun setLanguageType(languageType:Int)
+    fun getLanguageType():Int
 
 }

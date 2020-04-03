@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.Observer
 import com.example.projectsetup.BR
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseFragment
@@ -23,24 +25,37 @@ class AllFragment : BaseFragment<AllFragmentBinding,AllViewModel>(){
         return BR.viewModel
     }
 
-    companion object {
-        fun newInstance() = AllFragment()
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initView()
+        setUpObservers()
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        viewDataBinding=inflate(inflater,container,false)
-
-        return viewDataBinding.root
-
+    private fun setUpObservers() {
+        with(allViewModel){
+            clickedEvent.observe(viewLifecycleOwner, Observer {
+                AllSavedFragment.start(activity!!,R.id.fragment_container1)
+            })
+        }
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-       // viewModel = ViewModelProviders.of(this).get(AllViewModel::class.java)
-        // TODO: Use the ViewModel
+    private fun initView() {
+        with(viewDataBinding){
+
+        }
+    }
+    companion object{
+
+        val TAG=AllFragment::class.java.simpleName
+        fun start(activity:FragmentActivity,containerId:Int){
+            val fragment=AllFragment()
+            activity.supportFragmentManager.beginTransaction()
+                .addToBackStack(TAG)
+                .replace(containerId,fragment)
+                .commit()
+        }
     }
 
 }

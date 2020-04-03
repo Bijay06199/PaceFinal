@@ -39,7 +39,7 @@ class RegisterPropertyRentPriceFragment : BaseFragment<FragmentRegisterPropertyR
 
         with(registerPropertyRentPriceViewModel){
             btnNextClicked.observe(viewLifecycleOwner, Observer {
-                RegisterPropertySalePriceFragment.start(activity!!,R.id.container_register_property)
+                RegisterPropertyPreviewFragment.start(activity!!,R.id.container_register_property)
 
             })
 

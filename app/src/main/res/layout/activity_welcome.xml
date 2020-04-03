@@ -492,19 +492,7 @@
             android:padding="20dp"
             android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/btnConfirm"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:background="@drawable/forgot_layout"
-                android:gravity="center"
-                android:layout_alignParentBottom="true"
-                android:text="Confirm"
-                android:textAllCaps="false"
-                android:onClick="@{()->welcomeViewModel.onNextClicked()}"
-                android:textColor="#FFF"
-                android:textSize="14sp" />
+
         </RelativeLayout>
 
     </RelativeLayout>

@@ -7,5 +7,6 @@
     <dimen name="margin_topmain">370dp</dimen>
     <dimen name="margin_toplogin">110dp</dimen>
     <dimen name="margin_topforgotpassword">120dp</dimen>
+    <dimen name="margin_normal">30dp</dimen>
 
 </resources>

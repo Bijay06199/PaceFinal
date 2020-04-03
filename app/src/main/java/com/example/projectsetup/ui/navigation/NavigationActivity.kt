@@ -10,9 +10,14 @@ import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseActivity
 import com.example.projectsetup.databinding.ActivityNavigationBinding
 import com.example.projectsetup.ui.navigation.fragment.account.AccountFragment
+import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.fragment.AgentProfileFragment
+import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.fragment.FindAgentByAreaFragment
 import com.example.projectsetup.ui.navigation.fragment.chat.ChatFragment
 import com.example.projectsetup.ui.navigation.fragment.home.HomeFragment
 import com.example.projectsetup.ui.navigation.fragment.saved.SavedFragment
+import com.example.projectsetup.ui.navigation.fragment.saved.all.AllFragment
+import com.example.projectsetup.ui.navigation.fragment.saved.forrent.ForRentFragment
+import com.example.projectsetup.ui.navigation.fragment.saved.forsale.ForSaleFragment
 import com.example.projectsetup.ui.navigation.fragment.search.MapsActivity
 import kotlinx.android.synthetic.main.activity_navigation.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -121,5 +126,20 @@ class NavigationActivity : BaseActivity<ActivityNavigationBinding, NavigationVie
     fun onstart(context: Context){
       val intent=Intent(this@NavigationActivity, MapsActivity::class.java)
       context.startActivity(intent)
+    }
+
+    override fun onBackPressed() {
+        val currentFragment =
+            supportFragmentManager.findFragmentById(R.id.fragment_container)
+        if (currentFragment is HomeFragment) {
+            finish()
+        }
+
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            supportFragmentManager.popBackStack()
+        } else {
+            super.onBackPressed()
+        }
+
     }
 }

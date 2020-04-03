@@ -22,7 +22,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             />
-
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -68,14 +67,14 @@
                         android:id="@+id/home"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="?android:attr/selectableItemBackground"
+                        android:background="@drawable/ripple_button_clicked"
                         android:drawableTop="@drawable/empire1"
                         android:gravity="center"
                         android:textSize="11sp"
                         android:onClick="@{()->viewModel.onHomeClicked0()}"
                         android:orientation="vertical"
                         android:text="@{@string/home(viewModel.home)}"
-                        android:textColor="#000">
+                        android:textColor="#CE201A16">
 
                     </TextView>
 
@@ -86,14 +85,13 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:textSize="11sp"
-                        android:background="?android:attr/selectableItemBackground"
+                        android:background="@drawable/ripple_button_clicked"
                         android:drawableTop="@drawable/favorites"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:onClick="@{()->viewModel.onSavedClicked()}"
                         android:text="@{@string/saved(viewModel.saved)}"
-                        android:textStyle="bold"
-                        android:textColor="#000">
+                        android:textColor="#CE201A16">
 
                     </TextView>
 
@@ -104,12 +102,11 @@
                         android:layout_weight="1"
                         android:id="@+id/search"
                         android:textSize="11sp"
-                        android:background="?android:attr/selectableItemBackground"
+                        android:background="@drawable/ripple_button_clicked"
                         android:gravity="center"
-                        android:textStyle="bold"
                         android:onClick="@{()->viewModel.onSearchClicked()}"
                         android:orientation="vertical"
-                        android:textColor="#000"
+                        android:textColor="#CE201A16"
                         android:text="@{@string/search(viewModel.search)}"
                         >
 
@@ -122,14 +119,13 @@
                         android:layout_weight="1"
                         android:id="@+id/chat"
                         android:textSize="11sp"
-                        android:textStyle="bold"
-                        android:background="?android:attr/selectableItemBackground"
+                        android:background="@drawable/ripple_button_clicked"
                         android:drawableTop="@drawable/chat"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:onClick="@{()->viewModel.onChatClicked()}"
                         android:text="@{@string/chat(viewModel.chat)}"
-                        android:textColor="#000">
+                        android:textColor="#CE201A16">
 
                     </TextView>
 
@@ -139,15 +135,14 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:id="@+id/user"
-                        android:textStyle="bold"
                         android:textSize="11sp"
-                        android:background="?android:attr/selectableItemBackground"
+                        android:background="@drawable/ripple_button_clicked"
                         android:drawableTop="@drawable/user"
                         android:gravity="center"
                         android:orientation="vertical"
                         android:onClick="@{()->viewModel.onAccountClicked()}"
                         android:text="@{@string/account(viewModel.account)}"
-                        android:textColor="#000">
+                        android:textColor="#CE201A16">
 
                     </TextView>
 

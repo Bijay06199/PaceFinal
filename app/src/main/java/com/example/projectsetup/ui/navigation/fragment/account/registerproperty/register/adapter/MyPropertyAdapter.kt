@@ -41,15 +41,6 @@ class MyPropertyAdapter(private val listener:OnItemClickListener):RecyclerView.A
             listener.onItemClicked(holder.adapterPosition,propertyList[holder.adapterPosition])
 
         }
-
-//        var item=propertyList[position]
-//
-//        holder.mBinding.ivRoom.setImageDrawable(ContextCompat.getDrawable(context,item.image))
-//        holder.mBinding.tvMyproperty1.text=item.title1
-//        holder.mBinding.tvMyproperty2.text=item.title2
-//        holder.mBinding.tvMyproperty3.text=item.title3
-
-
     }
 
     interface OnItemClickListener{

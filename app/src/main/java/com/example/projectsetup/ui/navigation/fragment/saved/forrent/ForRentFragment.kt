@@ -6,12 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.Observer
 import com.example.projectsetup.BR
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseFragment
 
 import com.example.projectsetup.databinding.ForRentFragmentBinding
 import com.example.projectsetup.databinding.ForRentFragmentBinding.inflate
+import com.example.projectsetup.ui.navigation.fragment.saved.all.AllFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ForRentFragment : BaseFragment<ForRentFragmentBinding,ForRentViewModel>() {
@@ -24,23 +27,32 @@ class ForRentFragment : BaseFragment<ForRentFragmentBinding,ForRentViewModel>() 
         return BR.viewModel
     }
 
-    companion object {
-        fun newInstance() =
-            ForRentFragment()
+    companion object{
+
+        val TAG= ForRentFragment::class.java.simpleName
+        fun start(activity: FragmentActivity, containerId:Int){
+            val fragment= ForRentFragment()
+            activity.supportFragmentManager.beginTransaction()
+                .addToBackStack(TAG)
+                .replace(containerId,fragment)
+                .commit()
+        }
     }
 
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        viewDataBinding=inflate(inflater,container,false)
-        return viewDataBinding.root
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUpObservers()
     }
 
+    private fun setUpObservers() {
+        with(forRentViewModel){
 
+            clickedEvent.observe(viewLifecycleOwner, Observer {
+                ForRentSavedFragment.start(activity!!,R.id.fragment_container1)
+            })
+        }
     }
+
+}
 
 

@@ -30,10 +30,10 @@ class RegisterPropertyChooseFragment :
         with(registerPropertyChooseViewModel) {
 
             btnNextCLickedEvent.observe(viewLifecycleOwner, Observer {
-//                when(preferenceManager.getRegistrationType()){
-//                    SALE->RegisterPropertyAddressFragment.start(activity!!,R.id.container_register_property)
-//                    RENT->RegisterPropertyWantFragment.start(activity!!,R.id.container_register_property)
-//                }
+                when(preferenceManager.getRegistrationType()){
+                    SALE->RegisterPropertyAddressFragment.start(activity!!,R.id.container_register_property)
+                    RENT->RegisterPropertyWantFragment.start(activity!!,R.id.container_register_property)
+                }
             })
 
             ivBackClickedEvent.observe(viewLifecycleOwner, Observer {
@@ -70,10 +70,6 @@ class RegisterPropertyChooseFragment :
                     forSale.isChecked = false
                 }
                 preferenceManager.setRegistrationType(RENT)
-
-                btnNext.setOnClickListener {
-                    RegisterPropertyWantFragment.start(activity!!, R.id.container_register_property)
-                }
             }
 
             forSale.setOnClickListener {
@@ -81,12 +77,6 @@ class RegisterPropertyChooseFragment :
 
                 if (forSale.isChecked) {
                     forRent.isChecked = false
-                }
-                btnNext.setOnClickListener {
-                    RegisterPropertyAddressFragment.start(
-                        activity!!,
-                        R.id.container_register_property
-                    )
                 }
             }
 

@@ -24,6 +24,16 @@ class AppContracts {
         const val RENT=2
     }
 
+    object LanguageType{
+        const val JAPANESE=1
+        const val ENGLISH=2
+        const val HEBREW=3
+        const val VIETNAM=4
+        const val RUSSIAN=5
+        const val SPANISH=6
+        const val NEPAL=7
+    }
+
 
     object RequestCodes {
         const val REFRESH_FAILED = "refresh_failed"

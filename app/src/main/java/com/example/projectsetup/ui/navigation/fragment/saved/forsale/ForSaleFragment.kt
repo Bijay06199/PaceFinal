@@ -6,12 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.Observer
 import com.example.projectsetup.BR
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseFragment
 
 import com.example.projectsetup.databinding.ForSaleFragmentBinding
 import com.example.projectsetup.databinding.ForSaleFragmentBinding.inflate
+import com.example.projectsetup.ui.navigation.fragment.saved.forrent.ForRentFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ForSaleFragment : BaseFragment<ForSaleFragmentBinding,ForSaleViewModel>(){
@@ -24,20 +27,29 @@ class ForSaleFragment : BaseFragment<ForSaleFragmentBinding,ForSaleViewModel>(){
         return BR.viewModel
     }
 
-    companion object {
-        fun newInstance() =
-            ForSaleFragment()
+    companion object{
+
+        val TAG= ForSaleFragment::class.java.simpleName
+        fun start(activity: FragmentActivity, containerId:Int){
+            val fragment= ForSaleFragment()
+            activity.supportFragmentManager.beginTransaction()
+                .addToBackStack(TAG)
+                .replace(containerId,fragment)
+                .commit()
+        }
     }
 
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        viewDataBinding=inflate(inflater,container,false)
-        return viewDataBinding.root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUpObservers()
     }
 
+    private fun setUpObservers() {
+        with(forSaleViewModel){
+            clickedEvent.observe(viewLifecycleOwner, Observer {
+                ForSaleSavedFragment.start(activity!!,R.id.fragment_container1)
+            })
+        }
+    }
 
 }

@@ -6,12 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 import com.example.projectsetup.BR
 
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseFragment
 import com.example.projectsetup.databinding.SavedSearchSavedFragmentBinding
 import com.example.projectsetup.databinding.SavedSearchSavedFragmentBinding.inflate
+import com.example.projectsetup.ui.navigation.fragment.saved.forsale.ForSaleFragment
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SavedSearchSavedFragment : BaseFragment<SavedSearchSavedFragmentBinding,SavedSearchSavedViewModel>() {
@@ -24,20 +26,17 @@ class SavedSearchSavedFragment : BaseFragment<SavedSearchSavedFragmentBinding,Sa
         return BR.viewModel
     }
 
-    companion object {
-        fun newInstance() = SavedSearchSavedFragment()
+    companion object{
+
+        val TAG= SavedSearchSavedFragment::class.java.simpleName
+        fun start(activity: FragmentActivity, containerId:Int){
+            val fragment= SavedSearchSavedFragment()
+            activity.supportFragmentManager.beginTransaction()
+                .addToBackStack(TAG)
+                .replace(containerId,fragment)
+                .commit()
+        }
     }
-
-
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-       viewDataBinding=inflate(inflater,container,false)
-        return viewDataBinding.root
-    }
-
 
 
 }
