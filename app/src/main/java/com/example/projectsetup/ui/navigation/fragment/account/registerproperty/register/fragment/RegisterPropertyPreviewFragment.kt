@@ -13,7 +13,6 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.transition.TransitionManager
 import com.example.projectsetup.BR
-import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseFragment
 import com.example.projectsetup.databinding.FragmentRegisterPropertyPreviewBinding
 import com.example.projectsetup.ui.Adapter.ViewPagerAdapter
@@ -24,7 +23,6 @@ import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.viewModel.RegisterPropertyPreviewViewModel
 import kotlinx.android.synthetic.main.fragment_register_property_preview.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import android.view.ViewGroup
 
 
 class RegisterPropertyPreviewFragment

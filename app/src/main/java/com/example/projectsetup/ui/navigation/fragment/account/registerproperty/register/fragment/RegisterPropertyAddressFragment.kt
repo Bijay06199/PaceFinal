@@ -6,7 +6,6 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import com.example.projectsetup.BR
 import com.example.projectsetup.R
-import com.example.projectsetup.base.BaseActivity
 import com.example.projectsetup.base.BaseFragment
 import com.example.projectsetup.databinding.FragmentRegisterPropertyAddressBinding
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.viewModel.RegisterPropertyAddressViewModel

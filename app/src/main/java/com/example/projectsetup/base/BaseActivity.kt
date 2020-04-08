@@ -104,4 +104,5 @@ abstract class BaseActivity<DATA_BINDING : ViewDataBinding, VIEW_MODEL : BaseVie
 
 
 
+
 }

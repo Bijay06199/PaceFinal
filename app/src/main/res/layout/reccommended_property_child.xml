@@ -1,87 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="wrap_content"
-    android:layout_margin="20dp"
-    android:layout_height="wrap_content">
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="model"
+            type="com.example.projectsetup.ui.navigation.fragment.home.RecommendedChildModel" />
+    </data>
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_height="wrap_content">
 
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/iv_room"
-            android:layout_width="250dp"
-            android:layout_height="140dp"
-            app:srcCompat="@drawable/rectangle85" />
 
         <RelativeLayout
-            android:layout_width="250dp"
-            android:layout_height="140dp">
-
-            <Button
-                android:id="@+id/btn_sale_rent"
-                android:layout_width="48dp"
-                android:layout_height="25dp"
-                android:background="@drawable/rent_layout"
-                android:text="SALE"
-                android:textColor="#FFFF" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
 
-            <ImageView
-                android:id="@+id/imgheart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_gravity="end"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/heart" />
 
-            <ImageView
-                android:id="@+id/imgsavedheart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_gravity="right|bottom"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/savedheart" />
+                <ImageView
+                    android:id="@+id/iv_room"
+                    imageSrc="@{model.image}"
+                    android:layout_width="@dimen/home_image_width"
+                    android:layout_height="@dimen/home_image_height" />
+
+            <RelativeLayout
+                android:layout_width="@dimen/home_image_width"
+                android:layout_height="@dimen/home_image_height">
+
+                <Button
+                    android:id="@+id/btn_sale_rent"
+                    android:layout_width="48dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/rent_layout"
+                    android:text="SALE"
+                    android:textColor="#FFFF" />
+
+
+                <ImageView
+                    android:id="@+id/imgheart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/heart" />
+
+                <ImageView
+                    android:id="@+id/imgsavedheart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="right|bottom"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/savedheart" />
+            </RelativeLayout>
         </RelativeLayout>
-    </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tv1"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="459 W 20th Ave"
-            android:textColor="#201A16"
-            android:textSize="14sp" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Shiho city, BC V5Y 2C7, Tokyo"
-            android:textColor="#201A16"
-            android:textSize="14sp" />
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{model.title1}"
+                android:textColor="#201A16"
+                android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/tv3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="$230,000,000"
-            android:textColor="#201A16"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{model.title2}"
+                android:textColor="#201A16"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@{model.title3}"
+                android:textColor="#201A16"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
     </LinearLayout>
-
-
-</LinearLayout>
+</layout>

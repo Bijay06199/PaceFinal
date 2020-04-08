@@ -20,7 +20,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyActivity"></activity>
+        <activity android:name=".ui.navigation.fragment.account.myProfile.activity.agent.AgentMyProfileActivity"></activity>
+        <activity android:name=".ui.navigation.fragment.account.myProfile.activity.EmailVerificationActivity" />
+        <activity android:name=".ui.navigation.fragment.account.myProfile.activity.MobileVerificationActivity" />
+        <activity android:name=".ui.navigation.fragment.account.myProfile.activity.IdVerificationActivity" />
+        <activity android:name=".ui.navigation.fragment.account.myProfile.activity.AccountVerificationActivity" />
+        <activity android:name=".ui.navigation.fragment.account.myProfile.activity.EditProfileActivity" />
+        <activity android:name=".ui.navigation.fragment.account.myProfile.activity.MyProfileActivity" />
+        <activity android:name=".ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyActivity" />
         <activity android:name=".ui.navigation.fragment.account.registerproperty.agent.activity.AgentActivity" />
         <activity android:name=".ui.navigation.fragment.account.registerproperty.RegisterPropertyRoomActivity" />
         <!--

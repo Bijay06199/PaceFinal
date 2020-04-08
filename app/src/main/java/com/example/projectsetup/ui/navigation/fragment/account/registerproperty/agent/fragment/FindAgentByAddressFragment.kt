@@ -7,11 +7,8 @@ import androidx.lifecycle.Observer
 import com.example.projectsetup.BR
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseFragment
-import com.example.projectsetup.databinding.FragmentFindAgentAreaBinding
 import com.example.projectsetup.databinding.FragmentFindAgentByAddressBinding
-import com.example.projectsetup.databinding.FragmentFindAgentByAddressBindingImpl
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.viewModel.FindAgentByAddressFragmentViewModel
-import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.viewModel.FindAgentByAreaFragmentViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FindAgentByAddressFragment : BaseFragment<FragmentFindAgentByAddressBinding, FindAgentByAddressFragmentViewModel>() {

@@ -1,7 +1,6 @@
 package com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer

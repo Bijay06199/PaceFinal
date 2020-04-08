@@ -8,6 +8,11 @@ import com.example.projectsetup.ui.login.LoginViewModel
 import com.example.projectsetup.ui.main.MainViewModel
 import com.example.projectsetup.ui.navigation.NavigationViewModel
 import com.example.projectsetup.ui.navigation.fragment.account.AccountFragmentViewModel
+import com.example.projectsetup.ui.navigation.fragment.account.myProfile.activity.agent.viewModel.AgentOptionsViewModel
+import com.example.projectsetup.ui.navigation.fragment.account.myProfile.activity.agent.viewModel.RegisterAgency1ViewModel
+import com.example.projectsetup.ui.navigation.fragment.account.myProfile.activity.agent.viewModel.RegisterAgency2ViewModel
+import com.example.projectsetup.ui.navigation.fragment.account.myProfile.activity.agent.viewModel.RegisterAgencySuccessViewModel
+import com.example.projectsetup.ui.navigation.fragment.account.myProfile.viewModel.*
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.RegisterPropertyRoomViewModel
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.viewModel.AgentListViewModel
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.viewModel.AgentProfileViewModel
@@ -25,6 +30,7 @@ import com.example.projectsetup.ui.navigation.fragment.saved.forsale.ForSaleSave
 import com.example.projectsetup.ui.navigation.fragment.saved.forsale.ForSaleViewModel
 import com.example.projectsetup.ui.navigation.fragment.saved.savedsearch.SavedSearchSavedViewModel
 import com.example.projectsetup.ui.navigation.fragment.saved.savedsearch.SavedSearchViewModel
+import com.example.projectsetup.ui.navigation.salehome.SaleHomeActivityViewModel
 import com.example.projectsetup.ui.welcome.WelcomeViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
@@ -72,6 +78,17 @@ val viewModelModule: Module = module {
     viewModel { AgentProfileViewModel() }
     viewModel { AllSavedViewModel() }
     viewModel { AllViewModel() }
+    viewModel { SaleHomeActivityViewModel() }
+    viewModel { MyProfileViewModel() }
+    viewModel { EditProfileViewModel() }
+    viewModel { AccountVerificationViewModel() }
+    viewModel { IdVerificationViewModel() }
+    viewModel { MobileVerificationViewModel() }
+    viewModel { EmailVerificationViewModel() }
+    viewModel { AgentOptionsViewModel() }
+    viewModel { RegisterAgency1ViewModel() }
+    viewModel { RegisterAgency2ViewModel() }
+    viewModel { RegisterAgencySuccessViewModel() }
 
 
 

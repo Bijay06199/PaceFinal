@@ -4,23 +4,17 @@ package com.example.projectsetup.ui.navigation.fragment.account
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import com.example.projectsetup.BR
 
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseFragment
-import com.example.projectsetup.data.prefs.PreferenceManager
 import com.example.projectsetup.databinding.FragmentAccountBinding
-import com.example.projectsetup.databinding.FragmentAccountBinding.inflate
 import com.example.projectsetup.ui.main.MainActivity
+import com.example.projectsetup.ui.navigation.fragment.account.myProfile.activity.MyProfileActivity
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.RegisterPropertyRoomActivity
-import kotlinx.android.synthetic.main.fragment_account.*
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -69,6 +63,12 @@ class AccountFragment : BaseFragment<FragmentAccountBinding, AccountFragmentView
 
 
             })
+
+            txtProfile.setOnClickListener {
+                val intent=Intent(this@AccountFragment.context,
+                    MyProfileActivity::class.java)
+                startActivity(intent)
+            }
 
 
         }

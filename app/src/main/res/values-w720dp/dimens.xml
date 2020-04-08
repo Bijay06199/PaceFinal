@@ -8,5 +8,8 @@
     <dimen name="margin_toplogin">130dp</dimen>
     <dimen name="margin_topforgotpassword">150dp</dimen>
     <dimen name="margin_normal">50dp</dimen>
+    <dimen name="home_image_width">300dp</dimen>
+    <dimen name="home_image_height">180dp</dimen>
+    <dimen name="gallery_image_height">250dp</dimen>
 
 </resources>

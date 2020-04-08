@@ -3,18 +3,12 @@ package com.example.projectsetup.ui.navigation.fragment.account.registerproperty
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseFragment
 import com.example.projectsetup.databinding.FragmentRegisterPropertyRelationshipBinding
-import com.example.projectsetup.databinding.FragmentRegisterPropertyWantBinding
-import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.RegisterPropertyRoomActivity
-import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.fragment.AgentProfileFragment
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.viewModel.RegisterPropertyRelationshipViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

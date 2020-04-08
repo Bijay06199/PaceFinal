@@ -87,6 +87,20 @@
     <string name="view_more_listings">View more listings</string>
     <string name="i_began_my_professional_career_in_investment">I began my professional career in investment.....</string>
     <string name="ratings_and_review">Ratings and Review</string>
+    <string name="you_can_become_an_agent_or_individual_anytime">You can become an agent or individual anytime.</string>
+    <string name="usage_type">Usage type</string>
+    <string name="individual">Individual</string>
+    <string name="register_new_real_estate_agency">Register new real estate agency</string>
+    <string name="step_1_2">Step 1/2</string>
+    <string name="agent_of_existing_real_estate_agency">Agent of existing real estate agency</string>
+    <string name="register_an_agency">Register an agency</string>
+    <string name="step_2_2">Step 2 / 2</string>
+    <string name="taneri_park">Taneri Park</string>
+    <string name="adachi_ku">Adachi-ku</string>
+    <string name="municipality">Municipality</string>
+    <string name="your_real_estate_agency_have_been_registered_successfully">Your real estate agency have been registered successfully</string>
+    <string name="company_name">Company name</string>
+    <string name="copy">Copy</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->

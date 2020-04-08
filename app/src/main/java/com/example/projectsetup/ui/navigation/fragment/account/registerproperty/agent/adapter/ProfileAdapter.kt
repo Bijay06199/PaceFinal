@@ -2,15 +2,12 @@ package com.example.projectsetup.ui.navigation.fragment.account.registerproperty
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectsetup.R
 import com.example.projectsetup.databinding.AgentProfileListRecyclerviewBinding
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.model.ProfileListModel
-import kotlinx.android.synthetic.main.agent_profile_list_recyclerview.view.*
 
 class ProfileAdapter:RecyclerView.Adapter<ProfileAdapter.MyViewHolder>() {
 

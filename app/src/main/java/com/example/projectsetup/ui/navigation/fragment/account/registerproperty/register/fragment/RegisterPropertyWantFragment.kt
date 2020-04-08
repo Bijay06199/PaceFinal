@@ -6,11 +6,8 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseFragment
-import com.example.projectsetup.databinding.FragmentRegisterPropertyRelationshipBinding
 import com.example.projectsetup.databinding.FragmentRegisterPropertyWantBinding
-import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.viewModel.RegisterPropertyRelationshipViewModel
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.viewModel.RegisterPropertyWantViewModel
-import com.example.projectsetup.utils.contracts.AppContracts
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RegisterPropertyWantFragment: BaseFragment<FragmentRegisterPropertyWantBinding, RegisterPropertyWantViewModel>() {

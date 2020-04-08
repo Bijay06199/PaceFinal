@@ -8,9 +8,7 @@ import com.example.projectsetup.BR
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseFragment
 import com.example.projectsetup.databinding.FragmentAgentListBinding
-import com.example.projectsetup.databinding.FragmentFindAgentAreaBinding
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.viewModel.AgentListViewModel
-import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.viewModel.FindAgentByAreaFragmentViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AgentListFragment : BaseFragment<FragmentAgentListBinding, AgentListViewModel>() {

@@ -1,7 +1,6 @@
 package com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.fragment
 
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
@@ -11,7 +10,6 @@ import com.example.projectsetup.BR
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseFragment
 import com.example.projectsetup.databinding.FragmentFindAgentAreaBinding
-import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.RegisterPropertyRoomActivity
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.viewModel.FindAgentByAreaFragmentViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 

@@ -1,14 +1,11 @@
 package com.example.projectsetup.ui.navigation.fragment.home
 
 
-import android.content.Context
 import android.content.Intent
-import android.nfc.Tag
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,10 +14,8 @@ import com.example.projectsetup.BR
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseFragment
 import com.example.projectsetup.databinding.FragmentHomeBinding
-import com.example.projectsetup.databinding.FragmentHomeBinding.inflate
 import com.example.projectsetup.ui.Adapter.ViewPagerAdapter
 import com.example.projectsetup.ui.Adapter.ViewPagerListener
-import com.example.projectsetup.ui.navigation.NavigationActivity
 import com.example.projectsetup.ui.navigation.fragment.home.listener.fragment.HomeFirstFragment
 import com.example.projectsetup.ui.navigation.fragment.home.listener.fragment.HomeSecondFragment
 import com.example.projectsetup.ui.navigation.fragment.home.listener.fragment.HomeThirdFragment
@@ -32,7 +27,12 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 /**
  * A simple [Fragment] subclass.
  */
-class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>() {
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>(),
+    RecommendedChildAdapter.OnItemClickListener {
+
+    override fun onChildClicked(position: Int, childItems: RecommendedChildModel) {
+        Toast.makeText(context,"fsdfisjdofi",Toast.LENGTH_SHORT).show()
+    }
 
     override fun getLayoutId(): Int = R.layout.fragment_home
     private val homeFragmentViewModel: HomeFragmentViewModel by viewModel()
@@ -46,31 +46,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>() 
 
     private lateinit var pagerAdapterView: ViewPagerAdapter
 
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        // Inflate the layout for this fragment
-//        viewDataBinding = inflate(inflater, container, false)
-//        return viewDataBinding.root
-//
-//
-//    }
 
 
     private fun setUpRecyclerView() {
 
         recyclerView1 = recyclerview_reccommended_parent
         recyclerView2 = recyclerview_reccommended_child
-        recyclerView2?.affectOnItemClicks { position, view ->
 
-            startActivity(
-                Intent(
-                    context,
-                    SaleHomeActivity::class.java
-                )
-            )
-        }
+
         recyclerView.affectOnItemClicks { position, view ->
             startActivity(
                 Intent(
@@ -80,12 +63,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>() 
             )
         }
 
-
         recyclerView1.apply {
             layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
 
-            adapter = RecommendedParentAdapter(RecommendedParentDataFactory.getParents(40))
+            adapter = RecommendedParentAdapter(RecommendedParentDataFactory.getParents(40),this@HomeFragment)
         }
+
+
 
         val productAdapter = ProductAdapter()
         viewDataBinding.recyclerView.adapter = productAdapter

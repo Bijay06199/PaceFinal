@@ -1,20 +1,12 @@
 package com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.OrientationEventListener
-import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projectsetup.R
 import com.example.projectsetup.databinding.MyPropertyRecyclerviewBinding
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.models.PropertyItemsModel
-import kotlinx.android.synthetic.main.my_property_recyclerview.view.*
-import kotlinx.android.synthetic.main.reccommended_property_child.view.*
-import kotlinx.android.synthetic.main.reccommended_property_child.view.iv_room
-import kotlinx.android.synthetic.main.reccommended_property_child.view.tv1
 
 class MyPropertyAdapter(private val listener:OnItemClickListener):RecyclerView.Adapter<MyPropertyAdapter.MyPropertyViewHolder>() {
 
@@ -44,7 +36,7 @@ class MyPropertyAdapter(private val listener:OnItemClickListener):RecyclerView.A
     }
 
     interface OnItemClickListener{
-        fun onItemClicked(position: Int,property:PropertyItemsModel)
+        fun onItemClicked(position: Int,poperty:PropertyItemsModel)
     }
 
 

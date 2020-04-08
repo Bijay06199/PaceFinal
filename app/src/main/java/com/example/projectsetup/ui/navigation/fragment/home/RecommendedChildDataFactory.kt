@@ -10,7 +10,7 @@ object RecommendedChildDataFactory {
     private val titles1= arrayListOf("sale","rent","Shiho City", "Okhinara")
     private val titles2= arrayListOf("sale","rent","Shiho City", "Okhinara")
     private val titles3= arrayListOf("sale","rent","Shiho City", "Okhinara")
-    private val image= arrayListOf(R.drawable.rectangle85,R.drawable.rectangle85)
+    private val image= arrayListOf("https://cdn.pixabay.com/photo/2016/11/18/14/50/boat-1835081_960_720.jpg","https://cdn.pixabay.com/photo/2016/11/18/14/50/boat-1835081_960_720.jpg")
 
 
     private fun randomTitle1():String{
@@ -31,15 +31,15 @@ object RecommendedChildDataFactory {
         return titles3[index]
     }
 
-    private fun randomImage():Int{
+    private fun randomImage():String{
 
         val index= random.nextInt(image.size)
         return image[index]
 
     }
 
-    fun getChildren(count:Int):List<RecommendedChildModel>{
-        val children = mutableListOf<RecommendedChildModel>()
+    fun getChildren(count:Int):ArrayList<RecommendedChildModel>{
+        val children = ArrayList<RecommendedChildModel>()
         repeat(count){
             val child= RecommendedChildModel(randomImage(), randomTitle1(), randomTitle2(), randomTitle3())
             children.add(child)

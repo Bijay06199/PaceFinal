@@ -5,7 +5,6 @@ import android.os.Bundle
 import com.example.projectsetup.R
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.fragment.AgentProfileFragment
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.fragment.FindAgentByAreaFragment
-import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.fragment.RegisterMyPropertyFragment
 
 class AgentActivity : AppCompatActivity() {
 

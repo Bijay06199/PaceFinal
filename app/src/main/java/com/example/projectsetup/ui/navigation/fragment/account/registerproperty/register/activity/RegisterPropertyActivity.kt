@@ -1,6 +1,5 @@
 package com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.activity
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.projectsetup.R

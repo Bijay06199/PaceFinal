@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 
 import com.example.projectsetup.R
-import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.fragment.RegisterPropertySalePriceFragment
 
 class BedRoomFragment : Fragment() {
 

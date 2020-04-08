@@ -1,19 +1,16 @@
 package com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import com.example.projectsetup.BR
 import com.example.projectsetup.R
-import com.example.projectsetup.base.BaseActivity
 import com.example.projectsetup.base.BaseFragment
 import com.example.projectsetup.databinding.FragmentRegisterPropertyChooseBinding
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.viewModel.RegisterPropertyChooseViewModel
 import com.example.projectsetup.utils.contracts.AppContracts.RegistrationType.RENT
 import com.example.projectsetup.utils.contracts.AppContracts.RegistrationType.SALE
-import kotlinx.android.synthetic.main.fragment_saved.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RegisterPropertyChooseFragment :

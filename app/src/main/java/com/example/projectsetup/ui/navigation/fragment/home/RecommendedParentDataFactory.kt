@@ -10,7 +10,7 @@ object RecommendedParentDataFactory {
 
 
 
-    private fun randomChildren():List<RecommendedChildModel>{
+    private fun randomChildren():ArrayList<RecommendedChildModel>{
 
         return RecommendedChildDataFactory.getChildren(20)
     }

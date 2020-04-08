@@ -5,61 +5,69 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
-import androidx.core.view.get
 import androidx.databinding.DataBindingUtil
-import androidx.databinding.adapters.ImageViewBindingAdapter.setImageDrawable
 import androidx.recyclerview.widget.RecyclerView
-import com.example.projectsetup.R
-import com.example.projectsetup.databinding.FragmentRegisterPropertyMapBinding
 import com.example.projectsetup.databinding.WelcomeRecyclerviewLayoutBinding
-import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.adapter.MyPropertyAdapter
-import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.models.PropertyItemsModel
-import com.example.projectsetup.di.provideSharedPreference
 
 
-class WelcomeAdapter(private val listener: WelcomeAdapter.OnItemClickListener) :RecyclerView.Adapter<WelcomeAdapter.WelcomeViewHolder>() {
-    var itemList=ArrayList<WelcomeModel>()
+class WelcomeAdapter(private val listener: WelcomeAdapter.OnItemClickListener) :
+    RecyclerView.Adapter<WelcomeAdapter.WelcomeViewHolder>() {
+    var itemList = ArrayList<WelcomeModel>()
     var isClicked: ArrayList<Boolean> = ArrayList()
     lateinit var context: Context
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): WelcomeAdapter.WelcomeViewHolder {
-        context=parent.context
-        val mBinding:WelcomeRecyclerviewLayoutBinding=DataBindingUtil.inflate(LayoutInflater.from(parent.context),
-            com.example.projectsetup.R.layout.welcome_recyclerview_layout,parent,false)
+        context = parent.context
+        val mBinding: WelcomeRecyclerviewLayoutBinding = DataBindingUtil.inflate(
+            LayoutInflater.from(parent.context),
+            com.example.projectsetup.R.layout.welcome_recyclerview_layout, parent, false
+        )
 
         return WelcomeViewHolder(mBinding)
     }
 
-    override fun getItemCount(): Int=itemList.size
+    override fun getItemCount(): Int = itemList.size
 
     override fun onBindViewHolder(holder: WelcomeAdapter.WelcomeViewHolder, position: Int) {
-       // holder.mBinding.model=itemList[position]
-        holder.mBinding.ivTick.visibility=View.GONE
+        // holder.mBinding.model=itemList[position]
+        holder.mBinding.ivTick.visibility = View.GONE
 
-        when(position){
-            position->holder.mBinding.layoutJapan.setOnClickListener{
-                holder.mBinding.ivTick.visibility=View.VISIBLE
+        when (position) {
+            position -> holder.mBinding.layoutJapan.setOnClickListener {
+                holder.mBinding.ivTick.visibility = View.VISIBLE
             }
         }
 
-        holder.mBinding.ivTick.setImageDrawable(ContextCompat.getDrawable(context,itemList[position].image))
-        holder.mBinding.ivCountry.setImageDrawable(ContextCompat.getDrawable(context,itemList[position].image))
-        holder.mBinding.tvCountry.text=itemList[position].countryName
+        holder.mBinding.ivTick.setImageDrawable(
+            ContextCompat.getDrawable(
+                context,
+                itemList[position].tick
+            )
+        )
+        holder.mBinding.ivCountry.setImageDrawable(
+            ContextCompat.getDrawable(
+                context,
+                itemList[position].image
+            )
+        )
+        holder.mBinding.tvCountry.text = itemList[position].countryName
 
 //
-        listener.onItemClicked(holder.adapterPosition,itemList[holder.adapterPosition])
-    }
-    interface OnItemClickListener{
-        fun onItemClicked(position: Int,property: WelcomeModel)
-
+        listener.onItemClicked(holder.adapterPosition, itemList[holder.adapterPosition])
     }
 
-    inner class WelcomeViewHolder(val mBinding:WelcomeRecyclerviewLayoutBinding):RecyclerView.ViewHolder(mBinding.root)
+    interface OnItemClickListener {
+        fun onItemClicked(position: Int, property: WelcomeModel)
 
-    fun addAll(itemList:ArrayList<WelcomeModel>){
-        this.itemList=itemList
+    }
+
+    inner class WelcomeViewHolder(val mBinding: WelcomeRecyclerviewLayoutBinding) :
+        RecyclerView.ViewHolder(mBinding.root)
+
+    fun addAll(itemList: ArrayList<WelcomeModel>) {
+        this.itemList = itemList
         notifyDataSetChanged()
 
 

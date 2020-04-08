@@ -15,7 +15,6 @@ import com.example.projectsetup.databinding.AgentProfileFragmentBinding
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.adapter.ProfileAdapter
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.model.ProfileListModel
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.agent.viewModel.AgentProfileViewModel
-import kotlinx.android.synthetic.main.agent_profile_fragment.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class AgentProfileFragment : BaseFragment<AgentProfileFragmentBinding, AgentProfileViewModel>() {

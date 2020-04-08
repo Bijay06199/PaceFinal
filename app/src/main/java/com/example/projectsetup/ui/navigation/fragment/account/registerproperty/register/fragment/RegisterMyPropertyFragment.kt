@@ -3,19 +3,15 @@ package com.example.projectsetup.ui.navigation.fragment.account.registerproperty
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.core.graphics.createBitmap
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import com.example.projectsetup.BR
 import com.example.projectsetup.R
 import com.example.projectsetup.base.BaseFragment
 import com.example.projectsetup.databinding.FragmentRegisterMyPropertyBinding
-import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.activity.RegisterPropertyActivity
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.adapter.MyPropertyAdapter
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.models.PropertyItemsModel
 import com.example.projectsetup.ui.navigation.fragment.account.registerproperty.register.viewModel.RegisterMyPropertyViewModel
-import kotlinx.android.synthetic.main.fragment_register_my_property.*
-import kotlinx.android.synthetic.main.my_property_recyclerview.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RegisterMyPropertyFragment :

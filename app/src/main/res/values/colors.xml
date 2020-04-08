@@ -12,4 +12,5 @@
     <color name="white">#ffffff</color>
     <color name="black">#000</color>
     <color name="text_color">#194CB4</color>
+    <color name="normal_text_color">#201A16</color>
 </resources>
