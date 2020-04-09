@@ -29,7 +29,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:onClick="@{()->viewModel.back()}"
-                    app:srcCompat="@drawable/backarrow" />
+                    app:srcCompat="@drawable/backarrow1" />
 
                 <TextView
                     android:id="@+id/textView77"
@@ -37,7 +37,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:text="Register a property"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/quicksand_bold"
                     android:textColor="#201A16"
                     android:textSize="15sp" />
 
@@ -51,6 +51,7 @@
                 android:textSize="15sp"
                 android:layout_marginTop="10dp"
                 android:textStyle="bold"
+                android:fontFamily="@font/quicksand_bold"
                 android:text="What do you want to register your property for?" />
 
             <LinearLayout
@@ -62,6 +63,7 @@
                     android:id="@+id/for_sale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
                     android:layout_weight="1"
                     android:text="For Sale" />
 
@@ -69,6 +71,7 @@
                     android:id="@+id/for_rent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
                     android:layout_weight="1"
                     android:text="For rent" />
             </LinearLayout>
@@ -87,6 +90,7 @@
             android:layout_alignParentBottom="true"
             android:textAllCaps="false"
             android:textColor="#FFF"
+            android:fontFamily="@font/quicksand_bold"
             android:text="@string/next"
             android:onClick="@{()->viewModel.next()}"
             android:background="@drawable/forgot_layout"/>

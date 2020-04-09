@@ -32,13 +32,14 @@
                     android:id="@+id/iv_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/backarrow" />
+                    app:srcCompat="@drawable/backarrow1" />
                 <TextView
                     android:id="@+id/textView77"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:text="Register a property"
+                    android:fontFamily="@font/quicksand_bold"
                     android:textStyle="bold"
                     android:textColor="#201A16"
                     android:textSize="15sp" />
@@ -58,6 +59,7 @@
                 android:textSize="15sp"
                 android:textColor="#194CB4"
                 android:textStyle="bold"
+                android:fontFamily="@font/quicksand_bold"
                 android:layout_gravity="center"
                 android:text="Save progress" />
 
@@ -87,6 +89,7 @@
                     android:textStyle="bold"
                     android:textSize="15sp"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/quicksand_bold"
                     android:text="Choose room features/facilities" />
 
                 <TextView
@@ -97,6 +100,7 @@
                     android:textStyle="bold"
                     android:textSize="15sp"
                     android:layout_marginTop="10dp"
+                    android:fontFamily="@font/quicksand_bold"
                     android:text="Please select conditions for moving in" />
 
                 <LinearLayout
@@ -109,23 +113,27 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:fontFamily="@font/quicksand"
                         android:text="Indoor washing machine storage" />
 
                     <CheckBox
                         android:id="@+id/checkBox2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand"
                         android:layout_weight="1"
                         android:text="Flooring" />
 
                     <CheckBox
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand"
                         android:layout_weight="1"
                         android:text="Loft" />
 
                     <CheckBox
                         android:layout_width="match_parent"
+                        android:fontFamily="@font/quicksand"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Sound proof room" />
@@ -134,6 +142,7 @@
                     <CheckBox
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand"
                         android:layout_weight="1"
                         android:text="Basement" />
 
@@ -141,6 +150,7 @@
                     <CheckBox
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand"
                         android:layout_weight="1"
                         android:text="Air conditioned" />
 
@@ -149,17 +159,20 @@
                     <CheckBox
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand"
                         android:layout_weight="1"
                         android:text="Gas Heating" />
                     <CheckBox
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand"
                         android:layout_weight="1"
                         android:text="Keroseane heating" />
 
                     <CheckBox
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand"
                         android:layout_weight="1"
                         android:text="Separate toiler and bathroom" />
 
@@ -170,6 +183,7 @@
                         android:textColor="#201A16"
                         android:textStyle="bold"
                         android:textSize="15sp"
+                        android:fontFamily="@font/quicksand_bold"
                         android:layout_marginTop="10dp"
                         android:text="Add other facilities" />
 
@@ -181,6 +195,7 @@
                         android:layout_weight="1"
                         android:background="@null"
                         android:gravity="left"
+                        android:fontFamily="@font/quicksand"
                         android:hint="Enter other conditions here"
                         android:textSize="15sp" />
 
@@ -209,6 +224,7 @@
             android:layout_alignParentBottom="true"
             android:textAllCaps="false"
             android:textColor="#FFF"
+            android:fontFamily="@font/quicksand_bold"
             android:text="@string/next"
             android:onClick="@{()->viewModel.onBtnClicked()}"
             android:background="@drawable/register_propety_button"/>

@@ -32,7 +32,7 @@
                     android:id="@+id/iv_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/backarrow" />
+                    app:srcCompat="@drawable/backarrow1" />
                 <TextView
                     android:id="@+id/textView77"
                     android:layout_width="wrap_content"
@@ -40,6 +40,7 @@
                     android:layout_marginLeft="20dp"
                     android:text="Register a property"
                     android:textStyle="bold"
+                    android:fontFamily="@font/quicksand_bold"
                     android:textColor="#201A16"
                     android:textSize="15sp" />
 
@@ -58,6 +59,7 @@
                 android:textSize="15sp"
                 android:textColor="#194CB4"
                 android:textStyle="bold"
+                android:fontFamily="@font/quicksand_bold"
                 android:layout_gravity="center"
                 android:text="Save progress" />
 
@@ -86,6 +88,7 @@
                 android:textColor="#201A16"
                 android:textSize="15sp"
                 android:textStyle="bold"
+                android:fontFamily="@font/quicksand_bold"
                 android:layout_marginTop="10dp"
                 android:text="Choose property facilities" />
 
@@ -96,6 +99,7 @@
                 android:textColor="#201A16"
                 android:textSize="15sp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/quicksand_bold"
                 android:textStyle="bold"
                 android:text="Property facilities" />
 
@@ -110,6 +114,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="#201A16"
+                    android:fontFamily="@font/quicksand"
                     android:text="Parking lot" />
 
                 <CheckBox
@@ -117,6 +122,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="#201A16"
+                    android:fontFamily="@font/quicksand"
                     android:layout_weight="1"
                     android:text="On-site parking" />
 
@@ -125,6 +131,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#201A16"
                     android:layout_weight="1"
+                    android:fontFamily="@font/quicksand"
                     android:text="Bike storage" />
 
                 <CheckBox
@@ -132,6 +139,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="#201A16"
+                    android:fontFamily="@font/quicksand"
                     android:text="Elevator" />
 
 
@@ -140,12 +148,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textColor="#201A16"
+                    android:fontFamily="@font/quicksand"
                     android:text="Delivery box" />
 
 
                 <CheckBox
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
                     android:layout_weight="1"
                     android:textColor="#201A16"
                     android:text="City gas" />
@@ -158,6 +168,7 @@
                     android:textColor="#201A16"
                     android:textSize="15sp"
                     android:textStyle="bold"
+                    android:fontFamily="@font/quicksand_bold"
                     android:layout_marginTop="10dp"
                     android:text="Security" />
 
@@ -165,12 +176,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/quicksand"
                     android:textColor="#201A16"
                     android:text="Auto lock" />
                 <CheckBox
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/quicksand"
                     android:textColor="#201A16"
                     android:text="Intercom" />
 
@@ -178,6 +191,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/quicksand"
                     android:textColor="#201A16"
                     android:text="Security company subscription" />
 
@@ -187,6 +201,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#201A16"
                     android:textSize="15sp"
+                    android:fontFamily="@font/quicksand_bold"
                     android:textStyle="bold"
                     android:layout_marginTop="10dp"
                     android:text="Add other facilities" />
@@ -198,6 +213,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:background="@null"
+                    android:fontFamily="@font/quicksand"
                     android:gravity="left"
                     android:hint="Enter other conditions here"
                     android:textSize="15sp" />
@@ -226,6 +242,7 @@
             android:layout_marginBottom="20dp"
             android:layout_alignParentBottom="true"
             android:textAllCaps="false"
+            android:fontFamily="@font/quicksand_bold"
             android:textColor="#FFF"
             android:text="@string/next"
             android:onClick="@{()->viewModel.onBtnClicked()}"

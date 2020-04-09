@@ -39,7 +39,7 @@
                         android:id="@+id/imgBackProfile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/backarrow" />
+                        app:srcCompat="@drawable/backarrow1" />
 
                     <TextView
                         android:id="@+id/textView77"
@@ -48,6 +48,7 @@
                         android:layout_marginLeft="20dp"
                         android:text="Register a property"
                         android:textStyle="bold"
+                        android:fontFamily="@font/quicksand_bold"
                         android:textColor="#201A16"
                         android:textSize="15sp" />
                 </LinearLayout>
@@ -63,6 +64,7 @@
                     android:layout_height="wrap_content"
                     android:text="Save progress"
                     android:textStyle="bold"
+                    android:fontFamily="@font/quicksand_bold"
                     android:textColor="#194CB4"
                     android:textSize="15sp" />
 
@@ -97,6 +99,7 @@
                 android:textColor="#201A16"
                 android:textStyle="bold"
                 android:padding="5dp"
+                android:fontFamily="@font/quicksand_bold"
                 android:text="Set Pin position of the property" />
         </LinearLayout>
 
@@ -106,6 +109,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:textColor="#FFF"
+            android:fontFamily="@font/quicksand_bold"
             android:onClick="@{()->viewModel.btnClicked()}"
             android:layout_alignParentBottom="true"
             android:background="@drawable/forgot_layout"

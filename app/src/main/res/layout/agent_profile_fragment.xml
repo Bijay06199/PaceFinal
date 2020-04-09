@@ -27,7 +27,7 @@
                 android:id="@+id/iv_back"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/backarrow" />
+                app:srcCompat="@drawable/backarrow1" />
 
             <TextView
                 android:id="@+id/textView77"
@@ -36,7 +36,7 @@
                 android:layout_marginLeft="20dp"
                 android:text="@string/agent_profile"
                 android:textColor="#201A16"
-                android:textStyle="bold"
+                android:fontFamily="@font/quicksand_bold"
                 android:textSize="15sp" />
 
         </LinearLayout>
@@ -77,6 +77,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:text="@string/ryoko_yonekura"
+                        android:fontFamily="@font/quicksand_bold"
                         android:textColor="#000000"
                         android:textSize="15sp" />
 
@@ -84,6 +85,7 @@
                         android:id="@+id/textView21"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_bold"
                         android:text="Leader of JPN real estate group" />
 
                 </LinearLayout>
@@ -106,6 +108,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:text="@string/_5_5"
+                        android:fontFamily="@font/quicksand_bold"
                         android:textColor="#000" />
 
                     <TextView
@@ -115,6 +118,7 @@
                         android:layout_marginLeft="5dp"
                         android:text="@string/_20_reviews"
                         android:textColor="#194CB4"
+                        android:fontFamily="@font/quicksand_bold"
                         android:textSize="15sp" />
                 </LinearLayout>
 
@@ -131,6 +135,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/forgot_layout"
                         android:text="@string/send_message"
+                        android:fontFamily="@font/quicksand_bold"
                         android:textColor="@color/white" />
 
                     <Button
@@ -141,6 +146,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/login_button"
                         android:text="@string/make_a_call"
+                        android:fontFamily="@font/quicksand_bold"
                         android:textColor="@color/white" />
                 </LinearLayout>
 
@@ -154,6 +160,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/about_me"
+                        android:fontFamily="@font/quicksand_bold"
                         android:textColor="#000"
                         android:textSize="15sp" />
 
@@ -161,6 +168,7 @@
                         android:id="@+id/textView26"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand"
                         android:text="@string/i_began_my_professional_career_in_investment"
                         android:textSize="15sp" />
 
@@ -169,6 +177,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="More"
+                        android:fontFamily="@font/quicksand"
                         android:textColor="#194CB4"
                         android:textSize="15sp" />
 
@@ -182,6 +191,7 @@
                     android:layout_marginTop="10dp"
                     android:text="@string/active_listings_2"
                     android:textColor="@color/black"
+                    android:fontFamily="@font/quicksand_bold"
                     android:textSize="15sp" />
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -202,6 +212,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/view_more_listings"
+                    android:fontFamily="@font/quicksand"
                     android:textColor="@color/text_color"
                     android:textSize="15sp" />
 
@@ -217,6 +228,7 @@
                         android:layout_weight="1"
                         android:text="@string/ratings_and_review"
                         android:textColor="@color/black"
+                        android:fontFamily="@font/quicksand_bold"
                         android:textSize="15sp" />
 
                     <ImageView
@@ -244,6 +256,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="4.6"
+                            android:fontFamily="@font/quicksand_bold"
                             android:textColor="@color/text_color"
                             android:textSize="27sp" />
 
@@ -251,6 +264,7 @@
                             android:id="@+id/textView43"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/quicksand"
                             android:text="/5" />
                     </LinearLayout>
 
@@ -258,6 +272,7 @@
                         android:id="@+id/textView41"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand"
                         android:text="@string/_20_reviews" />
                 </LinearLayout>
 
@@ -277,6 +292,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="Shun Oguri"
+                            android:fontFamily="@font/quicksand_bold"
                             android:textColor="@color/black" />
 
                         <ImageView
@@ -289,6 +305,7 @@
                             android:id="@+id/textView46"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/quicksand"
                             android:text="@string/_5_5" />
                     </LinearLayout>
 
@@ -296,11 +313,13 @@
                         android:id="@+id/textView54"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand"
                         android:text="Reviewed on 25 July 2020" />
 
                     <TextView
                         android:id="@+id/textView55"
                         android:layout_width="match_parent"
+                        android:fontFamily="@font/quicksand"
                         android:layout_height="wrap_content"
                         android:text="I would say this is good value for money. Also very close to the Old Town(history museum etc.)" />
                 </LinearLayout>
@@ -313,6 +332,7 @@
                     android:background="@drawable/review_button_layout"
                     android:text="Write a review"
                     android:textAllCaps="false"
+                    android:fontFamily="@font/quicksand"
                     android:textColor="#CD02BEB2" />
             </LinearLayout>
         </ScrollView>

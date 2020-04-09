@@ -32,7 +32,7 @@
                     android:id="@+id/imgBackProfile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/backarrow" />
+                    app:srcCompat="@drawable/backarrow1" />
 
                 <TextView
                     android:id="@+id/textView77"
@@ -41,6 +41,7 @@
                     android:layout_marginLeft="20dp"
                     android:text="Register a property"
                     android:textStyle="bold"
+                    android:fontFamily="@font/quicksand_bold"
                     android:textColor="#201A16"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -56,6 +57,7 @@
                 android:layout_height="wrap_content"
                 android:text="Save progress"
                 android:textStyle="bold"
+                android:fontFamily="@font/quicksand_bold"
                 android:textColor="#194CB4"
                 android:textSize="15sp" />
 
@@ -87,6 +89,7 @@
                 android:textColor="#201A16"
                 android:textStyle="bold"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/quicksand_bold"
                 android:text="Provide details of your house" />
 
 
@@ -97,6 +100,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Square Foot Range"
                 android:textStyle="bold"
+                android:fontFamily="@font/quicksand_bold"
                 android:textColor="#201A16" />
 
 
@@ -112,6 +116,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:background="@null"
+                    android:fontFamily="@font/quicksand"
                     android:gravity="left"
                     android:hint="Enter area of the property"
                     android:textSize="15sp" />
@@ -138,6 +143,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Property Type"
                 android:textStyle="bold"
+                android:fontFamily="@font/quicksand_bold"
                 android:textColor="#201A16" />
 
 
@@ -154,6 +160,7 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:gravity="left"
+                    android:fontFamily="@font/quicksand"
                     android:hint="Select property type"
                     android:textSize="15sp" />
 
@@ -183,6 +190,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="House Planning"
+                android:fontFamily="@font/quicksand_bold"
                 android:textStyle="bold"
                 android:textColor="#201A16" />
 
@@ -200,6 +208,7 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:gravity="left"
+                    android:fontFamily="@font/quicksand"
                     android:hint="Select house planning"
                     android:textSize="15sp" />
 
@@ -229,6 +238,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Number of floors"
                 android:textStyle="bold"
+                android:fontFamily="@font/quicksand_bold"
                 android:textColor="#201A16" />
 
 
@@ -246,6 +256,7 @@
                     android:background="@null"
                     android:gravity="left"
                     android:hint="1 floor"
+                    android:fontFamily="@font/quicksand"
                     android:textSize="15sp" />
 
             </LinearLayout>
@@ -265,6 +276,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Built year"
                 android:textStyle="bold"
+                android:fontFamily="@font/quicksand_bold"
                 android:textColor="#201A16" />
 
 
@@ -279,6 +291,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
+                    android:fontFamily="@font/quicksand"
                     android:background="@null"
                     android:gravity="left"
                     android:hint="Select built year"
@@ -312,6 +325,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Number of Bedrooms"
                 android:textStyle="bold"
+                android:fontFamily="@font/quicksand_bold"
                 android:textColor="#201A16" />
 
 
@@ -328,6 +342,7 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:gravity="left"
+                    android:fontFamily="@font/quicksand"
                     android:hint="Select number of bedrooms"
                     android:textSize="15sp" />
 
@@ -357,6 +372,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Number of Bathrooms"
+                android:fontFamily="@font/quicksand_bold"
                 android:textStyle="bold"
                 android:textColor="#201A16" />
 
@@ -374,6 +390,7 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:gravity="left"
+                    android:fontFamily="@font/quicksand"
                     android:hint="Select number of bathrooms"
                     android:textSize="15sp" />
 
@@ -404,6 +421,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Flat number(optional)"
                 android:textStyle="bold"
+                android:fontFamily="@font/quicksand_bold"
                 android:textColor="#201A16" />
 
 
@@ -420,6 +438,7 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:gravity="left"
+                    android:fontFamily="@font/quicksand"
                     android:hint="Select flat number"
                     android:textSize="15sp" />
 
@@ -453,6 +472,7 @@
             android:layout_margin="20dp"
             android:textColor="#FFF"
             android:layout_alignParentBottom="true"
+            android:fontFamily="@font/quicksand_bold"
             android:background="@drawable/forgot_layout"
             android:onClick="@{()->viewModel.onBtnClicked()}"
             android:text="@string/next" />

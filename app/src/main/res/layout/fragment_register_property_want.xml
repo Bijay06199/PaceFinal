@@ -29,7 +29,7 @@
                     android:id="@+id/iv_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/backarrow" />
+                    app:srcCompat="@drawable/backarrow1" />
 
                 <TextView
                     android:id="@+id/textView77"
@@ -37,6 +37,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
                     android:text="Register a property"
+                    android:fontFamily="@font/quicksand_bold"
                     android:textStyle="bold"
                     android:textColor="#201A16"
                     android:textSize="15sp" />
@@ -50,6 +51,7 @@
                 android:textColor="#201A16"
                 android:textSize="15sp"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/quicksand_bold"
                 android:textStyle="bold"
                 android:text="How do you want to rent your property?" />
 
@@ -63,6 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/quicksand"
                     android:text="For Standard(long-term stay)" />
 
                 <CheckBox
@@ -70,6 +73,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/quicksand"
                     android:text="For Middle-term stay" />
             </LinearLayout>
 
@@ -88,6 +92,7 @@
             android:textAllCaps="false"
             android:textColor="#FFF"
             android:text="@string/next"
+            android:fontFamily="@font/quicksand_bold"
             android:onClick="@{()->viewModel.onBtnClicked()}"
             android:background="@drawable/forgot_layout"/>
     </RelativeLayout>

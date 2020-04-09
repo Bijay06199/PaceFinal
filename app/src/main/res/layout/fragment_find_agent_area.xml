@@ -27,7 +27,7 @@
         android:id="@+id/iv_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/backarrow" />
+        app:srcCompat="@drawable/backarrow1" />
 
     <TextView
         android:id="@+id/textView77"
@@ -36,6 +36,7 @@
         android:text="Find an agent"
         android:textStyle="bold"
         android:textColor="#201A16"
+        android:fontFamily="@font/quicksand_bold"
         android:layout_marginLeft="20dp"
         android:textSize="15sp" />
 
@@ -70,12 +71,14 @@
                 android:textColor="#201A16"
                 android:textSize="15sp"
                 android:textStyle="bold"
+                android:fontFamily="@font/quicksand_bold"
                 android:text="Search area" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand"
                 android:text="Browse agent by area" />
         </LinearLayout>
 

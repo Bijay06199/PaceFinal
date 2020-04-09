@@ -34,7 +34,7 @@
                 android:id="@+id/imgBackProfile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/backarrow" />
+                app:srcCompat="@drawable/backarrow1" />
 
             <TextView
                 android:id="@+id/textView77"
@@ -44,6 +44,7 @@
                 android:text="Register a property"
                 android:textColor="#201A16"
                 android:textStyle="bold"
+                android:fontFamily="@font/quicksand_bold"
                 android:textSize="15sp" />
         </LinearLayout>
 
@@ -59,6 +60,7 @@
             android:text="Save progress"
             android:textStyle="bold"
             android:textColor="#194CB4"
+            android:fontFamily="@font/quicksand_bold"
             android:textSize="15sp" />
 
     </LinearLayout>
@@ -85,6 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Photo for"
+            android:fontFamily="@font/quicksand_bold"
             android:textStyle="bold"
         android:textColor="#201A16" />
 
@@ -102,6 +105,7 @@
             android:layout_weight="1"
             android:background="@null"
             android:gravity="left"
+            android:fontFamily="@font/quicksand"
             android:hint="Exterior"
             android:textSize="15sp" />
 
@@ -147,6 +151,7 @@
             android:textColor="#194CB4"
             android:textSize="15sp"
             android:textStyle="bold"
+            android:fontFamily="@font/quicksand_bold"
             android:layout_marginTop="20dp"
             android:text="Add new category" />
 
@@ -165,6 +170,7 @@
             android:textAllCaps="false"
             android:textColor="#FFF"
             android:text="@string/next"
+            android:fontFamily="@font/quicksand_bold"
             android:onClick="@{()->viewModel.onNext()}"
             android:background="@drawable/forgot_layout"/>
     </RelativeLayout>

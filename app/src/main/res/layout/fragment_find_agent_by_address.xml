@@ -30,7 +30,7 @@
                     android:id="@+id/iv_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/backarrow" />
+                    app:srcCompat="@drawable/backarrow1" />
 
                 <TextView
                     android:id="@+id/textView77"
@@ -39,6 +39,7 @@
                     android:layout_marginLeft="20dp"
                     android:text="Find an agent"
                     android:textStyle="bold"
+                    android:fontFamily="@font/quicksand_bold"
                     android:textColor="#201A16"
                     android:textSize="15sp" />
 
@@ -52,6 +53,7 @@
                 android:textColor="#201A16"
                 android:textStyle="bold"
                 android:layout_marginTop="10dp"
+                android:fontFamily="@font/quicksand_bold"
                 android:text="Enter address so that we can find you an agent" />
 
 
@@ -62,6 +64,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Country"
                 android:textStyle="bold"
+                android:fontFamily="@font/quicksand_bold"
                 android:textColor="#201A16" />
 
 
@@ -78,6 +81,7 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:gravity="left"
+                    android:fontFamily="@font/quicksand"
                     android:hint="Japan"
                     android:textSize="15sp" />
 
@@ -104,6 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Perfecture"
+                android:fontFamily="@font/quicksand_bold"
                 android:textStyle="bold"
                 android:textColor="#201A16" />
 
@@ -120,6 +125,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:background="@null"
+                    android:fontFamily="@font/quicksand"
                     android:gravity="left"
                     android:hint="Tokyo"
                     android:textSize="15sp" />
@@ -149,6 +155,7 @@
                 android:layout_marginTop="10dp"
                 android:text="City"
                 android:textStyle="bold"
+                android:fontFamily="@font/quicksand_bold"
                 android:textColor="#201A16" />
 
 
@@ -165,6 +172,7 @@
                     android:layout_weight="1"
                     android:background="@null"
                     android:gravity="left"
+                    android:fontFamily="@font/quicksand"
                     android:hint="Adachi-ku"
                     android:textSize="15sp" />
 
@@ -198,6 +206,7 @@
             android:layout_alignParentBottom="true"
             android:textAllCaps="false"
             android:textColor="#FFF"
+            android:fontFamily="@font/quicksand_bold"
             android:onClick="@{()->viewModel.onBtnClicked()}"
             android:text="Find Agent"
             android:background="@drawable/forgot_layout"/>
